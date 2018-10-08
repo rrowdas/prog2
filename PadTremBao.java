@@ -4,6 +4,7 @@ public class PadTremBao {
     public Fornecedores [] fornecedor;
 	public Funcionario [] funcionario;
 	public Produtos [] produto;
+	public Clientes [] cliente;
  
     public PadTremBao(int numForn) {
         this.fornecedor = new Fornecedores[numForn];
@@ -69,6 +70,15 @@ public class PadTremBao {
     	if(cadastrado == false)
     		System.out.println("Não foi possível cadastrar");
 	}
+
+	public boolean cadastrarCliente(){
+        boolean cadastrado = false;
+        if(getCpf() != null && getNome() != null &&  getEndereco() != null && getTelefone() != null){
+            return !cadastrado;
+        }               // If e Else para verificar se o cpf/nome/endereço/telefone está tudo cadastrado
+        else
+            return cadastrado;
+    }
 
 	
 	/*imprimefuncionrio(String cpfEncontrar)

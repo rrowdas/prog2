@@ -1,4 +1,4 @@
-public class Funcionarios
+public class Funcionarios implements ImprimeInformacoes
 {
     protected String nome;
     protected String endereco;
