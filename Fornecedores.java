@@ -1,14 +1,16 @@
-package Padaria;
+//package Padaria;
 
 public class Fornecedores {
-    public String nome;
-    public String endereco;
-    public String cnpj;
+    protected String nome;
+    protected String endereco;
+    protected String cnpj;
+    protected double precoCobrado;
  
-    public Fornecedores(String nome, String endereco, String cnpj, String tipoFornecedor) {
+    public Fornecedores(String nome, String endereco, String cnpj, double precoCobrado) {
         this.nome = nome;
         this.endereco = endereco;
         this.cnpj = cnpj;
+        this.precoCobrado = precoCobrado;
     }
  
     public String getNome() {
@@ -34,4 +36,13 @@ public class Fornecedores {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    public double getPrecoCobrado(){
+        return precoCobrado;
+    }
+
+    public void setPrecoCobrado(double precoCobrado){
+        this.precoCobrado = precoCobrado;
+    }
+
 }
