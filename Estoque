@@ -1,0 +1,13 @@
+
+public class Estoque {
+
+    protected Produto [] produtos = new Produto[50];
+
+    public boolean Alerta(Produto produto){
+        for (int i = 0; i < this.produtos.length; i++) {
+            if (produto == this.produtos[i]) {
+                return false;
+            }       }
+        return true;
+}
+}
