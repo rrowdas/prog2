@@ -4,7 +4,6 @@ public class Produtos
     Scanner teclado = new Scanner(System.in);
     protected String nome;
     protected String codigo;
-    //protected Fornecedores fornecedor;
     protected double precoCusto, precoFinal;
 
     public Produtos(String nome, String codigo, double precoCusto, double precoFinal){
@@ -14,7 +13,6 @@ public class Produtos
             codigo = teclado.nextLine();                        //ver se o teclado nextline vai dar aquela treta famosa...
         }
         this.codigo = codigo;   
-       // this.fornecedor = fornecedor;
         this.precoCusto = precoCusto;
         this.precoFinal = precoFinal;
     }
@@ -34,6 +32,22 @@ public class Produtos
         this.codigo = codigo;
     }
 
+    public double getPrecoFinal(){
+        return precoFinal;
+    }
+
+    public void setPrecoFinal(double precoFinal){
+        this.precoFinal = precoFinal;
+    }
+
+    public double getPrecoCusto(){
+        return precoCusto;
+    }
+
+    public void setPrecoCusto(double precoCusto){
+        this.precoCusto = precoCusto;
+    }
+
     public void imprimeDados(){
         System.out.println("------------------------------------------");
         System.out.println("PRODUTO ADQUIRIDO:");
@@ -43,22 +57,5 @@ public class Produtos
         System.out.printf("Custo: %.2f\n", precoCusto);
 
     }
-
-    //public String getNome(){
-     //   return nome;
-   // }
-
-    //public void setNome(String nome){
-        //this.nome = nome;
-   // }
-
-    //public String getNome(){
-     //   return nome;
-   // }
-
- //   public void setNome(String nome){
-   //     this.nome = nome;
-  //  }
-
  
 }

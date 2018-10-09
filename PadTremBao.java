@@ -5,6 +5,12 @@ public class PadTremBao {
 	public Funcionario [] funcionario;
 	public Produtos [] produto;
 	public Clientes [] cliente;
+	public String apelido;
+	public String regiao;
+
+	public PadTremBao(Fornecedores [] fornecedor, Funcionario [] fundionario, Produtos [] produto, Clientes [] cliente, String [] regiao){
+
+	}
  
     public PadTremBao(int numForn) {
         this.fornecedor = new Fornecedores[numForn];
@@ -78,7 +84,9 @@ public class PadTremBao {
         }               // If e Else para verificar se o cpf/nome/endereço/telefone está tudo cadastrado
         else
             return cadastrado;
-    }
+	}
+	
+	
 
 	
 	/*imprimefuncionrio(String cpfEncontrar)
