@@ -12,6 +12,9 @@ public class TesteGeral
         Produtos prod = new Produtos("Pão", teclado.next(), 42.00, 100.00);
         System.out.println();
 
+        Pereciveis pe = new Pereciveis("Arroz", teclado.next(), 30, 70, 10, 5, 2018, 10, 5, 2017);
+       // NaoPereciveis np = new NaoPereciveis("Bolacha", teclado.next(), 3.00, 50.00)
+
         Gerente ger = new Gerente("Roger", "Rua do MultiUso", "741258963", "9123654789", 2000);
         Gerente ger2 = new Gerente("Gabriel", "Rua do Lab3", "123321", "9456357159", 1700);
 
@@ -46,6 +49,9 @@ public class TesteGeral
         System.out.println();
         System.out.println("/////////////////////////////////////////////////");
         rec.aplicaTaxaProduto(0.20);
+
+        System.out.println();
+        
         
 
 

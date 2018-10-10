@@ -1,7 +1,7 @@
 public class Estoque{
     
     private Produto [] produtos = new Produto[50];
-    private int [] posicaoProduto = new int [50]
+    private int [] posicaoProduto = new int [50];
 
     /*
     public boolean Alerta(Produto produto){
