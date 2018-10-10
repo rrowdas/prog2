@@ -57,19 +57,25 @@ public class Pereciveis extends Produtos{
         return this.anoHoje;
     }
 
-    public void comparaValidez(){
-        if(anoHoje > 0 && anoValidade > 0 && mesHoje > 0 && mesHoje < 13 && )
-        if(anoHoje < anoValidade){
-            if(mesHoje < mesHoje){
-                if(anoHoje < anoHoje){
-                    System.out.println("Produto em estoque com validade em dia!");
-                }
+    public void comparaValidade(){
+        if(anoHoje > 0 && anoValidade > 0 && mesHoje > 0 && mesHoje < 13 && mesValidade > 0 && mesValidade < 13 && diaValidade > 0 && diaValidade < 32 && diaHoje > 0 && diaHoje < 32){
+            if(anoHoje < anoValidade && mesHoje < mesValidade && diaHoje < diaValidade){
+               // System.out.println("Ano: OK");
+                   // System.out.println("Mês: OK");
+                       // System.out.println("Dia: OK");
+                        System.out.println("Produto em estoque com validade em dia!");
             }
+            else
+                System.out.println("Produto vencido!!!!!");
         }
         else
-            System.out.println("Produto vencido!!!!!");
+            System.out.println("Datas inseridas incorretamente.");
     }
 
+    public void imprimeDados(){
+        super.imprimeDados();
+        comparaValidade();
+    }
 
 
 }

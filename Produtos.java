@@ -1,7 +1,7 @@
 //package Padaria;
 import java.util.Scanner;
 
-public class Produtos
+public abstract class Produtos
 {   
     Scanner teclado = new Scanner(System.in);
     protected String nome;
@@ -50,6 +50,8 @@ public class Produtos
         this.precoCusto = precoCusto;
     }
 
+    
+    
     public void imprimeDados(){
         System.out.println("------------------------------------------");
         System.out.println("PRODUTO ADQUIRIDO:");

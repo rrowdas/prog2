@@ -6,8 +6,8 @@ public class Ocasional extends Fornecedores{
     public void valorFinal(){
         System.out.println("Fornecedor: " + nome);
         System.out.println("CNPJ: " + cnpj);
-        System.out.println("Endereço dOS fornecedores: " + endereco);
-        System.out.printf("Preço Final: R$%.2f\n", precoCobrado);
+        System.out.println("Endereço dos fornecedores: " + endereco);
+        System.out.printf("Valor Final: R$%.2f\n", precoCobrado);
     }
 
 }

@@ -3,7 +3,6 @@
 public class PadTremBao {
     public Fornecedores [] fornecedor;
 	public Funcionarios [] funcionario;
-	public Produtos [] produto;
 	public Clientes [] cliente;
 	public String apelido;
 	public String regiao;
@@ -53,7 +52,7 @@ public class PadTremBao {
     	if(cadastrado == false)
     		System.out.println("Não foi possível cadastrar");
 	}
-
+	/*/
 	public void cadastrarProduto(Produtos novoProduto){
 		boolean cadastrado = false;
     	
@@ -73,6 +72,7 @@ public class PadTremBao {
     	if(cadastrado == false)
     		System.out.println("Não foi possível cadastrar");
 	}
+	*/
 
 	public void cadastrarCliente(Clientes novoCliente){
 		boolean cadastrado = false;
