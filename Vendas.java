@@ -10,17 +10,17 @@ public class Vendas extends PadTremBao{
         this.dataVenda = dataVenda;
         this.nomeVendedor = nomeVendedor;
         this.formaPagamento = formaPagamento;
-        this.carrinhoDeVendas = new String [20];
+        this.carrinhoDeVendas = new double [20];
     }
 
     public void compra(String codigo){
 
-        int guardarPosicaoProduto;
+        int guardarPosicaoProduto = -1;
         boolean encontrou = false;
         boolean cadastradoNoCarrinho = false;
 
         for(int i = 0; i < super.produto.length-1 && !encontrou; i++){
-            if(super.produto[i] != null && super.produto[i] == codigo){
+            if(super.produto[i] != null && super.produto[i].equals(codigo)){
                 guardarPosicaoProduto = i;
                 encontrou = true;
             }
@@ -43,16 +43,15 @@ public class Vendas extends PadTremBao{
 
     }
 
-    /*public double totalCarrinho(){
+    public double totalCarrinho(){
 
         double valorTotalCompra = 0;
 
         for(int i = 0; i < carrinhoDeVendas.length && carrinhoDeVendas[i] != 0; i++){
-            
-            
-        
-        }*/
+                valorTotalCompra += carrinhoDeVendas[i];
+        }
 
+        return valorTotalCompra;
     }
 
 

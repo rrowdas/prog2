@@ -1,20 +1,17 @@
-package Padaria;
+//package Padaria;
 
 public class PadTremBao {
     public Fornecedores [] fornecedor;
-	public Funcionario [] funcionario;
+	public Funcionarios [] funcionario;
 	public Produtos [] produto;
 	public Clientes [] cliente;
 	public String apelido;
 	public String regiao;
-
-	public PadTremBao(Fornecedores [] fornecedor, Funcionario [] fundionario, Produtos [] produto, Clientes [] cliente, String [] regiao){
-
-	}
  
-    public PadTremBao(int numForn) {
-        this.fornecedor = new Fornecedores[numForn];
-    }
+    // public PadTremBao(int numForn, int numFunc) {
+	//     this.fornecedor = new Fornecedores[numForn];
+	// 	this.funcionario = new Funcionarios[numFunc];
+    // }
  
     public void cadastrarFornecedor(Fornecedores novoFornecedor){
     	
@@ -37,7 +34,7 @@ public class PadTremBao {
     		System.out.println("Não foi possível cadastrar");
     }
 
-	public void cadastrarFuncionario(Funcionario novoFuncionario){
+	public void cadastrarFuncionario(Funcionarios novoFuncionario){
 		boolean cadastrado = false;
     	
     	for(int i = 0; i < funcionario.length && !cadastrado; i++)
@@ -57,11 +54,11 @@ public class PadTremBao {
     		System.out.println("Não foi possível cadastrar");
 	}
 
-	public void cadastrarFuncionario(Produtos novoProduto){
+	public void cadastrarProduto(Produtos novoProduto){
 		boolean cadastrado = false;
     	
     	for(int i = 0; i < produto.length && !cadastrado; i++)
-    		if(produto[i] != null && produto[i].getCpf().equalsIgnoreCase(novoProduto.getCpf())) {
+    		if(produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
     			System.out.println("Esse código já foi cadastro");
     			cadastrado = true;
     		}
@@ -69,7 +66,7 @@ public class PadTremBao {
     	for(int i = 0; i < produto.length && !cadastrado; i++) {
     		if(produto[i] == null) {
     			System.out.println("Foi cadastrado");
-    			funcionario[i] = novoProduto;
+    			produto[i] = novoProduto;
     			cadastrado = true;
     		}
     	}
@@ -77,17 +74,26 @@ public class PadTremBao {
     		System.out.println("Não foi possível cadastrar");
 	}
 
-	public boolean cadastrarCliente(){
-        boolean cadastrado = false;
-        if(getCpf() != null && getNome() != null &&  getEndereco() != null && getTelefone() != null){
-            return !cadastrado;
-        }               // If e Else para verificar se o cpf/nome/endereço/telefone está tudo cadastrado
-        else
-            return cadastrado;
+	public void cadastrarCliente(Clientes novoCliente){
+		boolean cadastrado = false;
+    	
+    	for(int i = 0; i < cliente.length && !cadastrado; i++)
+    		if(cliente[i] != null && cliente[i].getCpf().equalsIgnoreCase(novoCliente.getCpf())) {
+    			System.out.println("Esse código já foi cadastro");
+    			cadastrado = true;
+    		}
+    	
+    	for(int i = 0; i < cliente.length && !cadastrado; i++) {
+    		if(cliente[i] == null) {
+    			cliente[i] = novoCliente;
+    			System.out.println("Foi cadastrado");
+    		}
+    	}
+    	if(cadastrado == false)
+    		System.out.println("Não foi possível cadastrar");
 	}
-	
-	
 
+	
 	
 	/*imprimefuncionrio(String cpfEncontrar)
 	{
