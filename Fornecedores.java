@@ -1,6 +1,6 @@
 //package Padaria;
 
-public class Fornecedores {
+public abstract class Fornecedores {
     protected String nome;
     protected String endereco;
     protected String cnpj;
@@ -45,4 +45,5 @@ public class Fornecedores {
         this.precoCobrado = precoCobrado;
     }
 
+    public abstract void valorFinal();
 }
