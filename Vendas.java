@@ -4,16 +4,46 @@ public abstract class Vendas extends Estoque{ //Estoque
     protected String nomeVendedor;
     protected String formaPagamento;
     protected double [] carrinhoDeVendas;
-
+    
     public Vendas(String dataVenda, String nomeVendedor, String formaPagamento){
-
+    
         this.dataVenda = dataVenda;
         this.nomeVendedor = nomeVendedor;
-        this.formaPagamento = formaPagamento;
+        this.formaPagamento = null;
         this.carrinhoDeVendas = new double [20];
     }
+    
+    public String getDataVenda() {
+        return this.dataVenda;
+    }
 
-    public void compra(String codigo){
+    public void setDataVenda(String dataVenda){
+        this.dataVenda = dataVenda;
+    }
+
+    public String getNomeVendedor() {
+        return this.nomeVendedor;
+    }
+
+    public void setNomeVendedor(){
+        this.dataVenda = dataVenda;
+    }
+
+    public String getFormaPagamento() {
+        return this.formaPagamento;
+    }
+
+    public void setFormaPagamento(String novaFormaPagamento){
+        if(novaFormaPagamento.equalsIgnoreCase("dinheiro") || novaFormaPagamento.equalsIgnoreCase("debito") || novaFormaPagamento.equalsIgnoreCase("credito"))
+            this.formaPagamento = formaPagamento;  
+             
+        else
+            while(novaFormaPagamento.equalsIgnoreCase("dinheiro") == false ||  novaFormaPagamento.equalsIgnoreCase("debito") == false || novaFormaPagamento.equalsIgnoreCase("credito") == false)
+                System.out.println("Voce deve colocar debito, credito ou dinheiro. Digite novamente.");
+    }
+
+
+    public void carrinhoPrecos(String codigo){
 
         int guardarPosicaoProduto = -1; // Esse guarda a posição em que o produto se encontra no vetor
         boolean encontrou = false; // caso encontre o produto
@@ -44,13 +74,14 @@ public abstract class Vendas extends Estoque{ //Estoque
 
     }
 
-    public double totalCarrinho(){
+    public double carrinhoTotal(){
 
         double valorTotalCompra = 0;
 
         for(int i = 0; i < carrinhoDeVendas.length && carrinhoDeVendas[i] != 0; i++){
                 valorTotalCompra += carrinhoDeVendas[i];
         }
+
 
         return valorTotalCompra;
     }

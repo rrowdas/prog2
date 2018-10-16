@@ -1,4 +1,4 @@
-public class Vista{
+public class Vista extends Vendas{
 
     
 }

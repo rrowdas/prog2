@@ -44,7 +44,7 @@ public class TesteGeral
         System.out.println("-----------------------------------");
         System.out.println();
         fun2.imprimeDadosPessoais();
-        //fun.somaSalarial(salarioBase, horasAlternativas, horasNormal);
+        //fun.somaSalarial(salarioBase, horasAlternativas, horasNormais);
         
         
         System.out.println();

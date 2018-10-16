@@ -1,4 +1,4 @@
-public class Estoque{
+public class Estoque extends PadTremBao{
     
     protected Produto [] produtos = new Produto[50];
     protected int [] posicaoProduto = new int [50];

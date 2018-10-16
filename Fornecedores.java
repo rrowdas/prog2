@@ -45,5 +45,10 @@ public abstract class Fornecedores {
         this.precoCobrado = precoCobrado;
     }
 
-    public abstract void valorFinal();
+    public void valorFinal(){ // esse metodo está aqui para fazer sobrescrita
+        System.out.println("Fornecedor: " + nome);
+        System.out.println("CNPJ: " + cnpj);
+        System.out.println("Endereço dos fornecedores: " + endereco);
+        System.out.printf("O valor do produto é R$%.2f\n", precoCobrado);
+    }
 }

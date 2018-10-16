@@ -1,4 +1,4 @@
-public abstract class Funcionarios implements ImprimeInformacoes
+public abstract class Funcionarios implements ImprimeInformacoes, Salario
 {
     protected String nome;
     protected String endereco;
@@ -10,7 +10,7 @@ public abstract class Funcionarios implements ImprimeInformacoes
     {
         this.nome = nome;
         this.endereco = endereco;
-        this.cpf = cpf; //           ESSE É O CÓDIGO MENCIONADO NO TEXTO??????
+        this.cpf = cpf;
         this.telefone = telefone;
         this.salarioBase = salarioBase;
     }

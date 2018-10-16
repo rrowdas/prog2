@@ -1,19 +1,19 @@
 public class Padeiro extends Funcionarios
 {
     protected int horasAlternativas;
-    protected int horasNormal;
+    protected int horasNormais;
     
-    public Padeiro(String nome, String endereco, String cpf, String telefone, double salarioBase, int horasAlternativas, int horasNormal){
+    public Padeiro(String nome, String endereco, String cpf, String telefone, double salarioBase, int horasAlternativas, int horasNormais){
         super(nome, endereco, cpf, telefone, salarioBase);
         this.horasAlternativas = horasAlternativas;
-        this.horasNormal = horasNormal;
+        this.horasNormais = horasNormais;
     }
-    public double getHorasNormal() { 
-        return horasNormal;
+    public double getHorasNormais() { 
+        return horasNormais;
     }
 
-    public void setHorasNormal(int horasNormal){
-        this.horasNormal = horasNormal;
+    public void sethorasNormais(int horasNormais){
+        this.horasNormais = horasNormais;
     }
 
     public double getHorasAlternativas(){
@@ -24,9 +24,9 @@ public class Padeiro extends Funcionarios
         this.horasAlternativas = horasAlternativas;
     }
 
-    public void somaSalarial(double salarioBase, int horasAlternativas, int horasNormal){
+    public void salarioFinal(){
         double bonificacao, somaTotal, salarioHora;
-        salarioHora = salarioBase / (horasNormal + horasAlternativas);  
+        salarioHora = salarioBase / (horasNormais + horasAlternativas);  
         
         bonificacao = horasAlternativas * ((salarioHora * 0.25) + salarioHora);
         
@@ -42,7 +42,7 @@ public class Padeiro extends Funcionarios
     public void imprimeDadosPessoais(){
         System.out.println("PADEIRO");
         super.imprimeDadosPessoais();
-        somaSalarial(salarioBase, horasAlternativas, horasNormal);
+        salarioFinal(salarioBase, horasAlternativas, horasNormais);
     }
 
 }

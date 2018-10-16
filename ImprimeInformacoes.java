@@ -1,3 +1,3 @@
 public interface ImprimeInformacoes{
-    public void imprimeDadosPessoais();
+    public abstract void imprimeDadosPessoais();
 }

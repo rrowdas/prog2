@@ -2,8 +2,7 @@ public class Gerente extends Funcionarios{
     public Gerente(String nome, String endereco, String cpf, String telefone, double salarioBase){
         super(nome, endereco, cpf, telefone, salarioBase);
     }
-    public double salarioGratificacao(){
-        //Precisa saber a horas trabalhadas?
+    public double salarioFinal(){
         
         double somaTotal = 0;
         
@@ -15,7 +14,7 @@ public class Gerente extends Funcionarios{
         System.out.println("GERENTE");
         
         super.imprimeDadosPessoais();
-        System.out.printf("Salario: R$%.2f\n", salarioGratificacao());
+        System.out.printf("Salario: R$%.2f\n", salarioFinal());
     }
 }
 
