@@ -5,14 +5,20 @@ public class Clientes implements ImprimeInformacoes{
     protected String endereco;
     protected String cpf;
     protected String telefone;
+    protected String cartaoFidelidade;
+    protected double clienteGold;
+    protected double clientePlatinum;
     protected double acumuladoCompras;
 
     
-    public Clientes(String nome, String endereco, String cpf, String telefone){
+    public Clientes(String nome, String endereco, String cpf, String telefone, double clienteGold, double clientePlatinum){
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
         this.telefone = telefone;
+        this.cartaoFidelidade = "Usuario comum";
+        this.acumuladoCompras = 0.0;
+        this.cliente
     }
     
     public String getNome(){
@@ -51,14 +57,18 @@ public class Clientes implements ImprimeInformacoes{
         return this.acumuladoCompras;
     }
         
-    public void setAcumuladoCompras(double acumuladoCompras){
-        this.acumuladoCompras = acumuladoCompras;
+    public void setAcumuladoCompras(double novaCompra){
+        this.acumuladoCompras += novaCompra;
+
+        if()
+
     }
 
     public void imprimeDadosPessoais(){  //Basear-se no cadastrar cliente e caso nao esteja cadastrado, preencher info do usuario
         System.out.println("Nome: " + nome);
         System.out.println("Endereco: " + endereco);
         System.out.println("CPF: " + cpf);
-        System.out.println("Telefone: " + telefone); 
+        System.out.println("Telefone: " + telefone);
+        System.out.println("Cartao fidelidade: " + cartaoFidelidade);
     }
 }
