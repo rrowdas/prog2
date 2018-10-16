@@ -1,8 +1,20 @@
 public class Estoque extends PadTremBao{
     
-    protected Produto [] produtos = new Produto[50];
+    protected Produtos [] produto = new Produtos[50];
     protected int [] posicaoProduto = new int [50];
 
+    public Estoque(){
+        this.produto = new Produtos [50];
+        this.posicaoProduto = new int [50];
+    }
+
+    public Produtos [] getProduto(){
+        return produto;
+    }
+
+    public void setProduto(Produtos [] produto){
+        this.produto = produto;
+    }
     public void cadastrarProduto(Produtos novoProduto){
 		boolean cadastrado = false;
     	
