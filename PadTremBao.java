@@ -4,13 +4,13 @@ public class PadTremBao {
     public Fornecedores [] fornecedor;
 	public Funcionarios [] funcionario;
 	public Clientes [] cliente;
-	public String apelido;
-	public String regiao;
+	public String regiao; // PRECISA DA REGIAO????
  
-    // public PadTremBao(int numForn, int numFunc) {
-	//     this.fornecedor = new Fornecedores[numForn];
-	// 	this.funcionario = new Funcionarios[numFunc];
-    // }
+    public PadTremBao(int numForn, int numFunc, int numCli) {
+	    this.fornecedor = new Fornecedores[numForn];
+		this.funcionario = new Funcionarios[numFunc];
+		this.cliente = new Clientes[numCli];
+    }
  
     public void cadastrarFornecedor(Fornecedores novoFornecedor){
     	
@@ -31,7 +31,19 @@ public class PadTremBao {
     	}
     	if(cadastrado == false)
     		System.out.println("Não foi possível cadastrar");
-    }
+	}
+	
+	public void removerFornecedor(String cnpjFornecedor){
+
+    	boolean removido = false;
+
+		for(int i = 0; i < fornecedor.length && !removido; i++)
+		if(fornecedor[i] != null && fornecedor[i].getCnpj().equalsIgnoreCase(cnpjFornecedor.getCnpj())) {
+				System.out.println("O Fornecedor " + fornecedor[i].getNome() + " foi removido.");
+				fornecedor[i] = null;
+				removido = true;
+    		}
+	}
 
 	public void cadastrarFuncionario(Funcionarios novoFuncionario){
 		boolean cadastrado = false;
@@ -52,27 +64,18 @@ public class PadTremBao {
     	if(cadastrado == false)
     		System.out.println("Não foi possível cadastrar");
 	}
-	/*/
-	public void cadastrarProduto(Produtos novoProduto){
-		boolean cadastrado = false;
+
+	public void removerFuncionario(String cpfFuncionario){
+
+		boolean removido = false;
     	
-    	for(int i = 0; i < produto.length && !cadastrado; i++)
-    		if(produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
-    			System.out.println("Esse código já foi cadastro");
-    			cadastrado = true;
+    	for(int i = 0; i < funcionario.length && !removido; i++)
+    		if(funcionario[i] != null && funcionario[i].getCpf().equalsIgnoreCase(cpfFuncionario.getCpf())) {				
+				System.out.println("O funcionario " + funcionario[i].getNome() + " foi removido.");
+				funcionario[i] = null;
+				removido = true;
     		}
-    	
-    	for(int i = 0; i < produto.length && !cadastrado; i++) {
-    		if(produto[i] == null) {
-    			System.out.println("Foi cadastrado");
-    			produto[i] = novoProduto;
-    			cadastrado = true;
-    		}
-    	}
-    	if(cadastrado == false)
-    		System.out.println("Não foi possível cadastrar");
 	}
-	*/
 
 	public void cadastrarCliente(Clientes novoCliente){
 		boolean cadastrado = false;
@@ -93,15 +96,15 @@ public class PadTremBao {
     		System.out.println("Não foi possível cadastrar");
 	}
 
-	
-	
-	/*imprimefuncionrio(String cpfEncontrar)
-	{
-		for(int i = 0; i < funcionario.length; i++)
-			if(funcionario[i].cpf() == cpfEncontrar){
-				funcionario[i].imprimeDados();
-			}
-		
-	}*/
-	
+	public void removerCliente(String cpfCliente){
+
+		boolean removido = false;
+    	
+    	for(int i = 0; i < cliente.length && !removido; i++)
+    		if(cliente[i] != null && cliente[i].getCpf().equalsIgnoreCase(cpfCliente.getCpf())) {
+				System.out.println("O cliente " + cliente[i].getNome() + " foi removido");
+				cliente[i] = null;
+				removido = true;
+    		}
+	}
 }

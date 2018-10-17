@@ -66,12 +66,16 @@ public abstract class Vendas extends Estoque{ //Estoque
             else if(carrinhoDeVendas[i] == 0 && !cadastradoNoCarrinho){
                 
                 carrinhoDeVendas[i] = super.produto[guardarPosicaoProduto].getPrecoFinal(); //TESTAR GETPRECOFINAL, POIS NÃO SE ENCONTRA COMO SUGESTÃO DO TAB
-                super.posicaoProduto[guardarPosicaoProduto]--; //Retirando um do estoque(pois já foi colocado no carrinho)
+                
+                super.produto[i].setQuantidade(super.produto[i].getQuantidade() - 1);
+
                 cadastradoNoCarrinho = true;
                 System.out.println("Numeros de produtos no carrinho: " + i);
+                
+                if(super.produto[i].getQuantidade() == 1)
+                    System.out.println("Possui apenas 1 produto, favor reabastecer. ");
             }
         }
-
     }
 
     public double carrinhoTotal(){
@@ -82,9 +86,8 @@ public abstract class Vendas extends Estoque{ //Estoque
                 valorTotalCompra += carrinhoDeVendas[i];
         }
 
+        //GUARDAR ESSE VALOR NO ATRIBUTO DO CLIENTE.
 
         return valorTotalCompra;
     }
-
-
 }

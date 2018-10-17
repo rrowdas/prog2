@@ -1,11 +1,9 @@
 public class Estoque extends PadTremBao{
     
     protected Produtos [] produto = new Produtos[50];
-    protected int [] posicaoProduto = new int [50];
 
     public Estoque(){
         this.produto = new Produtos [50];
-        this.posicaoProduto = new int [50];
     }
 
     public Produtos [] getProduto(){
@@ -28,7 +26,6 @@ public class Estoque extends PadTremBao{
     		if(produto[i] == null) {
     			System.out.println("Foi cadastrado");
                 produto[i] = novoProduto;
-                posicaoProduto[i] = 30;
     			cadastrado = true;
     		}
     	}
@@ -36,12 +33,4 @@ public class Estoque extends PadTremBao{
     		System.out.println("Não foi possível cadastrar");
     }
 
-    /*
-    public boolean alerta(Produto newProduto){
-       for (int i = 0; i < produtos.length; i++) {
-            if (newProduto == produtos[i]) {                  GABRIEL 
-                return false;
-            }       }
-        return true;
-    } */
 }
