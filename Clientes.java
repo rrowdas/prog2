@@ -6,7 +6,7 @@ public class Clientes implements ImprimeInformacoes{
     protected String cpf;
     protected String telefone;
     protected double acumuladoCompras;
-
+    protected String cartaoFidelidade;
     
     public Clientes(String nome, String endereco, String cpf, String telefone, double clienteGold, double clientePlatinum){
         this.nome = nome;
