@@ -42,7 +42,7 @@ public class Padeiro extends Funcionarios
     public void imprimeDadosPessoais(){
         System.out.println("PADEIRO");
         super.imprimeDadosPessoais();
-        salarioFinal(salarioBase, horasAlternativas, horasNormais);
+        salarioFinal();
     }
 
 }

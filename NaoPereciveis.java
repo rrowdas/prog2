@@ -1,18 +1,12 @@
 public class NaoPereciveis extends Produtos{
-    //private String semValidade;
 
-    public NaoPereciveis(String nome, String codigo, double precoCusto, double precoFinal, String semValidade){
-        super(nome, codigo, precoCusto, precoFInal);
-        this.semValidade = semValidade;
+    public NaoPereciveis(String nome, String codigo, double precoCusto, double precoFinal, String apelido, int quantidade){
+        super(nome, codigo, precoCusto, precoFinal, apelido, quantidade);
+    }
+    public NaoPereciveis(String nome, String codigo, double precoCusto, double precoFinal, int quantidade){
+        super(nome, codigo, precoCusto, precoFinal, quantidade);
     }
 
-    //public String getSemValidade(){
-    //    return semValidade;
-   // }
-    
-  //  public void setSemValidade(String semValidade){
-   //     this.semValidade = semValidade;
-   // }
 
     public void imprimeDados(){
         super.imprimeDados();

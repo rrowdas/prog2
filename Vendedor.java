@@ -12,7 +12,7 @@ public class Vendedor extends Funcionarios{
         this.montanteVendas += valorDaVenda;
     }
 
-    public double salarioFinal()
+    public void salarioFinal()
     {
         double somaTotal = 0;
 
@@ -22,14 +22,15 @@ public class Vendedor extends Funcionarios{
         else
             somaTotal = salarioBase;
 
-        return somaTotal;
+        System.out.printf("Salario: R$%.2f\n", somaTotal);
     }
     
     public void imprimeDadosPessoais()
     {
         System.out.println("VENDEDOR");
         super.imprimeDadosPessoais();
-        System.out.printf("Salario: R$%.2f\n", salarioFinal(salarioBase));
+        salarioFinal();
+        
     }
 
 

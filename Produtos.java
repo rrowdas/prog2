@@ -7,8 +7,11 @@ public abstract class Produtos
     protected String nome;
     protected String codigo;
     protected double precoCusto, precoFinal;
+    protected String apelido;
+    protected int quantidade;
 
-    public Produtos(String nome, String codigo, double precoCusto, double precoFinal){
+
+    public Produtos(String nome, String codigo, double precoCusto, double precoFinal, String apelido, int quantidade){
         this.nome = nome;
         while(codigo.length() != 6){
             System.out.println("Número de código deve ter 6(SEIS) dígitos. Por favor, coloque o código corretamente, obrigado.");
@@ -17,7 +20,48 @@ public abstract class Produtos
         this.codigo = codigo;   
         this.precoCusto = precoCusto;
         this.precoFinal = precoFinal;
+        this.apelido = apelido;
+        setQuantidade(quantidade);
     }
+
+    public Produtos(String nome, String codigo, double precoCusto, double precoFinal, int quantidade){
+        this.nome = nome;
+        while(codigo.length() != 6){
+            System.out.println("Número de código deve ter 6(SEIS) dígitos. Por favor, coloque o código corretamente, obrigado.");
+            codigo = teclado.nextLine();                        //ver se o teclado nextline vai dar aquela treta famosa...
+        }
+        this.codigo = codigo;   
+        this.precoCusto = precoCusto;
+        this.precoFinal = precoFinal;
+        this.apelido = "Sem apelido";
+        setQuantidade(quantidade);
+    }
+
+    
+    public int getQuantidade(){
+        return quantidade;
+    }
+
+    public void setQuantidade(int novaQuantidade){
+        boolean quantCorreto = false;
+        
+        while(!quantCorreto){
+            if(novaQuantidade <= 30 && novaQuantidade > 0){
+                this.quantidade = novaQuantidade;
+                quantCorreto = true;
+            }
+            else
+                System.out.println("A quantidade tem que ser menor ou igual a 30");
+        }
+    }
+    public String getApelido(){
+        return apelido;
+    }
+
+    public void setApelido(String apelido){
+        this.apelido = apelido;
+    }
+
     public String getNome(){
         return nome;
     }
@@ -54,11 +98,13 @@ public abstract class Produtos
     
     public void imprimeDados(){
         System.out.println("------------------------------------------");
-        System.out.println("PRODUTO ADQUIRIDO:");
+        System.out.println("PRODUTO:");
         System.out.println("Nome: " + nome);
         System.out.println("Código: " + codigo);
         System.out.printf("Preço: %.2f\n", precoFinal);
         System.out.printf("Custo: %.2f\n", precoCusto);
+        System.out.println("Apelido: " + apelido);
+        System.out.println("Quantidade do " + nome + " é: " + quantidade + "unidades");
 
     }
  

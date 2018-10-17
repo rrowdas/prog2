@@ -5,9 +5,6 @@ public class Clientes implements ImprimeInformacoes{
     protected String endereco;
     protected String cpf;
     protected String telefone;
-    protected String cartaoFidelidade;
-    protected double clienteGold;
-    protected double clientePlatinum;
     protected double acumuladoCompras;
 
     
@@ -18,7 +15,6 @@ public class Clientes implements ImprimeInformacoes{
         this.telefone = telefone;
         this.cartaoFidelidade = "Usuario comum";
         this.acumuladoCompras = 0.0;
-        this.cliente
     }
     
     public String getNome(){
@@ -60,8 +56,7 @@ public class Clientes implements ImprimeInformacoes{
     public void setAcumuladoCompras(double novaCompra){
         this.acumuladoCompras += novaCompra;
 
-        if()
-
+//FALTA COMPLETAR ISSO DAQUI
     }
 
     public void imprimeDadosPessoais(){  //Basear-se no cadastrar cliente e caso nao esteja cadastrado, preencher info do usuario

@@ -6,8 +6,18 @@ public class Pereciveis extends Produtos{
     private int mesHoje;
     private int anoHoje;
 
-    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, int diaValidade, int mesValidade, int anoValidade, int diaHoje, int mesHoje, int anoHoje){
-        super(nome, codigo, precoCusto, precoFinal);
+    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, String apelido, int quantidade, int diaValidade, int mesValidade, int anoValidade, int diaHoje, int mesHoje, int anoHoje){
+        super(nome, codigo, precoCusto, precoFinal, apelido, quantidade);
+        this.diaValidade = diaValidade;
+        this.mesValidade = mesValidade;
+        this.anoValidade = anoValidade;
+        this.diaHoje = diaHoje;
+        this.mesHoje = mesHoje;
+        this.anoHoje = anoHoje;
+    }
+
+    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, int quantidade, int diaValidade, int mesValidade, int anoValidade, int diaHoje, int mesHoje, int anoHoje){
+        super(nome, codigo, precoCusto, precoFinal, quantidade);
         this.diaValidade = diaValidade;
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;
@@ -74,7 +84,7 @@ public class Pereciveis extends Produtos{
 
     public void imprimeDados(){
         super.imprimeDados();
-        comparaValidade();
+        //comparaValidade();
     }
 
 

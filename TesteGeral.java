@@ -9,13 +9,13 @@ public class TesteGeral
         Padeiro fun = new Padeiro("Victor", "Rua da FACOM", "741258", "978654321", 1500, 50, 20);
         Funcionarios fun2 = new Padeiro("Fernando", "Rua do PET", "4521367", "97841172472", 1000, 20, 10);
 
-        //Produtos prod = new Produtos("Pão", teclado.next(), 42.00, 100.00);
+        //Produtos prod = new Produtos("Pão", teclado.next(), 42.00, 100.00, "Cassetinho", 30);
         System.out.println();
 
-        Pereciveis pe = new Pereciveis("Arroz", teclado.next(), 30, 70, 10, 5, 2018, 10, 5, 2017);
-        Pereciveis pe1 = new Pereciveis("Feijão", teclado.next(), 30, 70, 10, 5, 2018, 10, 5, 2019);
-        Pereciveis pe2 = new Pereciveis("Macarrão", prod.getCodigo(), 30, 70, 10, 5, 2018, 32, 5, 2017);
-       // NaoPereciveis np = new NaoPereciveis("Bolacha", teclado.next(), 3.00, 50.00)
+        Pereciveis pe = new Pereciveis("Arroz", "123456", 30, 70, "Gohan", 30, 10, 5, 2018, 10, 5, 2017);
+        Pereciveis pe1 = new Pereciveis("Feijão", "258369", 30, 50, "Anko", 20, 10, 5, 2018, 10, 5, 2019);
+        Pereciveis pe2 = new Pereciveis("Macarrão", "147258", 30, 45, "Lamen", 28, 10, 5, 2018, 32, 5, 2017);
+        NaoPereciveis np = new NaoPereciveis("Bolacha", "147369", 3.00, 20, "Biscoito", 14);
 
         Gerente ger = new Gerente("Roger", "Rua do MultiUso", "741258963", "9123654789", 2000);
         Gerente ger2 = new Gerente("Gabriel", "Rua do Lab3", "123321", "9456357159", 1700);
@@ -27,7 +27,7 @@ public class TesteGeral
 
         Ocasional oc = new Ocasional("Sadia", "Rua Aleatória", "147", 70.00);
 
-        ger.salarioGratificacao();
+        ger.salarioFinal();
         ger.imprimeDadosPessoais();
         System.out.println();
         System.out.println("-----------------------------------");
@@ -45,10 +45,6 @@ public class TesteGeral
         System.out.println();
         fun2.imprimeDadosPessoais();
         //fun.somaSalarial(salarioBase, horasAlternativas, horasNormais);
-        
-        
-        System.out.println();
-        prod.imprimeDados();
 
         System.out.println();
         pe.imprimeDados();
