@@ -6,11 +6,9 @@ public class NaoPereciveis extends Produtos{
     public NaoPereciveis(String nome, String codigo, double precoCusto, double precoFinal, int quantidade){
         super(nome, codigo, precoCusto, precoFinal, quantidade);
     }
-
-
     public void imprimeDados(){
         super.imprimeDados();
-        System.out.println("PRODUTO NÃO PERECÍVEL");
+        System.out.println("*******PRODUTO NÃO PERECÍVEL*******");
 
     }
 

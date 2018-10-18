@@ -1,14 +1,15 @@
 import javax.lang.model.util.ElementScanner6;
 
-public class Clientes implements ImprimeInformacoes{
+public class Clientes implements ImprimeInformacoes {
     protected String nome;
     protected String endereco;
     protected String cpf;
     protected String telefone;
     protected double acumuladoCompras;
     protected String cartaoFidelidade;
-    
-    public Clientes(String nome, String endereco, String cpf, String telefone, double clienteGold, double clientePlatinum){
+
+    public Clientes(String nome, String endereco, String cpf, String telefone, double clienteGold,
+            double clientePlatinum) {
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
@@ -16,50 +17,52 @@ public class Clientes implements ImprimeInformacoes{
         this.cartaoFidelidade = "Usuario comum";
         this.acumuladoCompras = 0.0;
     }
-    
-    public String getNome(){
+
+    public String getNome() {
         return nome;
     }
-    
-    public void setNome(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public String getEndereco(){
+
+    public String getEndereco() {
         return endereco;
     }
-    
-    public void setEndereco(String endereco){
+
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    public String getCpf(){
+
+    public String getCpf() {
         return cpf;
     }
-    
-    public void setCpf(String cpf){
+
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    public String getTelefone(){
+
+    public String getTelefone() {
         return telefone;
     }
-    
-    public void setTelefone(String telefone){
+
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
+
     public double getAcumuladoCompras() {
         return this.acumuladoCompras;
     }
-        
-    public void setAcumuladoCompras(double novaCompra){
+
+    public void setAcumuladoCompras(double novaCompra) {
         this.acumuladoCompras += novaCompra;
 
-//FALTA COMPLETAR ISSO DAQUI
+        // FALTA COMPLETAR ISSO DAQUI
     }
 
-    public void imprimeDadosPessoais(){  //Basear-se no cadastrar cliente e caso nao esteja cadastrado, preencher info do usuario
+    public void imprimeDadosPessoais() {
+        // Basear-se no cadastrar cliente e caso nao esteja cadastrado, preencher info
+        // do usuario
         System.out.println("Nome: " + nome);
         System.out.println("Endereco: " + endereco);
         System.out.println("CPF: " + cpf);

@@ -32,11 +32,11 @@ public class Padeiro extends Funcionarios
         
         somaTotal = bonificacao + salarioBase;
 
-        System.out.printf("Salário por hora: %.2f\n", salarioHora);
+        System.out.printf("Salário por hora: R$%.2f\n", salarioHora);
 
-        System.out.printf("Acréscimo salarial: %.2f\n", bonificacao);
+        System.out.printf("Acréscimo salarial: R$%.2f\n", bonificacao);
         
-        System.out.printf("Soma total do salário do funcionário: %.2f\n", somaTotal);
+        System.out.printf("Soma total do salário do funcionário: R$%.2f\n", somaTotal);
     }
     
     public void imprimeDadosPessoais(){

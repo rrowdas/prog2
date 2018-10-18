@@ -1,5 +1,6 @@
-public abstract class Funcionarios implements ImprimeInformacoes, Salario
-{
+import java.util.Scanner;
+public abstract class Funcionarios implements ImprimeInformacoes, Salario{
+    Scanner teclado = new Scanner(System.in);
     protected String nome;
     protected String endereco;
     protected String cpf;
@@ -10,6 +11,10 @@ public abstract class Funcionarios implements ImprimeInformacoes, Salario
     {
         this.nome = nome;
         this.endereco = endereco;
+        while(cpf.length() != 11){
+            System.out.println("Número de código deve ter 11(ONZE) dígitos. Por favor, coloque o código corretamente, obrigado.");
+            cpf = teclado.next();                      //INTERROMPER O LOOP AINDAAAAA
+        }
         this.cpf = cpf;
         this.telefone = telefone;
         this.salarioBase = salarioBase;

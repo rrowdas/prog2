@@ -85,6 +85,7 @@ public class Pereciveis extends Produtos{
     public void imprimeDados(){
         super.imprimeDados();
         //comparaValidade();
+        System.out.println("Validade: " + diaValidade + "/" + mesValidade + "/" + anoValidade);
     }
 
 

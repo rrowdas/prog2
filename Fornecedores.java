@@ -1,6 +1,7 @@
 //package Padaria;
-
+import java.util.Scanner;
 public abstract class Fornecedores {
+    Scanner teclado = new Scanner(System.in);
     protected String nome;
     protected String endereco;
     protected String cnpj;
@@ -9,6 +10,10 @@ public abstract class Fornecedores {
     public Fornecedores(String nome, String endereco, String cnpj, double precoCobrado) {
         this.nome = nome;
         this.endereco = endereco;
+        while(cnpj.length() != 14){
+            System.out.println("Número de código deve ter 14(QUATORZE) dígitos. Por favor, coloque o código corretamente, obrigado.");
+            cnpj = teclado.next();                        //FALTA TIRAR O LOOOOOP DAQUI
+        }
         this.cnpj = cnpj;
         this.precoCobrado = precoCobrado;
     }
@@ -48,7 +53,7 @@ public abstract class Fornecedores {
     public void valorFinal(){ // esse metodo está aqui para fazer sobrescrita
         System.out.println("Fornecedor: " + nome);
         System.out.println("CNPJ: " + cnpj);
-        System.out.println("Endereço dos fornecedores: " + endereco);
-        System.out.printf("O valor do produto é R$%.2f\n", precoCobrado);
+        System.out.println("Endereço do fornecedor: " + endereco);
+        System.out.printf("Valor do produto: R$%.2f\n", precoCobrado);
     }
 }

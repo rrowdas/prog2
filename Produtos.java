@@ -52,6 +52,7 @@ public abstract class Produtos
             }
             else
                 System.out.println("A quantidade tem que ser menor ou igual a 30");
+                //FALTA INTERROMPER O LOOP
         }
     }
     public String getApelido(){
@@ -101,10 +102,10 @@ public abstract class Produtos
         System.out.println("PRODUTO:");
         System.out.println("Nome: " + nome);
         System.out.println("Código: " + codigo);
-        System.out.printf("Preço: %.2f\n", precoFinal);
-        System.out.printf("Custo: %.2f\n", precoCusto);
+        System.out.printf("Preço: R$%.2f\n", precoFinal);
+        System.out.printf("Custo: R$%.2f\n", precoCusto);
         System.out.println("Apelido: " + apelido);
-        System.out.println("Quantidade do " + nome + " é: " + quantidade + "unidades");
+        System.out.println("Quantidade de " + nome + " é: " + quantidade + " unidades");
 
     }
  

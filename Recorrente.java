@@ -18,7 +18,7 @@ public class Recorrente extends Fornecedores{
         desconto = precoCobrado - (precoCobrado * taxaDesconto);
 
         super.valorFinal();
-        System.out.printf("A taxa de desconto do fornecedor é %.2f\n", taxaDesconto);
-        System.out.printf("Valor Final: R$%.2f\n", desconto);
+        System.out.println("Taxa de desconto: " + (int)(taxaDesconto * 100) + "%");
+        System.out.printf("Valor com desconto aplicado: R$%.2f\n", desconto);
     }
 }
