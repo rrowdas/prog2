@@ -3661,7 +3661,7 @@
 											"top": 935,
 											"width": 780.09521484375,
 											"height": 13,
-											"text": "#carrinhoPrecos: double[20]",
+											"text": "#valorTotalDoCarrinho: double",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3695,7 +3695,7 @@
 											"top": 958,
 											"width": 780.09521484375,
 											"height": 13,
-											"text": "«constructor»+Vendas(dataVenda: String, cpfVendedor: String, formaPagamento: String, cpfCliente: String, carrinhoPrecos: double[20])",
+											"text": "«constructor»+Vendas(dataVenda: String, cpfVendedor: String, formaPagamento: String, cpfCliente: String)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3780,7 +3780,7 @@
 											"top": 1033,
 											"width": 780.09521484375,
 											"height": 13,
-											"text": "+getCarrinhoPrecos(): double",
+											"text": "+getValorTotalDoCarrinho(): double",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3865,7 +3865,7 @@
 											"top": 1108,
 											"width": 780.09521484375,
 											"height": 13,
-											"text": "+setCarrinhoPrecos(novoCarrinhoPrecos: double): void",
+											"text": "+setValorTotalDoCarrinho(novoValorTotalDoCarrinho: double): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3882,7 +3882,7 @@
 											"top": 1123,
 											"width": 780.09521484375,
 											"height": 13,
-											"text": "+ytghjaewyhCARRUBGI TITAK()",
+											"text": "+adicionarProdutoCarrinho(codigoProduto: String): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3975,8 +3975,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -256,
-											"top": 676,
+											"left": -528,
+											"top": 612,
 											"height": 13
 										},
 										{
@@ -3986,8 +3986,8 @@
 												"$ref": "AAAAAAFl8w3IcgfeVyg="
 											},
 											"font": "Arial;13;1",
-											"left": 141,
-											"top": 543,
+											"left": 5,
+											"top": 511,
 											"width": 692.6435546875,
 											"height": 13,
 											"text": "Recorrente"
@@ -4000,8 +4000,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -256,
-											"top": 676,
+											"left": -528,
+											"top": 612,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -4014,15 +4014,14 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -256,
-											"top": 676,
+											"left": -528,
+											"top": 612,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 136,
-									"top": 536,
+									"top": 504,
 									"width": 702.6435546875,
 									"height": 25,
 									"stereotypeLabel": {
@@ -4058,8 +4057,8 @@
 												"$ref": "AAAAAAFl8xJTOgz4vic="
 											},
 											"font": "Arial;13;0",
-											"left": 141,
-											"top": 566,
+											"left": 5,
+											"top": 534,
 											"width": 692.6435546875,
 											"height": 13,
 											"text": "-taxaDesconto: double",
@@ -4067,8 +4066,7 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 136,
-									"top": 561,
+									"top": 529,
 									"width": 702.6435546875,
 									"height": 23
 								},
@@ -4092,8 +4090,8 @@
 												"$ref": "AAAAAAFmX8yR9UVgAT8="
 											},
 											"font": "Arial;13;0",
-											"left": 141,
-											"top": 589,
+											"left": 5,
+											"top": 557,
 											"width": 692.6435546875,
 											"height": 13,
 											"text": "«constructor»+Fornecedores(nome: String, endereco: String, cnpj: String, precoCobrado: double, taxaDesconto: double)",
@@ -4109,8 +4107,8 @@
 												"$ref": "AAAAAAFmX81V1EXzSVE="
 											},
 											"font": "Arial;13;0",
-											"left": 141,
-											"top": 604,
+											"left": 5,
+											"top": 572,
 											"width": 692.6435546875,
 											"height": 13,
 											"text": "+getTaxaDesconto(): double",
@@ -4126,8 +4124,8 @@
 												"$ref": "AAAAAAFmX82UHkZclfM="
 											},
 											"font": "Arial;13;0",
-											"left": 141,
-											"top": 619,
+											"left": 5,
+											"top": 587,
 											"width": 692.6435546875,
 											"height": 13,
 											"text": "+setTaxaDesconto(novaTaxaDesconto: double): void",
@@ -4143,8 +4141,8 @@
 												"$ref": "AAAAAAFmhRBXNgzgSjs="
 											},
 											"font": "Arial;13;0",
-											"left": 141,
-											"top": 634,
+											"left": 5,
+											"top": 602,
 											"width": 692.6435546875,
 											"height": 13,
 											"text": "+imprimeDados(): void",
@@ -4152,8 +4150,7 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 136,
-									"top": 584,
+									"top": 552,
 									"width": 702.6435546875,
 									"height": 68
 								},
@@ -4168,8 +4165,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -304,
-									"top": 394,
+									"left": -440,
+									"top": 362,
 									"width": 10,
 									"height": 10
 								},
@@ -4184,16 +4181,15 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -304,
-									"top": 394,
+									"left": -440,
+									"top": 362,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 136,
-							"top": 536,
+							"top": 504,
 							"width": 702.6435546875,
 							"height": 116,
 							"nameCompartment": {
@@ -4233,8 +4229,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 570,
-									"top": 421,
+									"left": 488,
+									"top": 402,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -4254,8 +4250,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 557,
-									"top": 413,
+									"left": 478,
+									"top": 391,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -4275,8 +4271,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 595,
-									"top": 436,
+									"left": 509,
+									"top": 423,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -4294,7 +4290,7 @@
 								"$ref": "AAAAAAFl8w3IcgfdrFs="
 							},
 							"lineStyle": 1,
-							"points": "522:535;645:336",
+							"points": "411:503;588:336",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFl8w3KAAg0FWA="
@@ -6883,7 +6879,7 @@
 											"top": 1232,
 											"width": 765.3876953125,
 											"height": 13,
-											"text": "«constructor»+Vista(dataVenda: String, cpfVendedor: String, formaPagamento: String, cpfCliente: String, carrinhoPrecos: double[20])",
+											"text": "«constructor»+Vista(dataVenda: String, cpfVendedor: String, formaPagamento: String, cpfCliente: String)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7189,7 +7185,7 @@
 											"top": 1389,
 											"width": 893.51513671875,
 											"height": 13,
-											"text": "«constructor»+Prazo(dataVenda: String, cpfVendedor: String, formaPagamento: String, cpfCliente: String, carrinhoPrecos: double[20], numeroParcelas: int)",
+											"text": "«constructor»+Prazo(dataVenda: String, cpfVendedor: String, formaPagamento: String, cpfCliente: String, numeroParcelas: int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9523,6 +9519,100 @@
 							},
 							"headQualifiersCompartment": {
 								"$ref": "AAAAAAFmhSGkyirTs0U="
+							}
+						},
+						{
+							"_type": "UMLGeneralizationView",
+							"_id": "AAAAAAFmiO1XpHcRwao=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAFmiO1XpHcPwbs="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFmiO1XpXcSoGQ=",
+									"_parent": {
+										"$ref": "AAAAAAFmiO1XpHcRwao="
+									},
+									"model": {
+										"$ref": "AAAAAAFmiO1XpHcPwbs="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 831,
+									"top": 527,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFmiO1XpHcRwao="
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFmiO1XpXcTj9I=",
+									"_parent": {
+										"$ref": "AAAAAAFmiO1XpHcRwao="
+									},
+									"model": {
+										"$ref": "AAAAAAFmiO1XpHcPwbs="
+									},
+									"visible": null,
+									"font": "Arial;13;0",
+									"left": 820,
+									"top": 517,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAFmiO1XpHcRwao="
+									},
+									"edgePosition": 1
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFmiO1XpXcU/G0=",
+									"_parent": {
+										"$ref": "AAAAAAFmiO1XpHcRwao="
+									},
+									"model": {
+										"$ref": "AAAAAAFmiO1XpHcPwbs="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 852,
+									"top": 548,
+									"height": 13,
+									"alpha": -1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFmiO1XpHcRwao="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFl8ovCZ/r/VtM="
+							},
+							"tail": {
+								"$ref": "AAAAAAFl8wgUowC27u0="
+							},
+							"lineStyle": 1,
+							"points": "572:831;1113:257",
+							"showVisibility": true,
+							"nameLabel": {
+								"$ref": "AAAAAAFmiO1XpXcSoGQ="
+							},
+							"stereotypeLabel": {
+								"$ref": "AAAAAAFmiO1XpXcTj9I="
+							},
+							"propertyLabel": {
+								"$ref": "AAAAAAFmiO1XpXcU/G0="
 							}
 						}
 					]
@@ -12547,6 +12637,19 @@
 								},
 								"aggregation": "composite"
 							}
+						},
+						{
+							"_type": "UMLGeneralization",
+							"_id": "AAAAAAFmiO1XpHcPwbs=",
+							"_parent": {
+								"$ref": "AAAAAAFl8wgUogC0YII="
+							},
+							"source": {
+								"$ref": "AAAAAAFl8wgUogC0YII="
+							},
+							"target": {
+								"$ref": "AAAAAAFl8ovCZ/r9hhQ="
+							}
 						}
 					],
 					"stereotype": "abstract",
@@ -12597,10 +12700,9 @@
 							"_parent": {
 								"$ref": "AAAAAAFl8wgUogC0YII="
 							},
-							"name": "carrinhoPrecos",
+							"name": "valorTotalDoCarrinho",
 							"visibility": "protected",
-							"type": "double",
-							"multiplicity": "20"
+							"type": "double"
 						}
 					],
 					"operations": [
@@ -12648,16 +12750,6 @@
 									},
 									"name": "cpfCliente",
 									"type": "String"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFmhWBoFOVVbOU=",
-									"_parent": {
-										"$ref": "AAAAAAFmfj3Y5erhjVc="
-									},
-									"name": "carrinhoPrecos",
-									"type": "double",
-									"multiplicity": "20"
 								}
 							]
 						},
@@ -12743,7 +12835,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFl8wgUogC0YII="
 							},
-							"name": "getCarrinhoPrecos",
+							"name": "getValorTotalDoCarrinho",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -12865,7 +12957,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFl8wgUogC0YII="
 							},
-							"name": "setCarrinhoPrecos",
+							"name": "setValorTotalDoCarrinho",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -12873,7 +12965,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFmfjGTis/FdLI="
 									},
-									"name": "novoCarrinhoPrecos",
+									"name": "novoValorTotalDoCarrinho",
 									"type": "double"
 								},
 								{
@@ -12893,7 +12985,27 @@
 							"_parent": {
 								"$ref": "AAAAAAFl8wgUogC0YII="
 							},
-							"name": "ytghjaewyhCARRUBGI TITAK"
+							"name": "adicionarProdutoCarrinho",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFmiOtw+nSq03I=",
+									"_parent": {
+										"$ref": "AAAAAAFmhW4GLfGoVeI="
+									},
+									"name": "codigoProduto",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFmiOtw/HSrAwU=",
+									"_parent": {
+										"$ref": "AAAAAAFmhW4GLfGoVeI="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
 						}
 					],
 					"isAbstract": true
@@ -14119,16 +14231,6 @@
 									},
 									"name": "cpfCliente",
 									"type": "String"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFmhWCf1uXWDzQ=",
-									"_parent": {
-										"$ref": "AAAAAAFmfj/6qu8y2ts="
-									},
-									"name": "carrinhoPrecos",
-									"type": "double",
-									"multiplicity": "20"
 								}
 							]
 						}
@@ -14217,16 +14319,6 @@
 								{
 									"_type": "UMLParameter",
 									"_id": "AAAAAAFmfkGX8PUsveg=",
-									"_parent": {
-										"$ref": "AAAAAAFmfkFN7/TW7Ek="
-									},
-									"name": "carrinhoPrecos",
-									"type": "double",
-									"multiplicity": "20"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFmhWD3YOdTliw=",
 									"_parent": {
 										"$ref": "AAAAAAFmfkFN7/TW7Ek="
 									},
