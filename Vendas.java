@@ -3,14 +3,35 @@ public abstract class Vendas extends Estoque{ //Estoque
     protected String dataVenda;
     protected String nomeVendedor;
     protected String formaPagamento;
+    protected String cpfCliente;
     protected double [] carrinhoDeVendas;
     
-    public Vendas(String dataVenda, String nomeVendedor, String formaPagamento){
+    public Vendas(String dataVenda, String nomeVendedor, String formaPagamento, String cpfCliente){
     
         this.dataVenda = dataVenda;
         this.nomeVendedor = nomeVendedor;
         this.formaPagamento = null;
         this.carrinhoDeVendas = new double [20];
+        setCpfCliente(cpfCliente);
+    }
+
+    public String getCpfCliente(){
+        return this.cpfCliente;
+    }
+
+    public void setCpfCliente(String novoCpf){
+
+        boolean clienteEncontrado = false;
+
+        for(int i = 0; i < cliente.length; i++){
+            if(cliente[i].getCpf.equalsIgnoreCase(novoCpf)){
+                System.out.println("Cliente esta cadastrado.");
+                clienteEncontrado = true;
+            }
+        }
+        
+        if(clienteEncontrado == false)
+            System.out.println("Cliente nao esta cadastrado.");
     }
     
     public String getDataVenda() {
@@ -86,7 +107,7 @@ public abstract class Vendas extends Estoque{ //Estoque
                 valorTotalCompra += carrinhoDeVendas[i];
         }
 
-        //GUARDAR ESSE VALOR NO ATRIBUTO DO CLIENTE.
+        cliente.setAcumulado
 
         return valorTotalCompra;
     }
