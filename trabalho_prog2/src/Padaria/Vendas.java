@@ -19,6 +19,18 @@ public abstract class Vendas{ // Estoque
 		//setCpfCliente(cpfCliente);
 	}
 
+	public Produtos[] getCarrinhoCompras() {
+		return carrinhoCompras;
+	}
+
+	public void setCarrinhoCompras(Produtos[] carrinhoCompras) {
+		this.carrinhoCompras = carrinhoCompras;
+	}
+
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
+	}
+
 	public String getCpfCliente() {
 		return this.cpfCliente;
 	}
@@ -86,12 +98,12 @@ public abstract class Vendas{ // Estoque
 		this.tamanhoDoCarrinho = tamanhoDoCarrinho;
 	}
 
-	public void adicionarProdutoCarrinho(String codigoProduto) {
+	public void adicionarProdutoCarrinho(Produtos [] produto, String codigoProduto) {
 
 		boolean encontrouProduto = false; // caso encontre o produto
 		boolean carrinhoCheio = false;
 		
-		for(int i = 0; i < super.produto.length && !encontrouProduto && !carrinhoCheio; i++) {
+		for(int i = 0; i < produto.length && !encontrouProduto && !carrinhoCheio; i++) {
 			
 			if(tamanhoDoCarrinho == 20) {
 				System.out.println("Abra uma nova venda,o carrinho esta cheio");
@@ -99,22 +111,22 @@ public abstract class Vendas{ // Estoque
 			}
 			
 			else
-				if(super.produto[i].getCodigo().equalsIgnoreCase(codigoProduto)){		
+				if(produto[i].getCodigo().equalsIgnoreCase(codigoProduto)){		
 					
-					valorTotalDoCarrinho += super.produto[i].getPrecoFinal(); //Adiciona no carrinho o valor do produto
+					valorTotalDoCarrinho += produto[i].getPrecoFinal(); //Adiciona no carrinho o valor do produto
 					
-					super.produto[i].setQuantidade(super.produto[i].getQuantidade() - 1); //Retira uma unidade do produto
+					produto[i].setQuantidade(produto[i].getQuantidade() - 1); //Retira uma unidade do produto
 					
 					tamanhoDoCarrinho++; // adiciona um novo produto no carrinho, ele nao pode ultrapassar 20 produtos
 					
 					encontrouProduto = true; // produto foi encontrado
 					
-					if (super.produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
+					if (produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
 						System.out.println("Possui apenas 1 produto, favor reabastecer. ");
 				}
 		}
 		
 	}
 
-	public abstract double carrinhoTotal();
+	public abstract double carrinhoTotal(Clientes [] cliente, Funcionarios [] funcionario);
 }

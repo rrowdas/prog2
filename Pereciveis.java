@@ -2,28 +2,19 @@ public class Pereciveis extends Produtos{
     private int diaValidade;
     private int mesValidade;
     private int anoValidade;
-    private int diaHoje;
-    private int mesHoje;
-    private int anoHoje;
 
-    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, String apelido, int quantidade, int diaValidade, int mesValidade, int anoValidade, int diaHoje, int mesHoje, int anoHoje){
+    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, String apelido, int quantidade, int diaValidade, int mesValidade, int anoValidade){
         super(nome, codigo, precoCusto, precoFinal, apelido, quantidade);
         this.diaValidade = diaValidade;
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;
-        this.diaHoje = diaHoje;
-        this.mesHoje = mesHoje;
-        this.anoHoje = anoHoje;
     }
 
-    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, int quantidade, int diaValidade, int mesValidade, int anoValidade, int diaHoje, int mesHoje, int anoHoje){
+    public Pereciveis(String nome, String codigo, double precoCusto, double precoFinal, int quantidade, int diaValidade, int mesValidade, int anoValidade){
         super(nome, codigo, precoCusto, precoFinal, quantidade);
         this.diaValidade = diaValidade;
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;
-        this.diaHoje = diaHoje;
-        this.mesHoje = mesHoje;
-        this.anoHoje = anoHoje;
     }
 
     public int getDiaValidade() {

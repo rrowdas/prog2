@@ -40,10 +40,6 @@ public class PadTremBao {
 		this.cliente = cliente;
 	}
 
-	
-	
-	
-	
 
 	public boolean existeFornecedor(Fornecedores novoFornecedor) {
 
@@ -58,8 +54,6 @@ public class PadTremBao {
 
 	}
 	
-	
-
 
 	public boolean existeFuncionario(Funcionarios novoFuncionario) {
 		boolean existe = false;
@@ -118,16 +112,31 @@ public class PadTremBao {
 	public void adicionarVenda(Vendas novaVenda) {
 		
 		boolean vendaAdicionado = false;
+		int guardarPosicao = -1;
 		
 		for(int i = 0; i < venda.length && !vendaAdicionado; i++) {
 			if(venda[i] == null) {
 				venda[i] = novaVenda;
 				vendaAdicionado = true;
+				guardarPosicao = i;
 			}
 		}
 		
-		// Colocar dentro ou fora add produto
+		/**
+		 * Como faremos para o usuario ficar passando varios codigos??
+		 * Pois, teriamos que chamar o vendas de novo ou sla
+		 */
+		for(int i = 0; i < venda[guardarPosicao].getCarrinhoCompras().length; i++) {
+			venda[guardarPosicao].adicionarProdutoCarrinho(estoque.getTodosProdutos(), codigoProduto);
+			
+		}
 		
+		
+		
+		
+		//NO FINAL DE TUDO, CHAMAMOS O CARRINHO TOTAL
+		
+		System.out.println(venda[guardarPosicao].carrinhoTotal(cliente, funcionario));
 		
 	}
 	

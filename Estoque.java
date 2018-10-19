@@ -3,7 +3,7 @@ public class Estoque extends PadTremBao{
     protected Produtos [] produtos = new Produtos[50];
 
     public Estoque(){
-        this.produto = new Produtos [50];
+        this.produtos = new Produtos [50];
     }
 
     public Produtos [] getTodosProdutos(){
@@ -13,24 +13,24 @@ public class Estoque extends PadTremBao{
 	public Produtos [] getProduto(String codProd){
 		for (var i = 0; i < produtos.length; i++) {
 			if(produtos[i].getCodigo().equalsIgnoreCase(codProd))
-				return produto[i];
+				return produtos[i];
 		}
-		return null
+		return null;
 	}
 
     public void cadastrarProduto(Produtos novoProduto){
 		boolean cadastrado = false;
     	
-    	for(int i = 0; i < produto.length && !cadastrado; i++)
-    		if(produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
+    	for(int i = 0; i < produtos.length && !cadastrado; i++)
+    		if(produtos[i] != null && produtos[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
     			System.out.println("Esse código já foi cadastro");
     			cadastrado = true;
     		}
     	
-    	for(int i = 0; i < produto.length && !cadastrado; i++) {
-    		if(produto[i] == null) {
+    	for(int i = 0; i < produtos.length && !cadastrado; i++) {
+    		if(produtos[i] == null) {
     			System.out.println("Foi cadastrado");
-                produto[i] = novoProduto;
+                produtos[i] = novoProduto;
     			cadastrado = true;
     		}
     	}
@@ -40,10 +40,13 @@ public class Estoque extends PadTremBao{
 	
 	public void removerProduto(Produto produto){
 
-		boolean estoque
+		Produtos p = getProduto(produto.getCodigo())
 
-		for(int i = 0; i < produto.length && !cadastrado; i++)
-    		if(produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
+		if(p != null)
+			
+
+		for(int i = 0; i < produtos.length && !cadastrado; i++)
+    		if(produtos[i] != null && produtos[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
     			System.out.println("Esse código já foi cadastro");
     			cadastrado = true;
     		}

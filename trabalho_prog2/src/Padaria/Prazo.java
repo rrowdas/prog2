@@ -8,16 +8,18 @@ public class Prazo extends Vendas {
 	}
 	
 
-	public double carrinhoTotal() {
+	public double carrinhoTotal(Clientes [] cliente, Funcionarios [] funcionario) {
 
 		boolean encontrado = false;
 		
 		
-		for(int i = 0; i < padaria.getCliente().length && !encontrado; i++) // Adicionar esse valor no cartao fidelidade do cliente
-			if(padaria.getCliente()[i].getCpf().equalsIgnoreCase(cpfCliente)) {
+		for(int i = 0; i < cliente.length && !encontrado; i++) // Adicionar esse valor no cartao fidelidade do cliente
+			if(cliente[i].getCpf().equalsIgnoreCase(cpfCliente)) {
 				encontrado = true;
-				padaria.getCliente()[i].setAcumuladoCompras(valorTotalDoCarrinho);
+				cliente[i].setAcumuladoCompras(valorTotalDoCarrinho);
 			}
+		
+		
 
 		
 		return valorTotalDoCarrinho * 1.02;
