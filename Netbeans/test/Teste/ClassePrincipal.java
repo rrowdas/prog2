@@ -1,4 +1,4 @@
-package Vendas;
+package Teste;
 
 import java.util.Scanner;
 
