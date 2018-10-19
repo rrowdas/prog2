@@ -1,5 +1,7 @@
 package Funcionarios;
 
+import PadTremBao.Informacoes;
+
 public abstract class Funcionarios implements Informacoes, Salario{
     protected String nome;
     protected String endereco;

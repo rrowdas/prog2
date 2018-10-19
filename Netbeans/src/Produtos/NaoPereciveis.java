@@ -1,4 +1,6 @@
-package NaoPereciveis;
+package Produtos;
+
+import Fornecedores.Fornecedores;
 
 public class NaoPereciveis extends Produtos{
 

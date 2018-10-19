@@ -1,5 +1,7 @@
 package Estoque;
 
+import Produtos.Produtos;
+
 public class Estoque {
 
 	protected Produtos[] produto = new Produtos[50];

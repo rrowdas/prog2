@@ -1,5 +1,7 @@
 package Clientes;
 
+import PadTremBao.Informacoes;
+
 public class Clientes implements Informacoes {
     private String nome;
     private String endereco;

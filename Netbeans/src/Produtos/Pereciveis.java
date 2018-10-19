@@ -1,5 +1,7 @@
 package Produtos;
 
+import Fornecedores.Fornecedores;
+
 public class Pereciveis extends Produtos{
     private int diaValidade, mesValidade, anoValidade;
 

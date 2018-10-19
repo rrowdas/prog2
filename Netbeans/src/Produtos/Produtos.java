@@ -1,5 +1,8 @@
 package Produtos;
 
+import Fornecedores.Fornecedores;
+import PadTremBao.Informacoes;
+
 public abstract class Produtos implements Informacoes{
 	protected String nome;
 	protected String codigo;

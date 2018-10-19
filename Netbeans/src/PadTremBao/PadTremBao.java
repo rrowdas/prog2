@@ -1,5 +1,11 @@
 package PadTremBao;
 
+import Clientes.Clientes;
+import Estoque.Estoque;
+import Fornecedores.Fornecedores;
+import Funcionarios.Funcionarios;
+import Vendas.Vendas;
+
 public class PadTremBao {
 	private Fornecedores[] fornecedor = new Fornecedores[10]; 
 	private Funcionarios[] funcionario = new Funcionarios [10];

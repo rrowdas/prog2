@@ -1,5 +1,7 @@
 package Fornecedores;
 
+import PadTremBao.Informacoes;
+
 public abstract class Fornecedores implements Informacoes {
 	protected String nome;
 	protected String endereco;

@@ -1,4 +1,4 @@
-package Gerente;
+package Funcionarios;
 
 public class Gerente extends Funcionarios {
 	public Gerente(String nome, String endereco, String cpf, String telefone, double salarioBase) {

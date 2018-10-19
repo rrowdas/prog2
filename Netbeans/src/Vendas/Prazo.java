@@ -1,5 +1,8 @@
 package Vendas;
 
+import Clientes.Clientes;
+import Funcionarios.Funcionarios;
+
 public class Prazo extends Vendas {
 	protected double acrescimo = 0.2;
 

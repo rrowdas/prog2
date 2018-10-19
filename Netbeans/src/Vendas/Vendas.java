@@ -1,5 +1,9 @@
 package Vendas;
 
+import Clientes.Clientes;
+import Funcionarios.Funcionarios;
+import Produtos.Produtos;
+
 public abstract class Vendas{ // Estoque
 
 	protected String dataVenda;
