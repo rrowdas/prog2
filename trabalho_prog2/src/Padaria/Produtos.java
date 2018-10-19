@@ -12,7 +12,7 @@ public abstract class Produtos implements Informacoes{
 		this.nome = nome;
 		this.codigo = codigo;
 		this.fornecedor = fornecedor;
-		this.precoCusto = precoCusto;
+		setPrecoCusto(precoCusto);
 		this.precoFinal = precoFinal;
 		this.apelido = apelido;
 		setQuantidade(quantidade);
@@ -92,7 +92,7 @@ public abstract class Produtos implements Informacoes{
 	}
 
 	public void setPrecoCusto(double precoCusto) {
-		this.precoCusto = precoCusto;
+		this.precoCusto = precoCusto * (1 - fornecedor.getTaxaDesconto());
 	}
 
 	public void imprimeDados() {

@@ -1,32 +1,34 @@
 package Padaria;
 
-public abstract class Vendas extends Estoque { // Estoque
+public abstract class Vendas{ // Estoque
 
 	protected String dataVenda;
 	protected String cpfVendedor;
 	protected String formaPagamento;
 	protected String cpfCliente;
-	protected double[] carrinhoPrecos;
+	protected Produtos [] carrinhoCompras = new Produtos [20];
+	protected double valorTotalDoCarrinho = 0;
+	protected int tamanhoDoCarrinho = 0;
 
 	public Vendas(String dataVenda, String cpfVendedor, String formaPagamento, String cpfCliente) {
 
 		this.dataVenda = dataVenda;
 		this.cpfVendedor = cpfVendedor;
 		this.formaPagamento = null;
-		this.carrinhoPrecos = new double[20];
-		setCpfCliente(cpfCliente);
+		//this.carrinhoPrecos = new double[20];
+		//setCpfCliente(cpfCliente);
 	}
 
 	public String getCpfCliente() {
 		return this.cpfCliente;
 	}
 
-	public void setCpfCliente(String novoCpf) {
+	/*public void setCpfCliente(String novoCpf) {
 
 		boolean clienteEncontrado = false;
 
-		for (int i = 0; i < cliente.length; i++) {
-			if (cliente[i].getCpf.equalsIgnoreCase(novoCpf)) {
+		for (int i = 0; i < padaria.getCliente().length; i++) {
+			if (padaria.getCliente()[i].getCpf().equalsIgnoreCase(novoCpf)) {
 				System.out.println("Cliente esta cadastrado.");
 				clienteEncontrado = true;
 			}
@@ -34,7 +36,7 @@ public abstract class Vendas extends Estoque { // Estoque
 
 		if (clienteEncontrado == false)
 			System.out.println("Cliente nao esta cadastrado.");
-	}
+	}*/
 
 	public String getDataVenda() {
 		return this.dataVenda;
@@ -48,72 +50,71 @@ public abstract class Vendas extends Estoque { // Estoque
 		return this.cpfVendedor;
 	}
 
-	public void setCpfVendedor() {
-		this.dataVenda = dataVenda;
+	public void setCpfVendedor(String novoCpf) {
+		this.cpfVendedor = novoCpf;
 	}
 
 	public String getFormaPagamento() {
 		return this.formaPagamento;
-	}//ARRUMAR
+	}
 
 	public void setFormaPagamento(String novaFormaPagamento) {
-		if (novaFormaPagamento.equalsIgnoreCase("dinheiro") || novaFormaPagamento.equalsIgnoreCase("debito") || novaFormaPagamento.equalsIgnoreCase("credito"))
-			this.formaPagamento = formaPagamento;
+		if (novaFormaPagamento.equalsIgnoreCase("dinheiro") || novaFormaPagamento.equalsIgnoreCase("debito")
+				|| novaFormaPagamento.equalsIgnoreCase("credito"))
+			this.formaPagamento = novaFormaPagamento;
 
 		else
-			while (novaFormaPagamento.equalsIgnoreCase("dinheiro") == false || novaFormaPagamento.equalsIgnoreCase("debito") == false || novaFormaPagamento.equalsIgnoreCase("credito") == false)
+			while (novaFormaPagamento.equalsIgnoreCase("dinheiro") == false
+					|| novaFormaPagamento.equalsIgnoreCase("debito") == false
+					|| novaFormaPagamento.equalsIgnoreCase("credito") == false)
 				System.out.println("Voce deve colocar debito, credito ou dinheiro. Digite novamente.");
 	}
 
-	public void carrinhoPrecos(String codigo) {
-
-		int guardarPosicaoProduto = -1; // Esse guarda a posição em que o produto se encontra no vetor
-		boolean encontrou = false; // caso encontre o produto
-		boolean cadastradoNoCarrinho = false; // caso seja cadastrado o produto
-
-		for (int i = 0; i < super.produto.length && !encontrou; i++) { // Esse for serve para encontrar o código do
-																		// produto no estoque, caso ele não encontre,
-																		// esse código é inválido.
-			if (super.produto[i] != null && super.produto[i].equals(codigo)) {
-				guardarPosicaoProduto = i;
-				encontrou = true;
-			} else
-				System.out.println("Código não encontrado");
-		}
-
-		for (int i = 0; i < carrinhoPrecos.length && encontrou; i++) { // Caso o produto seja encontrado no for acima,
-																			// ele poderá ser colocado no carrinho de
-																			// vendas para efetuar a compra.
-			if (carrinhoPrecos[19] != 0)
-				System.out.println("O carrinho está cheio, favor abrir nova venda.");
-
-			else if (carrinhoPrecos[i] == 0 && !cadastradoNoCarrinho) {
-
-				carrinhoPrecos[i] = super.produto[guardarPosicaoProduto].getPrecoFinal(); // TESTAR GETPRECOFINAL,
-																							// POIS NÃO SE ENCONTRA COMO
-																							// SUGESTÃO DO TAB
-
-				super.produto[i].setQuantidade(super.produto[i].getQuantidade() - 1);
-
-				cadastradoNoCarrinho = true;
-				System.out.println("Numeros de produtos no carrinho: " + i);
-
-				if (super.produto[i].getQuantidade() == 1)
-					System.out.println("Possui apenas 1 produto, favor reabastecer. ");
-			}
-		}
+	public double getValorTotalDoCarrinho() {
+		return valorTotalDoCarrinho;
 	}
 
-	/*public double carrinhoTotal(){
+	public void setValorTotalDoCarrinho(double valorTotalDoCarrinho) {
+		this.valorTotalDoCarrinho = valorTotalDoCarrinho;
+	}
 
-        double valorTotalCompra = 0;
+	public int getTamanhoDoCarrinho() {
+		return tamanhoDoCarrinho;
+	}
 
-        for(int i = 0; i < carrinhoPrecos.length && carrinhoPrecos[i] != 0; i++){
-                valorTotalCompra += carrinhoPrecos[i];
-        }
+	public void setTamanhoDoCarrinho(int tamanhoDoCarrinho) {
+		this.tamanhoDoCarrinho = tamanhoDoCarrinho;
+	}
 
-        cliente.setAcumulado
+	public void adicionarProdutoCarrinho(String codigoProduto) {
 
-        return valorTotalCompra;
-    }*/ //COLOCAR NO VISTA E PRAZO
+		boolean encontrouProduto = false; // caso encontre o produto
+		boolean carrinhoCheio = false;
+		
+		for(int i = 0; i < super.produto.length && !encontrouProduto && !carrinhoCheio; i++) {
+			
+			if(tamanhoDoCarrinho == 20) {
+				System.out.println("Abra uma nova venda,o carrinho esta cheio");
+				carrinhoCheio = true;
+			}
+			
+			else
+				if(super.produto[i].getCodigo().equalsIgnoreCase(codigoProduto)){		
+					
+					valorTotalDoCarrinho += super.produto[i].getPrecoFinal(); //Adiciona no carrinho o valor do produto
+					
+					super.produto[i].setQuantidade(super.produto[i].getQuantidade() - 1); //Retira uma unidade do produto
+					
+					tamanhoDoCarrinho++; // adiciona um novo produto no carrinho, ele nao pode ultrapassar 20 produtos
+					
+					encontrouProduto = true; // produto foi encontrado
+					
+					if (super.produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
+						System.out.println("Possui apenas 1 produto, favor reabastecer. ");
+				}
+		}
+		
+	}
+
+	public abstract double carrinhoTotal();
 }

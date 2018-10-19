@@ -2,6 +2,6 @@ package Padaria;
 
 public interface Salario{
     
-    public abstract void salarioFinal();
+    public abstract double salarioFinal();
 
 }

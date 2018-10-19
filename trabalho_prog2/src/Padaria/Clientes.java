@@ -56,9 +56,9 @@ public class Clientes implements Informacoes {
     
     public double cartaoFidelidade() {
     	
-    	if(acumuladoCompras >= 1000)
+    	if(acumuladoCompras >= 200)
     		return 0.90;
-    	else if(acumuladoCompras < 1000 && acumuladoCompras >= 500)
+    	else if(acumuladoCompras < 200 && acumuladoCompras >= 100)
     		return 0.95;
     	else
     		return 1;

@@ -9,7 +9,7 @@ public class Pereciveis extends Produtos{
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;
     }
-
+    
     public Pereciveis(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, int quantidade, int diaValidade, int mesValidade, int anoValidade){
         super(nome, codigo, fornecedor, precoCusto, precoFinal, quantidade);
         this.diaValidade = diaValidade;
@@ -55,8 +55,8 @@ public class Pereciveis extends Produtos{
     }
 
     public void imprimeDados(){
-        super.imprimeDados();
+    	System.out.println("*******PRODUTO PERECÍVEL*******");
+    	super.imprimeDados();
         System.out.println("Validade: " + diaValidade + "/" + mesValidade + "/" + anoValidade);
-        //adicionar verificacao de validade na main, se venceu ou nao
     }
 }

@@ -1,57 +1,61 @@
 package Padaria;
 
-public class Estoque extends PadTremBao{
-    
-    protected Produtos [] produtos = new Produtos[50];
+public class Estoque {
 
-    public Estoque(int numForm, int numFunc, int numCli) {
-    	super(numForm, numFunc, numCli);
-    }
+	protected Produtos[] produto = new Produtos[50];
 
-    public Produtos [] getTodosProdutos(){
-		return produtos;
+	public Produtos[] getTodosProdutos() {
+		return produto;
+	}
+
+	public boolean consultaProduto(String codigoProduto) {
+		boolean existe = false;
+
+		for (int i = 0; i < produto.length && !existe; i++)
+			if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
+				System.out.println("Esse código já foi cadastro");
+				existe = true;
+			}
+
+		return existe;
 	}
 	
-	public Produtos getProduto(String codProd){
-		for (int i = 0; i < produtos.length; i++) {
-			if(produtos[i].getCodigo().equalsIgnoreCase(codProd))
-				return produtos[i];
+	
+	public void cadastrarProduto(Produtos novoProduto) {
+		boolean cadastrado = consultaProduto(novoProduto.getCodigo());
+
+		for (int i = 0; i < produto.length && !cadastrado; i++) {
+			if (produto[i] == null) {
+				System.out.println("Foi cadastrado");
+				produto[i] = novoProduto;
+				cadastrado = true;
+			}
 		}
-		return null;
+		if (cadastrado == false)
+			System.out.println("Não foi possível cadastrar");
 	}
 
-    public void cadastrarProduto(Produtos novoProduto){
-		boolean cadastrado = false;
-    	
-    	for(int i = 0; i < produtos.length && !cadastrado; i++)
-    		if(produtos[i] != null && produtos[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
-    			System.out.println("Esse código já foi cadastro");
-    			cadastrado = true;
-    		}
-    	
-    	for(int i = 0; i < produtos.length && !cadastrado; i++) {
-    		if(produtos[i] == null) {
-    			System.out.println("Foi cadastrado");
-                produtos[i] = novoProduto;
-    			cadastrado = true;
-    		}
-    	}
-    	if(cadastrado == false)
-    		System.out.println("Não foi possível cadastrar");
-	}
-	
-	/*public void removerProduto(Produtos produto){
+	public void removerProduto(String codigoProduto) {
 
-		Produtos p = getProduto(produto.getCodigo())
+		
+		boolean removido = false;
 
-		if(p != null)
+		for (int i = 0; i < produto.length && !removido; i++)
+			if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
+				System.out.println("O Fornecedor " + produto[i].getNome() + " foi removido.");
+				produto[i] = null;
+				removido = true;
+			}
+		if(removido == false)
+			System.out.println("O produto nao foi encontrado, codigo invalido");
 			
+	}
 
-		for(int i = 0; i < produtos.length && !cadastrado; i++)
-    		if(produtos[i] != null && produtos[i].getCodigo().equalsIgnoreCase(novoProduto.getCodigo())) {
-    			System.out.println("Esse código já foi cadastro");
-    			cadastrado = true;
-    		}
-
-	}*/
+	public void controleProduto(Produtos produtoControlado) {
+		if(produtoControlado.getQuantidade() == 1) 
+			System.out.println("Alerta, resta apenas 1 produto no estoque, favor reabastecer");
+		else if(produtoControlado.getQuantidade() == 0) {
+			System.out.println("Produto esgotado");
+		}
+	}
 }
