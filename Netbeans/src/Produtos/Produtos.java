@@ -98,6 +98,7 @@ public abstract class Produtos implements Informacoes{
 		this.precoCusto = precoCusto * (1 - fornecedor.getTaxaDesconto());
 	}
 
+        @Override
 	public void imprimeDados() {
 		System.out.println("------------------------------------------");
 		System.out.println("PRODUTO:");

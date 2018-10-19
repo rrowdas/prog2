@@ -6,7 +6,7 @@ public class Estoque {
 
 	protected Produtos[] produto = new Produtos[50];
 
-	public Produtos[] getTodosProdutos() {
+	public Produtos[] getProdutos() {
 		return produto;
 	}
 

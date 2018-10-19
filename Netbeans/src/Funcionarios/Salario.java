@@ -1,4 +1,4 @@
-package Funcionario;
+package Funcionarios;
 
 public interface Salario{
     
