@@ -12,7 +12,6 @@ public abstract class Vendas { // Estoque
     protected String cpfCliente;
     protected Produtos[] carrinhoCompras = new Produtos[20];
     protected double valorTotalDoCarrinho = 0;
-    protected int tamanhoDoCarrinho = 0;
 
     public Vendas(String dataVenda, String cpfVendedor, String formaPagamento, String cpfCliente) {
 
@@ -115,5 +114,8 @@ public abstract class Vendas { // Estoque
 
     }
 
-    public abstract double carrinhoTotal(Clientes[] cliente, Funcionarios[] funcionario);
+    public double valorParcelas() {
+        return valorTotalDoCarrinho;
+    }
+
 }

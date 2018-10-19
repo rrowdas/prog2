@@ -4,27 +4,25 @@ import Clientes.Clientes;
 import Funcionarios.Funcionarios;
 
 public class Prazo extends Vendas {
-	protected double acrescimo = 0.2;
 
-	public Prazo(String dataVenda, String nomeVendedor, String formaPagamento, String cpfCliente) {
-		super(dataVenda, nomeVendedor, formaPagamento, cpfCliente);
-	}
-	
+    public Prazo(String dataVenda, String nomeVendedor, String formaPagamento, String cpfCliente, int numeroParcelas) {
+        super(dataVenda, nomeVendedor, formaPagamento, cpfCliente);
+        this.valorTotalDoCarrinho *= 1.02;
+        this.numeroParcelas = numeroParcelas;
+    }
+    public int getNumeroParcelas() {
+        return numeroParcelas;
+    }
 
-	public double carrinhoTotal(Clientes [] cliente, Funcionarios [] funcionario) {
+    public void setNumeroParcelas(int numeroParcelas) {
+        this.numeroParcelas = numeroParcelas;
+    }
+    protected int numeroParcelas;
 
-		boolean encontrado = false;
-		
-		
-		for(int i = 0; i < cliente.length && !encontrado; i++) // Adicionar esse valor no cartao fidelidade do cliente
-			if(cliente[i].getCpf().equalsIgnoreCase(cpfCliente)) {
-				encontrado = true;
-				cliente[i].setAcumuladoCompras(valorTotalDoCarrinho);
-			}
-		
-		
-
-		
-		return valorTotalDoCarrinho * 1.02;
-	}
+    
+    
+    public double valorParcelas() {
+        double parcela = valorTotalDoCarrinho /  numeroParcelas;
+        return parcela;
+    }
 }

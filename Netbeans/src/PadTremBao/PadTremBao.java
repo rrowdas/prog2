@@ -177,6 +177,8 @@ public class PadTremBao {
         boolean vendaAdicionado = false;
         int guardarPosicao = -1;
         
+        
+        
         //VERIFICAR CPF VENDEDOR E CLIENTE
 
         for (int i = 0; i < venda.length && !vendaAdicionado; i++) {
@@ -189,7 +191,7 @@ public class PadTremBao {
         
         venda[guardarPosicao].adicionaProdutoCarrinho(produto, codigoProduto);
         /**
-         * Como faremos para o usuario ficar passando varios codigos?? Pois,
+         * Como faremos para o usuario ficar passando vários codigos?? Pois,
          * teriamos que chamar o vendas de novo ou sla
          */
         for (int i = 0; i < venda[guardarPosicao].getCarrinhoCompras().length; i++) {
