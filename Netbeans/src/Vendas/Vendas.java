@@ -86,10 +86,9 @@ public abstract class Vendas { // Estoque
 //    }
     public void adicionaProdutoCarrinho(Produtos[] produto, String codigoProduto) {
 
-        boolean encontrouProduto = false; // caso encontre o produto
         boolean carrinhoCheio = false;
 
-        for (int i = 0; i < produto.length && !encontrouProduto && !carrinhoCheio; i++) {
+        for (int i = 0; i < carrinhoCompras.length && !carrinhoCheio; i++) {
 
             if (carrinhoCompras[19] != null) {
                 System.out.println("Abra uma nova venda,o carrinho está cheio");

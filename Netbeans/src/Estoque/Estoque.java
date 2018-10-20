@@ -4,60 +4,65 @@ import Produtos.Produtos;
 
 public class Estoque {
 
-	protected Produtos[] produto = new Produtos[50];
+    protected Produtos[] produto = new Produtos[50];
 
-	public Produtos[] getProdutos() {
-		return produto;
-	}
+    public Produtos[] getProdutos() {
+        return produto;
+    }
 
-	public boolean consultaProduto(String codigoProduto) {
-		boolean existe = false;
+    public int consultaProduto(String codigoProduto) {
+        int posicao = -1;
+        boolean existe = false;
 
-		for (int i = 0; i < produto.length && !existe; i++)
-			if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
-				System.out.println("Esse código já foi cadastro");
-				existe = true;
-			}
+        for (int i = 0; i < produto.length && !existe; i++) {
+            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
+                System.out.println("Esse codigo já possui cadastro");
+                existe = true;
+                posicao = i;
+            }
+        }
+        return posicao;
+    }
 
-		return existe;
-	}
-	
-	
-	public void cadastrarProduto(Produtos novoProduto) {
-		boolean cadastrado = consultaProduto(novoProduto.getCodigo());
+    public void cadastrarProduto(Produtos novoProduto) {
 
-		for (int i = 0; i < produto.length && !cadastrado; i++) {
-			if (produto[i] == null) {
-				System.out.println("Foi cadastrado");
-				produto[i] = novoProduto;
-				cadastrado = true;
-			}
-		}
-		if (cadastrado == false)
-			System.out.println("Não foi possível cadastrar");
-	}
+        boolean cadastrado = false;
+        if (consultaProduto(novoProduto.getCodigo()) != -1) {
+            System.out.println("Esse produto já está cadastrado.");
+        } else {
+            for (int i = 0; i < produto.length && !cadastrado; i++) {
+                if (produto[i] == null) {
+                    System.out.println("Produto " + novoProduto.getNome() + " cadastrado");
+                    produto[i] = novoProduto;
+                    cadastrado = true;
+                }
+            }
+            if (cadastrado == false) {
+                System.out.println("Não é possível cadastrar mais produtos em nosso sistema (número máximo alcançado).");
+            }
+        }
+    }
 
-	public void removerProduto(String codigoProduto) {
+    public void removerProduto(String codigoProdutoExcluido) {
 
-		
-		boolean removido = false;
+        boolean removido = false;
+        int posicao = consultaProduto(codigoProdutoExcluido);
 
-		for (int i = 0; i < produto.length && !removido; i++)
-			if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
-				System.out.println("O Fornecedor " + produto[i].getNome() + " foi removido.");
-				produto[i] = null;
-				removido = true;
-			}
-		if(removido == false)
-			System.out.println("O produto nao foi encontrado, codigo invalido");
-			
-	}
+        if (posicao != -1) {
+            produto[posicao] = null;
+            System.out.println("O Produto " + produto[posicao].getNome() + " foi removido.");
+        } else {
+            System.out.println("Produto não encontrado. Tente novamente com um codigo válido.");
+        }
 
-	public void controleProduto(Produtos produtoControlado) {
-		if(produtoControlado.getQuantidade() == 1) 
-			System.out.println("Alerta, resta apenas 1 produto no estoque, favor reabastecer");
-		else if(produtoControlado.getQuantidade() == 0) {
-			System.out.println("Produto esgotado");
-		}
-	}
+    }
+
+    public void controleProduto(Produtos produtoControlado) {
+        if (produtoControlado.getQuantidade() == 1) {
+            System.out.println("Alerta, resta apenas 1 produto no estoque, favor reabastecer");
+        } else if (produtoControlado.getQuantidade() == 0) {
+            System.out.println("Produto esgotado");
+        }
+    }
+
 }
