@@ -43,50 +43,53 @@ public class PadTremBao {
     }
 
 
-    public boolean consultaFornecedor(Fornecedores novoFornecedor) {
+    public int consultaFornecedor(String cnpjConsulta) {
+        int posicao = -1;
         boolean existe = false;
-
         for (int i = 0; i < fornecedor.length && !existe; i++) {
-            if (fornecedor[i] != null && fornecedor[i].getCnpj().equalsIgnoreCase(novoFornecedor.getCnpj())) {
+            if (fornecedor[i] != null && fornecedor[i].getCnpj().equalsIgnoreCase(cnpjConsulta)) {
                 System.out.println("Esse CNPJ já possui cadastro");
                 existe = true;
+                posicao = i;
             }
         }
-        return existe;
+        return posicao;
 
     }
 
     public void cadastraFornecedor(Fornecedores novoFornecedor) {
-
-        boolean cadastrado = consultaFornecedor(novoFornecedor);
-
-        for (int i = 0; i < fornecedor.length && !cadastrado; i++) {
-            if (fornecedor[i] == null) {
-                System.out.println("Fornecedor "+ novoFornecedor.getNome() + " cadastrado");
-                fornecedor[i] = novoFornecedor;
-                cadastrado = true;
-            }
+        
+        boolean cadastrado = false;
+        if(consultaFornecedor(novoFornecedor.getCnpj()) != -1){
+            System.out.println("Esse fornecedor já está cadastrado.");
         }
-
-        if (cadastrado == false) {
-            System.out.println("Não foi possível cadastrar");
+        else{
+            for (int i = 0; i < fornecedor.length && !cadastrado; i++) {
+                if (fornecedor[i] == null) {
+                    System.out.println("Fornecedor "+ novoFornecedor.getNome() + " cadastrado");
+                    fornecedor[i] = novoFornecedor;
+                    cadastrado = true;
+                }
+            }        
+            if (cadastrado == false) 
+                System.out.println("Não é possível cadastrar mais fornecedores em nosso sistema (número máximo alcançado).");
         }
+    }    
+
+//        }
     }
 
     public void removeFornecedor(String fornecedorCnpjExcluido) {
 
         boolean removido = false;
+        int posicao = consultaFornecedor(fornecedorCnpjExcluido);
 
-        for (int i = 0; i < fornecedor.length && !removido; i++) {
-            if (fornecedor[i] != null && fornecedor[i].getCnpj().equalsIgnoreCase(fornecedorCnpjExcluido)) {
-                System.out.println("O Fornecedor " + fornecedor[i].getNome() + " foi removido.");
-                fornecedor[i] = null;
-                removido = true;
-            }
+        if (posicao != -1){
+            fornecedor[posicao] = null;
+            System.out.println("O Fornecedor " + fornecedor[posicao].getNome() + " foi removido.");
         }
-        if (removido == false) {
+        else 
             System.out.println("Fornecedor não encontrado. Tente novamente com um CNPJ válido.");
-        }
     }
 
 
