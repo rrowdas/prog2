@@ -3,6 +3,7 @@ package Clientes;
 import PadTremBao.Informacoes;
 
 public class Clientes implements Informacoes {
+
     private String nome;
     private String endereco;
     private String cpf;
@@ -55,18 +56,22 @@ public class Clientes implements Informacoes {
     public void setAcumuladoCompras(double novaCompra) {
         this.acumuladoCompras += novaCompra;
     }
-    
+
     public double cartaoFidelidade() {
-    	
-    	if(acumuladoCompras >= 200)
-    		return 0.90;
-    	else if(acumuladoCompras < 200 && acumuladoCompras >= 100)
-    		return 0.95;
-    	else
-    		return 1;
-    	
+
+        if (acumuladoCompras >= 200) {
+            return 0.90;
+        }
+        else if (acumuladoCompras < 200 && acumuladoCompras >= 100) {
+            return 0.95;
+        }
+        else {
+            return 1;
+        }
+
     }
 
+    @Override
     public void imprimeDados() {
         // Basear-se no cadastrar cliente e caso nao esteja cadastrado, preencher info
         // do usuario
@@ -74,12 +79,16 @@ public class Clientes implements Informacoes {
         System.out.println("Endereco: " + endereco);
         System.out.println("CPF: " + cpf);
         System.out.println("Telefone: " + telefone);
-        
-        if(cartaoFidelidade() == 0.90)
-        	System.out.println("Cliente Platinum");
-        else if(cartaoFidelidade() == 0.95)
-        	System.out.println("Cliente Gold");
-        else
-        	System.out.println("Cliente casual");
+
+        if (cartaoFidelidade() == 0.90) {
+            System.out.println("Cliente Platinum");
+        }
+        else if (cartaoFidelidade() == 0.95) {
+            System.out.println("Cliente Gold");
+        }
+        else {
+            System.out.println("Cliente casual");
+        }
+
     }
 }

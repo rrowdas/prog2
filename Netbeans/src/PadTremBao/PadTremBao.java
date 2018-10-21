@@ -61,7 +61,8 @@ public class PadTremBao {
         boolean cadastrado = false;
         if (consultaFornecedor(novoFornecedor.getCnpj()) != -1) {
             System.out.println("Esse fornecedor já está cadastrado.");
-        } else {
+        }
+        else {
             for (int i = 0; i < fornecedor.length && !cadastrado; i++) {
                 if (fornecedor[i] == null) {
                     System.out.println("Fornecedor " + novoFornecedor.getNome() + " cadastrado");
@@ -83,7 +84,8 @@ public class PadTremBao {
         if (posicao != -1) {
             fornecedor[posicao] = null;
             System.out.println("O Fornecedor " + fornecedor[posicao].getNome() + " foi removido.");
-        } else {
+        }
+        else {
             System.out.println("Fornecedor não encontrado. Tente novamente com um CNPJ válido.");
         }
     }
@@ -108,7 +110,8 @@ public class PadTremBao {
         boolean cadastrado = false;
         if (consultaFuncionario(novoFuncionario.getCpf()) != -1) {
             System.out.println("Esse funcionario já está cadastrado.");
-        } else {
+        }
+        else {
             for (int i = 0; i < funcionario.length && !cadastrado; i++) {
                 if (funcionario[i] == null) {
                     System.out.println("Funcionario " + novoFuncionario.getNome() + " cadastrado");
@@ -131,7 +134,8 @@ public class PadTremBao {
         if (posicao != -1) {
             funcionario[posicao] = null;
             System.out.println("O Funcionario " + funcionario[posicao].getNome() + " foi removido.");
-        } else {
+        }
+        else {
             System.out.println("Funcionario não encontrado. Tente novamente com um CPF válido.");
         }
     }
@@ -156,7 +160,8 @@ public class PadTremBao {
         boolean cadastrado = false;
         if (consultaCliente(novoCliente.getCpf()) != -1) {
             System.out.println("Esse cliente já está cadastrado.");
-        } else {
+        }
+        else {
             for (int i = 0; i < cliente.length && !cadastrado; i++) {
                 if (cliente[i] == null) {
                     System.out.println("Cliente " + novoCliente.getNome() + " cadastrado");
@@ -179,7 +184,8 @@ public class PadTremBao {
         if (posicao != -1) {
             cliente[posicao] = null;
             System.out.println("O Cliente " + cliente[posicao].getNome() + " foi removido.");
-        } else {
+        }
+        else {
             System.out.println("Cliente não encontrado. Tente novamente com um CPF válido.");
         }
     }
@@ -203,7 +209,7 @@ public class PadTremBao {
                     guardarPosicaoVenda = i;
                 }
             }
-            
+
         }
 
         //NO FINAL DE TUDO, CHAMAMOS O CARRINHO TOTAL
@@ -211,22 +217,20 @@ public class PadTremBao {
 
     }
 
-    
-    public void adicionaP(String codigoProduto){
-        
+    public void adicionaP(String codigoProduto) {
+
         int guarda = -1;
         boolean encontrouNull = false;
-        
-        for(int i = 0; i < venda.length && !encontrouNull; i++){
-            if(venda[i] == null){
+
+        for (int i = 0; i < venda.length && !encontrouNull; i++) {
+            if (venda[i] == null) {
                 guarda = i - 1;
                 encontrouNull = true;
             }
         }
-        
+
         int guardaPosicaoProduto = estoque.consultaProduto(codigoProduto);
-        
-        
+
 //        else {
 //
 //                    valorTotalDoCarrinho += produto[i].getPrecoFinal(); //Adiciona no carrinho o valor do produto
@@ -238,7 +242,6 @@ public class PadTremBao {
 //                        System.out.println("Possui apenas 1 produto, favor reabastecer. ");
 //                    }
 //                }
-        
         venda[guarda].adicionaProdutoCarrinho(codigoProduto);
     }
 }

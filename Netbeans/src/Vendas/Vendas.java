@@ -1,7 +1,5 @@
 package Vendas;
 
-import Clientes.Clientes;
-import Funcionarios.Funcionarios;
 import Produtos.Produtos;
 
 public abstract class Vendas { // Estoque
@@ -61,7 +59,8 @@ public abstract class Vendas { // Estoque
         if (novaFormaPagamento.equalsIgnoreCase("dinheiro") || novaFormaPagamento.equalsIgnoreCase("debito")
                 || novaFormaPagamento.equalsIgnoreCase("credito")) {
             this.formaPagamento = novaFormaPagamento;
-        } else {
+        }
+        else {
 //           /* while (novaFormaPagamento.equalsIgnoreCase("dinheiro") == false
 //                    || novaFormaPagamento.equalsIgnoreCase("debito") == false
 //             */       || novaFormaPagamento.equalsIgnoreCase("credito") == false) {
@@ -84,33 +83,18 @@ public abstract class Vendas { // Estoque
 //    public void setTamanhoDoCarrinho(int tamanhoDoCarrinho) {
 //        this.tamanhoDoCarrinho = tamanhoDoCarrinho;
 //    }
-    public void adicionaProdutoCarrinho(Produtos[] produto, String codigoProduto) {
-
+    public void adicionaProdutoCarrinho(Produtos novoProduto) {
         boolean carrinhoCheio = false;
-
         for (int i = 0; i < carrinhoCompras.length && !carrinhoCheio; i++) {
-
             if (carrinhoCompras[19] != null) {
                 System.out.println("Abra uma nova venda,o carrinho está cheio");
                 carrinhoCheio = true;
-            } else if (produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
-                encontrouProduto = true; // produto foi encontrado
-                if (produto[i].getQuantidade() == 0) {
-                    System.out.println("Não existe produto no estoque");
-                } else {
-
-                    valorTotalDoCarrinho += produto[i].getPrecoFinal(); //Adiciona no carrinho o valor do produto
-
-                    produto[i].setQuantidade(produto[i].getQuantidade() - 1); //Retira uma unidade do produto
-
-                    if (produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
-                    {
-                        System.out.println("Possui apenas 1 produto, favor reabastecer. ");
-                    }
-                }
+            }
+            else {
+                carrinhoCompras[i] = novoProduto;
+                valorTotalDoCarrinho += novoProduto.getPrecoFinal(); //Adiciona no carrinho o valor do produto
             }
         }
-
     }
 
     public double valorParcelas() {
@@ -118,3 +102,17 @@ public abstract class Vendas { // Estoque
     }
 
 }
+//
+//            else if (novoProduto.getCodigo().equalsIgnoreCase(codigoProduto)) {
+//                encontrouProduto = true; // produto foi encontrado
+//                if (produto[i].getQuantidade() == 0) {
+//                    System.out.println("Não existe produto no estoque");
+//                } else {
+//
+//
+//                    produto[i].setQuantidade(produto[i].getQuantidade() - 1); //Retira uma unidade do produto
+//
+//                    if (produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
+//                    {
+//                        System.out.println("Possui apenas 1 produto, favor reabastecer. ");
+//                    }
