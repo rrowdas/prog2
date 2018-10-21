@@ -19,17 +19,17 @@ public abstract class Produtos implements Informacoes {
         setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = apelido;
-        setQuantidade(quantidade);
+        this.quantidade = quantidade;
     }
 
     public Produtos(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, int quantidade) {
         this.nome = nome;
         this.codigo = codigo;
         this.fornecedor = fornecedor;
-        this.precoCusto = precoCusto;
+        setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = "Sem apelido";
-        setQuantidade(quantidade);
+        this.quantidade = quantidade;
     }
 
     public Fornecedores getFornecedor() {
@@ -47,16 +47,6 @@ public abstract class Produtos implements Informacoes {
     public void setQuantidade(int novaQuantidade) {
 
         this.quantidade = novaQuantidade;
-        /*boolean quantCorreto = false;
-
-		while (!quantCorreto) {
-			if (novaQuantidade <= 30 && novaQuantidade > 0) {
-				this.quantidade = novaQuantidade;
-				quantCorreto = true;
-			} else
-				System.out.println("A quantidade tem que ser menor ou igual a 30");
-			// FALTA INTERROMPER O LOOP
-		}*/ // FAZER ISSO NA MAIN
     }
 
     public String getApelido() {

@@ -8,7 +8,7 @@ import Funcionarios.Vendedor;
 import Vendas.Vendas;
 import Produtos.Produtos;
 
-public class PadTremBao {
+public class PadTremBao implements Impostos {
 
     private int posVenda, posFuncionario, posCliente;
     private Fornecedores[] fornecedor = new Fornecedores[10];
@@ -241,10 +241,96 @@ public class PadTremBao {
 
     //totalvenda*fidelidade, adc no cliente, adc no vendedor
     public void finalizaVenda() {
-        double valorFinalVenda = venda[posVenda].getValorTotalDoCarrinho() * cliente[posCliente].cartaoFidelidade();
-        cliente[posCliente].setAcumuladoCompras(valorFinalVenda);
-        Vendedor vendedor = (Vendedor) funcionario[posFuncionario];
-        vendedor.setMontanteVendas(valorFinalVenda);
+        double valorFinalVenda = venda[posVenda].getValorTotalDoCarrinho() * cliente[posCliente].cartaoFidelidade(); //valor Atual do carrinho * ajuste de cartao fidelidade
+        cliente[posCliente].setAcumuladoCompras(valorFinalVenda);    // atualizar o acumulado do cliente para compras futuras (cartao fidelidade)
+        Vendedor vendedor = (Vendedor) funcionario[posFuncionario];  //god typecast pra poder usar método de montante vendas do vendedor (afinal de contas só vendedor faz vendas)
+        vendedor.setMontanteVendas(valorFinalVenda);  // atualizacao do montate do vendedor pra aumentar o salario do coitado
+        venda[posVenda].setValorTotalDoCarrinho(valorFinalVenda);    //Atualizando o valor total da venda para fins tributarios
     }
-    
+
+    @Override
+    public double impostoSobreVendas() {
+        double vendasTotal = 0.0;
+        for (int i = 0; i < venda.length; i++) {
+            vendasTotal += venda[i].getValorTotalDoCarrinho();
+        }
+        return vendasTotal * 0.15;
+    }
+
+    @Override
+    public double impostoSobreSalarios() {
+        double salariosTotal = 0.0;
+        for (int i = 0; i < funcionario.length; i++) {
+            salariosTotal += funcionario[i].salarioFinal();
+        }
+        return salariosTotal * 0.18;
+    }
+
+    public void imprimeDadosFuncionarios() {
+        for (int i = 0; i < funcionario.length; i++) {
+            if (funcionario[i] != null) {
+                funcionario[i].imprimeDados();
+            }
+        }
+    }
+
+    public void imprimeDadosFornecedores() {
+        for (int i = 0; i < fornecedor.length; i++) {
+            if (fornecedor[i] != null) {
+                fornecedor[i].imprimeDados();
+            }
+        }
+    }
+
+    public void imprimeDadosClientes() {
+        for (int i = 0; i < cliente.length; i++) {
+            if (cliente[i] != null) {
+                cliente[i].imprimeDados();
+            }
+        }
+    }
+
+    public void imprimeDadosProdutos() {
+        for (int i = 0; i < estoque.getProdutos().length; i++) {
+            if (estoque.getProdutos()[i] != null) {
+                estoque.getProdutos()[i].imprimeDados();
+            }
+        }
+    }
+
+    public void imprimeDadosFuncionarios(String cpfFuncionario) {
+        if (consultaFuncionario(cpfFuncionario) != -1) {
+            funcionario[consultaFuncionario(cpfFuncionario)].imprimeDados();
+        }
+        else {
+            System.out.println("Funcionario inexistente");
+        }
+    }
+
+    public void imprimeDadosFornecedores(String cnpjFornecedor) {
+        if (consultaFornecedor(cnpjFornecedor) != -1) {
+            fornecedor[consultaFornecedor(cnpjFornecedor)].imprimeDados();
+        }
+        else {
+            System.out.println("Fornecedor inexistente");
+        }
+    }
+
+    public void imprimeDadosClientes(String cpfCliente) {
+        if (consultaCliente(cpfCliente) != -1) {
+            cliente[consultaCliente(cpfCliente)].imprimeDados();
+        }
+        else {
+            System.out.println("Cliente inexistente");
+        }
+    }
+
+    public void imprimeDadosProdutos(String infoProduto) {
+        if (estoque.consultaProduto(infoProduto) != -1) {
+            estoque.getProdutos()[estoque.consultaProduto(infoProduto)].imprimeDados();
+        }
+        else {
+            System.out.println("Produto inexistente");
+        }
+    }
 }

@@ -67,5 +67,4 @@ public abstract class Funcionarios implements Informacoes, Salario {
         System.out.println("Telefone: " + telefone);
 
     }
-
 }

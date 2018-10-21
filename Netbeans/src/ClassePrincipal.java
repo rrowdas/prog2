@@ -1,5 +1,3 @@
-package Teste;
-
 import java.util.Scanner;
 
 public class ClassePrincipal {
