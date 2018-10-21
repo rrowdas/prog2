@@ -4,10 +4,13 @@ import Clientes.Clientes;
 import Estoque.Estoque;
 import Fornecedores.Fornecedores;
 import Funcionarios.Funcionarios;
+import Funcionarios.Vendedor;
 import Vendas.Vendas;
+import Produtos.Produtos;
 
 public class PadTremBao {
 
+    private int posVenda, posFuncionario, posCliente;
     private Fornecedores[] fornecedor = new Fornecedores[10];
     private Funcionarios[] funcionario = new Funcionarios[10];
     private Clientes[] cliente = new Clientes[10];
@@ -193,55 +196,55 @@ public class PadTremBao {
     public void adicionaVenda(Vendas novaVenda) {
 
         boolean vendaAdicionado = false;
-        int guardarPosicaoVenda = -1;
-        int posCliente;
-        int posVendendor;
+        this.posCliente = consultaCliente(novaVenda.getCpfCliente());
+        this.posFuncionario = consultaFuncionario(novaVenda.getCpfVendedor());
 
-        if (consultaCliente(novaVenda.getCpfCliente()) != -1 && consultaFuncionario(novaVenda.getCpfVendedor()) != -1) {
-
-            posCliente = consultaCliente(novaVenda.getCpfCliente());
-            posVendendor = consultaFuncionario(novaVenda.getCpfVendedor());
+        if (posCliente != -1 && posFuncionario != -1) {
 
             for (int i = 0; i < venda.length && !vendaAdicionado; i++) {
                 if (venda[i] == null) {
                     venda[i] = novaVenda;
                     vendaAdicionado = true;
-                    guardarPosicaoVenda = i;
+                    this.posVenda = i;
                 }
             }
-
+        }
+        else {
+            System.out.println("CPF(s) não cadastrado(s), impossível realizar a venda.");
         }
 
         //NO FINAL DE TUDO, CHAMAMOS O CARRINHO TOTAL
-        System.out.println(venda[guardarPosicaoVenda].carrinhoTotal(cliente, funcionario));
-
+//        System.out.println(venda[guardarPosicaoVenda].carrinhoTotal(cliente, funcionario));
     }
 
-    public void adicionaP(String codigoProduto) {
+    //posicao, prodtoObjeto, Existe?, Qtde, adicionar, retirar 1 estoque, verificar status(mandar aviso)
+    public void adicionaProduto(String codigoProduto) {
+        int posProduto = estoque.consultaProduto(codigoProduto);    //retorna posicao do produto, -1 se nao existe
 
-        int guarda = -1;
-        boolean encontrouNull = false;
-
-        for (int i = 0; i < venda.length && !encontrouNull; i++) {
-            if (venda[i] == null) {
-                guarda = i - 1;
-                encontrouNull = true;
+        if (posProduto != -1) {                                     //nao esquecer do ELSE
+            Produtos auxProd = estoque.getProdutos()[posProduto];   // atribui a auxProd o Produto que foi consultado //MINHA DUVIDA DO APONTADOR DE MEMORIA
+            if (auxProd.getQuantidade() == 0) // ve se tem produto em estoque
+            {
+                System.out.println("Não há produto no estoque, REABASTECER!");
+            }
+            else {
+                venda[posVenda].adicionaProdutoCarrinho(auxProd);
+                //auxProd.setQuantidade(auxProd.getQuantidade()-1); ???????????????   reduzir 1 unidade
+                estoque.getProdutos()[posProduto].setQuantidade(estoque.getProdutos()[posProduto].getQuantidade() - 1);
+                if (estoque.getProdutos()[posProduto].getQuantidade() == 1) //ALERTA PRODUTO ACABANDO
+                {
+                    System.out.println("Possui apenas 1 produto, favor reabastecer. ");
+                }
             }
         }
-
-        int guardaPosicaoProduto = estoque.consultaProduto(codigoProduto);
-
-//        else {
-//
-//                    valorTotalDoCarrinho += produto[i].getPrecoFinal(); //Adiciona no carrinho o valor do produto
-//
-//                    produto[i].setQuantidade(produto[i].getQuantidade() - 1); //Retira uma unidade do produto
-//
-//                    if (produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
-//                    {
-//                        System.out.println("Possui apenas 1 produto, favor reabastecer. ");
-//                    }
-//                }
-        venda[guarda].adicionaProdutoCarrinho(codigoProduto);
     }
+
+    //totalvenda*fidelidade, adc no cliente, adc no vendedor
+    public void finalizaVenda() {
+        double valorFinalVenda = venda[posVenda].getValorTotalDoCarrinho() * cliente[posCliente].cartaoFidelidade();
+        cliente[posCliente].setAcumuladoCompras(valorFinalVenda);
+        Vendedor vendedor = (Vendedor) funcionario[posFuncionario];
+        vendedor.setMontanteVendas(valorFinalVenda);
+    }
+    
 }

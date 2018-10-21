@@ -10,13 +10,13 @@ public class Estoque {
         return produto;
     }
 
-    public int consultaProduto(String codigoProduto) {
+    public int consultaProduto(String infoProduto) {
         int posicao = -1;
         boolean existe = false;
 
         for (int i = 0; i < produto.length && !existe; i++) {
-            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(codigoProduto)) {
-                System.out.println("Esse codigo já possui cadastro");
+            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(infoProduto) || produto[i].getApelido().equalsIgnoreCase(infoProduto)) {
+                System.out.println("Esse produto já está cadastrado");
                 existe = true;
                 posicao = i;
             }
