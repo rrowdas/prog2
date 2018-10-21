@@ -11,14 +11,18 @@ import Produtos.Produtos;
 public class PadTremBao implements Impostos {
 
     private int posVenda, posFuncionario, posCliente;
-    private Fornecedores[] fornecedor = new Fornecedores[10];
+    private Fornecedores[] fornecedor = new Fornecedores[20];
     private Funcionarios[] funcionario = new Funcionarios[10];
-    private Clientes[] cliente = new Clientes[10];
-    private Vendas[] venda = new Vendas[50];
-    private Estoque estoque;
+    private Clientes[] cliente = new Clientes[40];
+    private final Vendas[] venda = new Vendas[50];
+    private final Estoque estoque;
 
     public PadTremBao(Estoque estoque) {
         this.estoque = estoque;
+    }
+
+    public Vendas[] getVenda() {
+        return venda;
     }
 
     public Fornecedores[] getFornecedor() {
@@ -93,7 +97,6 @@ public class PadTremBao implements Impostos {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int consultaFuncionario(String cpfFuncionario) {
         int posicao = -1;
         boolean existe = false;
@@ -128,7 +131,6 @@ public class PadTremBao implements Impostos {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void removeFuncionario(String funcionarioCpfExcluido) {
 
         boolean removido = false;
@@ -178,7 +180,6 @@ public class PadTremBao implements Impostos {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void removeCliente(String clienteCpfExcluido) {
 
         boolean removido = false;

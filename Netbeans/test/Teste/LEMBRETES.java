@@ -24,5 +24,7 @@ linha 219 padtrembao se mudar o aux muda tbm o orignal? sao 2 coisas apontando p
 a gente envia um produto do vetor de estoque p Vendas (adicionaProdutoCarrinho)
 
 Adicionamos um objeto da classe Produto nos metodos, no UML precisa puxar alguma seta????
+
+coloquei FINAL no PADTREMBAO vetor vendas e estoque (tirar se dar erro) *roger
 */
 
