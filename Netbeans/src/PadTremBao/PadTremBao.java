@@ -15,11 +15,12 @@ public class PadTremBao implements Impostos {
     private Funcionarios[] funcionario = new Funcionarios[10];
     private Clientes[] cliente = new Clientes[40];
     private final Vendas[] venda = new Vendas[50];
-    private final Estoque estoque;
+    private final Estoque estoque = new Estoque();
 
-    public PadTremBao(Estoque estoque) {
-        this.estoque = estoque;
-    }
+//    public PadTremBao(Estoque estoque) {
+//        this.estoque = estoque;
+//    }
+    
 
     public Vendas[] getVenda() {
         return venda;
@@ -68,8 +69,7 @@ public class PadTremBao implements Impostos {
         boolean cadastrado = false;
         if (consultaFornecedor(novoFornecedor.getCnpj()) != -1) {
             System.out.println("Esse fornecedor já está cadastrado.");
-        }
-        else {
+        } else {
             for (int i = 0; i < fornecedor.length && !cadastrado; i++) {
                 if (fornecedor[i] == null) {
                     System.out.println("Fornecedor " + novoFornecedor.getNome() + " cadastrado");
@@ -91,8 +91,7 @@ public class PadTremBao implements Impostos {
         if (posicao != -1) {
             fornecedor[posicao] = null;
             System.out.println("O Fornecedor " + fornecedor[posicao].getNome() + " foi removido.");
-        }
-        else {
+        } else {
             System.out.println("Fornecedor não encontrado. Tente novamente com um CNPJ válido.");
         }
     }
@@ -116,8 +115,7 @@ public class PadTremBao implements Impostos {
         boolean cadastrado = false;
         if (consultaFuncionario(novoFuncionario.getCpf()) != -1) {
             System.out.println("Esse funcionario já está cadastrado.");
-        }
-        else {
+        } else {
             for (int i = 0; i < funcionario.length && !cadastrado; i++) {
                 if (funcionario[i] == null) {
                     System.out.println("Funcionario " + novoFuncionario.getNome() + " cadastrado");
@@ -139,8 +137,7 @@ public class PadTremBao implements Impostos {
         if (posicao != -1) {
             funcionario[posicao] = null;
             System.out.println("O Funcionario " + funcionario[posicao].getNome() + " foi removido.");
-        }
-        else {
+        } else {
             System.out.println("Funcionario não encontrado. Tente novamente com um CPF válido.");
         }
     }
@@ -165,8 +162,7 @@ public class PadTremBao implements Impostos {
         boolean cadastrado = false;
         if (consultaCliente(novoCliente.getCpf()) != -1) {
             System.out.println("Esse cliente já está cadastrado.");
-        }
-        else {
+        } else {
             for (int i = 0; i < cliente.length && !cadastrado; i++) {
                 if (cliente[i] == null) {
                     System.out.println("Cliente " + novoCliente.getNome() + " cadastrado");
@@ -188,8 +184,7 @@ public class PadTremBao implements Impostos {
         if (posicao != -1) {
             cliente[posicao] = null;
             System.out.println("O Cliente " + cliente[posicao].getNome() + " foi removido.");
-        }
-        else {
+        } else {
             System.out.println("Cliente não encontrado. Tente novamente com um CPF válido.");
         }
     }
@@ -209,8 +204,7 @@ public class PadTremBao implements Impostos {
                     this.posVenda = i;
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("CPF(s) não cadastrado(s), impossível realizar a venda.");
         }
 
@@ -227,8 +221,7 @@ public class PadTremBao implements Impostos {
             if (auxProd.getQuantidade() == 0) // ve se tem produto em estoque
             {
                 System.out.println("Não há produto no estoque, REABASTECER!");
-            }
-            else {
+            } else {
                 venda[posVenda].adicionaProdutoCarrinho(auxProd);
                 //auxProd.setQuantidade(auxProd.getQuantidade()-1); ???????????????   reduzir 1 unidade
                 estoque.getProdutos()[posProduto].setQuantidade(estoque.getProdutos()[posProduto].getQuantidade() - 1);
@@ -302,8 +295,7 @@ public class PadTremBao implements Impostos {
     public void imprimeDadosFuncionarios(String cpfFuncionario) {
         if (consultaFuncionario(cpfFuncionario) != -1) {
             funcionario[consultaFuncionario(cpfFuncionario)].imprimeDados();
-        }
-        else {
+        } else {
             System.out.println("Funcionario inexistente");
         }
     }
@@ -311,8 +303,7 @@ public class PadTremBao implements Impostos {
     public void imprimeDadosFornecedores(String cnpjFornecedor) {
         if (consultaFornecedor(cnpjFornecedor) != -1) {
             fornecedor[consultaFornecedor(cnpjFornecedor)].imprimeDados();
-        }
-        else {
+        } else {
             System.out.println("Fornecedor inexistente");
         }
     }
@@ -320,8 +311,7 @@ public class PadTremBao implements Impostos {
     public void imprimeDadosClientes(String cpfCliente) {
         if (consultaCliente(cpfCliente) != -1) {
             cliente[consultaCliente(cpfCliente)].imprimeDados();
-        }
-        else {
+        } else {
             System.out.println("Cliente inexistente");
         }
     }
@@ -329,8 +319,7 @@ public class PadTremBao implements Impostos {
     public void imprimeDadosProdutos(String infoProduto) {
         if (estoque.consultaProduto(infoProduto) != -1) {
             estoque.getProdutos()[estoque.consultaProduto(infoProduto)].imprimeDados();
-        }
-        else {
+        } else {
             System.out.println("Produto inexistente");
         }
     }
