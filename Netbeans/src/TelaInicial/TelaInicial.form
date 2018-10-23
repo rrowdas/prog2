@@ -59,17 +59,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="label1" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBRealizarVendas" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="jBManipularCadastros" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jBConsultarDados" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="jBAdministracaoGeral" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+=======
+              <EmptySpace pref="141" max="32767" attributes="0"/>
+              <Component id="jBConsultarDados" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+>>>>>>> 6687990e3cca2586e386047346c8bcadb3fadfa6
           </Group>
       </Group>
     </DimensionLayout>

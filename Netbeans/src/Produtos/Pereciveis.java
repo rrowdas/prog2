@@ -1,6 +1,7 @@
 package Produtos;
 
 import Fornecedores.Fornecedores;
+import Fornecedores.Recorrente;
 
 public class Pereciveis extends Produtos {
 
@@ -18,6 +19,10 @@ public class Pereciveis extends Produtos {
         this.diaValidade = diaValidade;
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;
+    }
+
+    public Pereciveis(String pão, String string, Recorrente r1, int i, int i0, int i1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getDiaValidade() {
