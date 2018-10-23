@@ -19,10 +19,11 @@ public class Gerente extends Funcionarios {
 
     @Override
     public void imprimeDados() {
+        System.out.println();
         System.out.println("GERENTE");
         System.out.println();
 
         super.imprimeDados();
-        salarioFinal();
+        System.out.printf("R$ %.2f\n", salarioFinal());
     }
 }
