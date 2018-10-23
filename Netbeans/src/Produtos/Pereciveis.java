@@ -21,9 +21,7 @@ public class Pereciveis extends Produtos {
         this.anoValidade = anoValidade;
     }
 
-    public Pereciveis(String pão, String string, Recorrente r1, int i, int i0, int i1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
     public int getDiaValidade() {
         return this.diaValidade;

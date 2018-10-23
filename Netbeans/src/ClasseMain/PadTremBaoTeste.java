@@ -108,8 +108,6 @@ public class PadTremBaoTeste {
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         //TESTANDO O PRODUTO
-        Pereciveis 
-        Pereciveis pao = new Pereciveis("Pão", "123456", r1, 4.00, "Cacetinho", 1, 12, 5, 2018);
 
 
 
