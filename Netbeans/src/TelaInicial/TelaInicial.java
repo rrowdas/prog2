@@ -5,6 +5,8 @@
  */
 package TelaInicial;
 
+import TelaInicial.ManipularCadastros.ManipularCadastros;
+import TelaInicial.ManipularCadastros.ManipularCadastros3;
 import TelaInicial.Vendas.AbrirVenda;
 
 /**
@@ -20,7 +22,6 @@ public class TelaInicial extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +48,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jBManipularCadastro.setFont(new java.awt.Font("DejaVu Sans", 0, 32)); // NOI18N
         jBManipularCadastro.setText("Manipular Cadastros");
+        jBManipularCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBManipularCadastroActionPerformed(evt);
+            }
+        });
 
         jBRealizarVenda.setFont(new java.awt.Font("DejaVu Sans", 0, 32)); // NOI18N
         jBRealizarVenda.setText("Realizar Venda");
@@ -130,12 +136,18 @@ public class TelaInicial extends javax.swing.JFrame {
         AbrirVenda venda = new AbrirVenda();
         venda.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jBRealizarVendaActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jBManipularCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBManipularCadastroActionPerformed
+        ManipularCadastros manipular = new ManipularCadastros();
+        manipular.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jBManipularCadastroActionPerformed
 
     /**
      * @param args the command line arguments

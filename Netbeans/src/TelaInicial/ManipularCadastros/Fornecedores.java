@@ -27,9 +27,96 @@ public class Fornecedores extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jBAdicionarNovo1 = new javax.swing.JButton();
+        jBRemover1 = new javax.swing.JButton();
+        jBAtualizarDados1 = new javax.swing.JButton();
         jBAdicionarNovo = new javax.swing.JButton();
         jBRemover = new javax.swing.JButton();
         jBAtualizarDados = new javax.swing.JButton();
+
+        jInternalFrame1.setClosable(true);
+        jInternalFrame1.setIconifiable(true);
+        jInternalFrame1.setMaximizable(true);
+        jInternalFrame1.setResizable(true);
+        try {
+            jInternalFrame1.setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
+
+        jBAdicionarNovo1.setText("Adicionar Novo");
+        jBAdicionarNovo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAdicionarNovo1ActionPerformed(evt);
+            }
+        });
+
+        jBRemover1.setText("Remover");
+        jBRemover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRemover1ActionPerformed(evt);
+            }
+        });
+
+        jBAtualizarDados1.setText("Atualizar Dados");
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBRemover1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAtualizarDados1)
+                    .addComponent(jBAdicionarNovo1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(125, 125, 125))
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jBAdicionarNovo1)
+                .addGap(18, 18, 18)
+                .addComponent(jBRemover1)
+                .addGap(18, 18, 18)
+                .addComponent(jBAtualizarDados1)
+                .addGap(90, 90, 90))
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        setClosable(true);
+        setForeground(java.awt.Color.lightGray);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        try {
+            setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
 
         jBAdicionarNovo.setText("Adicionar Novo");
         jBAdicionarNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -82,10 +169,23 @@ public class Fornecedores extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBRemoverActionPerformed
 
+    private void jBAdicionarNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarNovo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBAdicionarNovo1ActionPerformed
+
+    private void jBRemover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRemover1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBRemover1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAdicionarNovo;
+    private javax.swing.JButton jBAdicionarNovo1;
     private javax.swing.JButton jBAtualizarDados;
+    private javax.swing.JButton jBAtualizarDados1;
     private javax.swing.JButton jBRemover;
+    private javax.swing.JButton jBRemover1;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     // End of variables declaration//GEN-END:variables
 }
