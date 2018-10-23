@@ -30,7 +30,7 @@ public class ManipularCadastros extends javax.swing.JInternalFrame {
         jBClientes = new javax.swing.JButton();
         jBFornecedores = new javax.swing.JButton();
         jBFuncionarios = new javax.swing.JButton();
-        jBProdutos = new javax.swing.JButton();
+        jBEstoque = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -54,7 +54,7 @@ public class ManipularCadastros extends javax.swing.JInternalFrame {
 
         jBFuncionarios.setText("Funcionários");
 
-        jBProdutos.setText("Produtos");
+        jBEstoque.setText("Estoque");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,12 +67,12 @@ public class ManipularCadastros extends javax.swing.JInternalFrame {
                     .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jBProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jBEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                     .addComponent(jBFornecedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(55, 55, 55))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBClientes, jBFornecedores, jBFuncionarios, jBProdutos});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBClientes, jBEstoque, jBFornecedores, jBFuncionarios});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,11 +84,11 @@ public class ManipularCadastros extends javax.swing.JInternalFrame {
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBFuncionarios)
-                    .addComponent(jBProdutos))
+                    .addComponent(jBEstoque))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBClientes, jBFornecedores, jBFuncionarios, jBProdutos});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBClientes, jBEstoque, jBFornecedores, jBFuncionarios});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,8 +104,8 @@ public class ManipularCadastros extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBClientes;
+    private javax.swing.JButton jBEstoque;
     private javax.swing.JButton jBFornecedores;
     private javax.swing.JButton jBFuncionarios;
-    private javax.swing.JButton jBProdutos;
     // End of variables declaration//GEN-END:variables
 }
