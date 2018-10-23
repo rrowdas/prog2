@@ -11,16 +11,15 @@ import Produtos.Produtos;
 public class PadTremBao implements Impostos {
 
     private int posVenda, posFuncionario, posCliente;
-    private Fornecedores[] fornecedor = new Fornecedores[20];
+    private Fornecedores[] fornecedor;
     private Funcionarios[] funcionario = new Funcionarios[10];
     private Clientes[] cliente = new Clientes[40];
     private final Vendas[] venda = new Vendas[50];
     private final Estoque estoque = new Estoque();
 
-//    public PadTremBao(Estoque estoque) {
-//        this.estoque = estoque;
-//    }
-    
+    public PadTremBao() {
+        this.fornecedor = new Fornecedores[20];
+    }
 
     public Vendas[] getVenda() {
         return venda;

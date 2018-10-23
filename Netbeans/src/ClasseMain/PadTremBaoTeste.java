@@ -29,7 +29,7 @@ public class PadTremBaoTeste {
 
     public static void main(String[] args) {
 
-        Janelas janela = new Janelas();
+        Menu janela = new Menu();
         Scanner teclado = new Scanner(System.in);
 
         //TESTANDO APENAS O RECORRENTE!!
@@ -113,7 +113,7 @@ public class PadTremBaoTeste {
         ////////////////////////////////////////////////////////////////////////////////////////////////
         // UI
         
-        janela.telaInicial();
-
+        Init inicio = new Init();
+        inicio.menu();
     }
 }
