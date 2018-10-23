@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TelaInicial;
+package TelaInicial.ManipularCadastros;
 
 /**
  *
  * @author roger
  */
-public class Clientes extends javax.swing.JInternalFrame {
+public class Fornecedores extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Clientes
+     * Creates new form Fornecedores
      */
-    public Clientes() {
+    public Fornecedores() {
         initComponents();
     }
 
@@ -30,13 +30,6 @@ public class Clientes extends javax.swing.JInternalFrame {
         jBAdicionarNovo = new javax.swing.JButton();
         jBRemover = new javax.swing.JButton();
         jBAtualizarDados = new javax.swing.JButton();
-
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
-        setTitle("Clientes");
-        setVisible(true);
 
         jBAdicionarNovo.setText("Adicionar Novo");
         jBAdicionarNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -66,9 +59,6 @@ public class Clientes extends javax.swing.JInternalFrame {
                     .addComponent(jBAdicionarNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(125, 125, 125))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBAdicionarNovo, jBAtualizarDados, jBRemover});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -80,8 +70,6 @@ public class Clientes extends javax.swing.JInternalFrame {
                 .addComponent(jBAtualizarDados)
                 .addGap(90, 90, 90))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBAdicionarNovo, jBAtualizarDados, jBRemover});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
