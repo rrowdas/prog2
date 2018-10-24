@@ -8,9 +8,9 @@ public abstract class Funcionarios implements Informacoes, Salario {
     protected String endereco;
     protected String cpf;
     protected String telefone;
-    protected double salarioBase;
+    protected String salarioBase;
 
-    public Funcionarios(String nome, String endereco, String cpf, String telefone, double salarioBase) {
+    public Funcionarios(String nome, String endereco, String cpf, String telefone, String salarioBase) {
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
@@ -50,11 +50,11 @@ public abstract class Funcionarios implements Informacoes, Salario {
         this.telefone = telefone;
     }
 
-    public double getSalarioBase() {
+    public String getSalarioBase() {
         return salarioBase;
     }
 
-    public void setSalarioBase(double salarioBase) {
+    public void setSalarioBase(String salarioBase) {
         this.salarioBase = salarioBase;
     }
 

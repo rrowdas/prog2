@@ -2,41 +2,44 @@ package Funcionarios;
 
 public class Padeiro extends Funcionarios {
 
-    private int horasAlternativas;
-    private int horasNormais;
+    private String horasAlternativas;
+    private String horasNormais;
 
-    public Padeiro(String nome, String endereco, String cpf, String telefone, double salarioBase, int horasNormais,
-            int horasAlternativas) {
+    public Padeiro(String nome, String endereco, String cpf, String telefone, String salarioBase, String horasNormais,
+            String horasAlternativas) {
         super(nome, endereco, cpf, telefone, salarioBase);
         this.horasNormais = horasNormais;
         this.horasAlternativas = horasAlternativas;
     }
 
-    public int getHorasNormais() {
+    public String getHorasNormais() {
         return horasNormais;
     }
 
-    public void sethorasNormais(int horasNormais) {
+    public void sethorasNormais(String horasNormais) {
         this.horasNormais = horasNormais;
     }
 
-    public int getHorasAlternativas() {
+    public String getHorasAlternativas() {
         return horasAlternativas;
     }
 
-    public void setHorasAlternativas(int horasAlternativas) {
+    public void setHorasAlternativas(String horasAlternativas) {
         this.horasAlternativas = horasAlternativas;
     }
 
     @Override
     public double salarioFinal() {
         double bonificacao, somaTotal, salarioHora;
+        double sb = Double.parseDouble(salarioBase);
+        int hN = Integer.parseInt(horasNormais),
+                hA = Integer.parseInt(horasAlternativas);
+        
+        salarioHora = sb / (hN + hA);
 
-        salarioHora = salarioBase / (horasNormais + horasAlternativas);
+        bonificacao = hA * (salarioHora * 1.25);
 
-        bonificacao = horasAlternativas * (salarioHora * 1.25);
-
-        somaTotal = bonificacao + salarioBase;
+        somaTotal = bonificacao + sb;
 
         /*
 		 * System.out.printf("Salário por hora: R$%.2f\n", salarioHora);

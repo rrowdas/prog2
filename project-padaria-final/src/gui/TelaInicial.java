@@ -5,6 +5,9 @@
  */
 package gui;
 
+import Clientes.Clientes;
+import Fornecedores.Ocasional;
+import Fornecedores.Recorrente;
 import PadTremBao.PadTremBao;
 import gui.internals.clientes.CadastrarCliente;
 import gui.internals.clientes.ListarCliente;
@@ -12,6 +15,10 @@ import gui.internals.clientes.RemoverCliente;
 import gui.internals.fornecedores.CadastrarFornecedor;
 import gui.internals.fornecedores.ListarFornecedor;
 import gui.internals.fornecedores.RemoverFornecedor;
+import gui.internals.funcionarios.CadastrarFuncionarios;
+import gui.internals.funcionarios.EditarFuncionarios;
+import gui.internals.funcionarios.ListarFuncionarios;
+import gui.internals.funcionarios.RemoverFuncionarios;
 
 
 /**
@@ -29,6 +36,62 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
+        
+        Clientes c1 = new Clientes("Menino Neymar", "14 de julho", "99947123548", "4002-6400");
+
+        c1.imprimeDados();
+        //Aplicando os sets aqui!
+        c1.setNome("Junior");
+        c1.setCpf("100012378945");
+        c1.setEndereco("Bosque dos Ypes");
+        c1.setTelefone("4002-8922");
+        c1.setAcumuladoCompras(150);
+        c1.imprimeDados();
+    
+        Clientes c2 = new Clientes("Coutinho", "Marechal Rondon", "15935746820", "9214-7412");
+        Clientes c3 = new Clientes("Marcelo camisa 6", "Euclides da Cunha", "47850000000", "7894-1563");
+        Clientes c4 = new Clientes("Gabriel Jesus", "Afonso Pena", "22223335647", "4569-8712");
+        Clientes c5 = new Clientes("Antonio", "Bom Pastor", "96357835484", "1645-2398");
+        Clientes c6 = new Clientes("Alex", "Rua Goias", "55557123548", "3305-5033");
+        Clientes c7 = new Clientes("Wesley", "Mato Grosso", "59963214548", "7777-8888");
+        Clientes c8 = new Clientes("Rodrigo", "Rua Jupiter", "77415289631", "4563-2198");
+        Clientes c9 = new Clientes("Pedro", "Rua Ceara", "33947123000", "7412-5896");
+        Clientes c10 = new Clientes("Isabela", "Rua 3 Coracoes", "44444123000", "7412-5896");
+        
+        c2.setAcumuladoCompras(201);
+        
+        c3.setAcumuladoCompras(250);
+        
+        c4.setAcumuladoCompras(100);
+        
+        c5.setAcumuladoCompras(120);
+        
+        padaria.cadastraCliente(c1);
+        padaria.cadastraCliente(c2);
+        padaria.cadastraCliente(c3);
+        padaria.cadastraCliente(c4);
+        padaria.cadastraCliente(c5);
+        padaria.cadastraCliente(c6);
+        padaria.cadastraCliente(c7);
+        padaria.cadastraCliente(c8);
+        padaria.cadastraCliente(c9);
+        padaria.cadastraCliente(c10);
+        
+        Ocasional oc1 = new Ocasional("Anderson", "Calogeras", "14785236995124");
+        Ocasional oc2 = new Ocasional("Flavio", "Rua Aleatoria", "14785236995124");
+        Ocasional oc3 = new Ocasional("Rafael", "Centro", "45698712104578");
+        Ocasional oc4 = new Ocasional("Henrique", "Jarim Paulista", "96321478501236");
+        Recorrente rec5 = new Recorrente("Alexandra", "Rua Amazonas", "33333123548635", "0.3");
+        Recorrente rec6 = new Recorrente("Wesley", "Mato Grosso", "77778888999945", "0.4");
+        Recorrente rec7 = new Recorrente("Renata", "Rua Jupiter", "456321981234567", "0.4");
+
+        padaria.cadastraFornecedor(oc1);
+        padaria.cadastraFornecedor(oc2);
+        padaria.cadastraFornecedor(oc3);
+        padaria.cadastraFornecedor(oc4);
+        padaria.cadastraFornecedor(rec5);
+        padaria.cadastraFornecedor(rec6);
+        padaria.cadastraFornecedor(rec7);
     }
 
     /**
@@ -42,16 +105,21 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        Clientes = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jmListaCliente = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        Fornecedores = new javax.swing.JMenu();
         jmCadastrarFornecedor = new javax.swing.JMenuItem();
         jmRemoverFornecedor = new javax.swing.JMenuItem();
         jmListarFornecedor = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        Funcionarios = new javax.swing.JMenu();
+        jmCadastrarFornecedor1 = new javax.swing.JMenuItem();
+        jmRemoverFornecedor1 = new javax.swing.JMenuItem();
+        jmListarFornecedor1 = new javax.swing.JMenuItem();
+        Estoque = new javax.swing.JMenu();
+        RealizarVenda = new javax.swing.JMenu();
+        DefinirPadroes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +134,7 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Clientes");
+        Clientes.setText("Clientes");
 
         jMenuItem1.setText("Cadastrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +142,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        Clientes.add(jMenuItem1);
 
         jMenuItem3.setText("Remover");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +150,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        Clientes.add(jMenuItem3);
 
         jmListaCliente.setText("Listar e Editar");
         jmListaCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -90,11 +158,11 @@ public class TelaInicial extends javax.swing.JFrame {
                 jmListaClienteActionPerformed(evt);
             }
         });
-        jMenu1.add(jmListaCliente);
+        Clientes.add(jmListaCliente);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Clientes);
 
-        jMenu2.setText("Fornecedor");
+        Fornecedores.setText("Fornecedores");
 
         jmCadastrarFornecedor.setText("Cadastrar");
         jmCadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +170,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jmCadastrarFornecedorActionPerformed(evt);
             }
         });
-        jMenu2.add(jmCadastrarFornecedor);
+        Fornecedores.add(jmCadastrarFornecedor);
 
         jmRemoverFornecedor.setText("Remover");
         jmRemoverFornecedor.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +178,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 jmRemoverFornecedorActionPerformed(evt);
             }
         });
-        jMenu2.add(jmRemoverFornecedor);
+        Fornecedores.add(jmRemoverFornecedor);
 
         jmListarFornecedor.setText("Listar e Editar");
         jmListarFornecedor.addActionListener(new java.awt.event.ActionListener() {
@@ -118,15 +186,46 @@ public class TelaInicial extends javax.swing.JFrame {
                 jmListarFornecedorActionPerformed(evt);
             }
         });
-        jMenu2.add(jmListarFornecedor);
+        Fornecedores.add(jmListarFornecedor);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(Fornecedores);
 
-        jMenu3.setText("Realizar Venda");
-        jMenuBar1.add(jMenu3);
+        Funcionarios.setText("Funcionários");
 
-        jMenu5.setText("Definir Padrões");
-        jMenuBar1.add(jMenu5);
+        jmCadastrarFornecedor1.setText("Cadastrar");
+        jmCadastrarFornecedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCadastrarFornecedor1ActionPerformed(evt);
+            }
+        });
+        Funcionarios.add(jmCadastrarFornecedor1);
+
+        jmRemoverFornecedor1.setText("Remover");
+        jmRemoverFornecedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmRemoverFornecedor1ActionPerformed(evt);
+            }
+        });
+        Funcionarios.add(jmRemoverFornecedor1);
+
+        jmListarFornecedor1.setText("Listar e Editar");
+        jmListarFornecedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmListarFornecedor1ActionPerformed(evt);
+            }
+        });
+        Funcionarios.add(jmListarFornecedor1);
+
+        jMenuBar1.add(Funcionarios);
+
+        Estoque.setText("Estoque");
+        jMenuBar1.add(Estoque);
+
+        RealizarVenda.setText("Realizar Venda");
+        jMenuBar1.add(RealizarVenda);
+
+        DefinirPadroes.setText("Definir Padrões");
+        jMenuBar1.add(DefinirPadroes);
 
         setJMenuBar(jMenuBar1);
 
@@ -187,6 +286,25 @@ public class TelaInicial extends javax.swing.JFrame {
         rmFornecedor.setVisible(true);
     }//GEN-LAST:event_jmRemoverFornecedorActionPerformed
 
+    private void jmCadastrarFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedor1ActionPerformed
+        CadastrarFuncionarios addFunc = new CadastrarFuncionarios();
+        jDesktopPane1.add(addFunc);
+        addFunc.setVisible(true);
+        
+    }//GEN-LAST:event_jmCadastrarFornecedor1ActionPerformed
+
+    private void jmRemoverFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRemoverFornecedor1ActionPerformed
+       RemoverFuncionarios rmFunc = new RemoverFuncionarios();
+       jDesktopPane1.add(rmFunc);
+       rmFunc.setVisible(true);
+    }//GEN-LAST:event_jmRemoverFornecedor1ActionPerformed
+
+    private void jmListarFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedor1ActionPerformed
+        ListarFuncionarios lsF = new ListarFuncionarios();
+        jDesktopPane1.add(lsF);
+        lsF.setVisible(true);
+    }//GEN-LAST:event_jmListarFornecedor1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,17 +341,22 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Clientes;
+    private javax.swing.JMenu DefinirPadroes;
+    private javax.swing.JMenu Estoque;
+    private javax.swing.JMenu Fornecedores;
+    private javax.swing.JMenu Funcionarios;
+    private javax.swing.JMenu RealizarVenda;
     public static javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmCadastrarFornecedor;
+    private javax.swing.JMenuItem jmCadastrarFornecedor1;
     private javax.swing.JMenuItem jmListaCliente;
     private javax.swing.JMenuItem jmListarFornecedor;
+    private javax.swing.JMenuItem jmListarFornecedor1;
     private javax.swing.JMenuItem jmRemoverFornecedor;
+    private javax.swing.JMenuItem jmRemoverFornecedor1;
     // End of variables declaration//GEN-END:variables
 }
