@@ -92,7 +92,7 @@ public abstract class Vendas { // Estoque
             }
             else {
                 carrinhoCompras[i] = novoProduto;
-                valorTotalDoCarrinho += novoProduto.getPrecoFinal(); //Adiciona no carrinho o valor do produto
+                valorTotalDoCarrinho += Double.parseDouble(novoProduto.getPrecoFinal()); //Adiciona no carrinho o valor do produto
             }
         }
     }

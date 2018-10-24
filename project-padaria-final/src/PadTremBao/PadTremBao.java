@@ -206,7 +206,7 @@ public class PadTremBao implements Impostos {
     
     public Funcionarios dadosFuncionario (String codigo) {
         Funcionarios aux = null;
-        if (consultaFornecedor(codigo) != -1) {
+        if (consultaFuncionario(codigo) != -1) {
             //fornecedor[consultaFornecedor(cnpjFornecedor)].imprimeDados();
             aux = funcionario[consultaFuncionario(codigo)];
         } else {
@@ -301,14 +301,15 @@ public class PadTremBao implements Impostos {
 
         if (posProduto != -1) {                                     //nao esquecer do ELSE
             Produtos auxProd = estoque.getProdutos()[posProduto];   // atribui a auxProd o Produto que foi consultado //MINHA DUVIDA DO APONTADOR DE MEMORIA
-            if (auxProd.getQuantidade() == 0) // ve se tem produto em estoque
+            if (auxProd.getQuantidade().equalsIgnoreCase("0")) // ve se tem produto em estoque
             {
                 System.out.println("Não há produto no estoque, REABASTECER!");
             } else {
                 venda[posVenda].adicionaProdutoCarrinho(auxProd);
                 //auxProd.setQuantidade(auxProd.getQuantidade()-1); ???????????????   reduzir 1 unidade
-                estoque.getProdutos()[posProduto].setQuantidade(estoque.getProdutos()[posProduto].getQuantidade() - 1);
-                if (estoque.getProdutos()[posProduto].getQuantidade() == 1) //ALERTA PRODUTO ACABANDO
+                int auxInt = Integer.parseInt(estoque.getProdutos()[posProduto].getQuantidade()) -1;
+                estoque.getProdutos()[posProduto].setQuantidade(String.valueOf(auxInt));
+                if (estoque.getProdutos()[posProduto].getQuantidade().equalsIgnoreCase("1")) //ALERTA PRODUTO ACABANDO
                 {
                     System.out.println("Possui apenas 1 produto, favor reabastecer. ");
                 }

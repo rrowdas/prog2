@@ -7,44 +7,44 @@ public abstract class Produtos implements Informacoes {
 
     protected String nome;
     protected String codigo;
-    protected Fornecedores fornecedor;
-    protected double precoCusto, precoFinal;
+    protected String fornecedor;
+    protected String precoCusto, precoFinal;
     protected String apelido;
-    protected int quantidade;
+    protected String quantidade;
 
-    public Produtos(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, String apelido, int quantidade) {
+    public Produtos(String nome, String codigo, String fornecedor, String precoCusto, String precoFinal, String apelido, String quantidade) {
         this.nome = nome;
         this.codigo = codigo;
         this.fornecedor = fornecedor;
-        setPrecoCusto(precoCusto);
+//        setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = apelido;
         this.quantidade = quantidade;
     }
 
-    public Produtos(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, int quantidade) {
+    public Produtos(String nome, String codigo, String fornecedor, String precoCusto, String precoFinal, String quantidade) {
         this.nome = nome;
         this.codigo = codigo;
         this.fornecedor = fornecedor;
-        setPrecoCusto(precoCusto);
+//        setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = "Sem apelido";
         this.quantidade = quantidade;
     }
 
-    public Fornecedores getFornecedor() {
+    public String getFornecedor() {
         return fornecedor;
     }
 
-    public void setFornecedor(Fornecedores fornecedor) {
+    public void setFornecedor(String fornecedor) {
         this.fornecedor = fornecedor;
     }
 
-    public int getQuantidade() {
+    public String getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int novaQuantidade) {
+    public void setQuantidade(String novaQuantidade) {
 
         this.quantidade = novaQuantidade;
     }
@@ -73,21 +73,21 @@ public abstract class Produtos implements Informacoes {
         this.codigo = codigo;
     }
 
-    public double getPrecoFinal() {
+    public String getPrecoFinal() {
         return precoFinal;
     }
 
-    public void setPrecoFinal(double precoFinal) {
+    public void setPrecoFinal(String precoFinal) {
         this.precoFinal = precoFinal;
     }
 
-    public double getPrecoCusto() {
+    public String getPrecoCusto() {
         return precoCusto;
     }
 
-    public void setPrecoCusto(double precoCusto) {
-        this.precoCusto = precoCusto * (1 - Double.parseDouble(fornecedor.getTaxaDesconto()));
-    }
+//    public void setPrecoCusto(double precoCusto) {
+//        this.precoCusto = precoCusto * (1 - Double.parseDouble(fornecedor.getTaxaDesconto()));
+//    }
 
     @Override
     public void imprimeDados() {

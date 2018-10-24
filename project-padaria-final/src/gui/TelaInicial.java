@@ -6,6 +6,9 @@
 package gui;
 
 import Clientes.Clientes;
+import Produtos.NaoPereciveis;
+import Produtos.Pereciveis;
+import Produtos.Produtos;
 import Fornecedores.Ocasional;
 import Fornecedores.Recorrente;
 import Funcionarios.Gerente;
@@ -105,6 +108,29 @@ public class TelaInicial extends javax.swing.JFrame {
         padaria.cadastraFuncionario(ven3);
         padaria.cadastraFuncionario(ger4);
         padaria.cadastraFuncionario(padeiro5);
+
+//                 milho, macarrão, feijão, soja, arroz, café, fubá, açúcar, polvilho, farinha de trigo, cevada, farelo de trigo, leite em pó, óleo, biscoitos, pipoca, achocolatado e gelatina em pó.  
+        NaoPereciveis milho = new NaoPereciveis("Milho", "111111", "11111111111111", "2.00", "6.00", "50");
+        NaoPereciveis cafe = new NaoPereciveis("Cafe", "222222", "22222222222222", "2.00", "8.00", "100");
+        NaoPereciveis gelatinaEmPo = new NaoPereciveis("Gelatina em pó", "333333", "33333333333333", "1.00", "4.00", "50");
+        NaoPereciveis acucar = new NaoPereciveis("Acucar", "444444", "44444444444444", "3.00", "6.00", "40");
+        NaoPereciveis trigo = new NaoPereciveis("Farinha de Trigo", "555555", "55555555555555", "3.00", "5.00", "50");
+        NaoPereciveis leite = new NaoPereciveis("Leite em pó", "66666", "11111111111111", "1.50", "4.00", "60");
+        NaoPereciveis trakinas = new NaoPereciveis("Trakinas", "777777", "33333333333333", "1.00", "3.50", "50");
+        NaoPereciveis oleo = new NaoPereciveis("Oleo", "888888", "22222222222222", "1.50", "3.50", "40");
+        NaoPereciveis achocolatado = new NaoPereciveis("Achocolatado", "999999", "22222222222222", "2.00", "5.00", "30");
+        NaoPereciveis fuba = new NaoPereciveis("Fuba", "101010", "55555555555555", "2.00", "6.00", "20");
+
+        Pereciveis pao = new Pereciveis("Pão", "000000", "00000000000000", "5.00", "13.00", "Cacetinho", "40", "12", "12", "2018");
+        Pereciveis brigadeiro = new Pereciveis("Brigadeiro", "111222", "00000000000000", "1.00", "3.00", "Negrinho", "60", "1", "12", "2019");
+        Pereciveis geladinho = new Pereciveis("Geladinho", "111000", "00000000000000", "0.50", "2.00", "Chup-chup", "50", "25", "11", "2019");
+        Pereciveis mingau = new Pereciveis("Mingau", "123000", "11111111111111", "4.00", "10.00", "Canjica", "30", "12", "3", "2019");
+        Pereciveis aimpim = new Pereciveis("Aimpim", "787878", "00000000000000", "6.00", "9.00", "Mandioca", "40", "21", "7", "2019");
+        Pereciveis esfiha = new Pereciveis("Esfiha", "020202", "66666666666666", "2.00", "4.00", "100", "26", "10", "2019");
+        Pereciveis chipa = new Pereciveis("Chipa", "808080", "66666666666666", "2.00", "4.00", "Pao de queijo", "100", "23", "4", "2019");
+        Pereciveis pastel = new Pereciveis("Pastel", "141414", "66666666666666", "2.00", "4.00", "100", "13", "7", "2019");
+        Pereciveis quibe = new Pereciveis("Quibe", "505050", "66666666666666", "2.00", "4.00", "100", "29", "8", "2019");
+        Pereciveis enroladinho = new Pereciveis("Enroladinho", "313131", "66666666666666", "2.00", "4.00", "100", "6", "6", "2019");
 
     }
 

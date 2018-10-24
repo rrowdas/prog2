@@ -5,11 +5,6 @@
  */
 package gui.internals.funcionarios;
 
-import gui.internals.fornecedores.*;
-import Clientes.Clientes;
-import Fornecedores.Fornecedores;
-import Fornecedores.Ocasional;
-import Fornecedores.Recorrente;
 import Funcionarios.Funcionarios;
 import Funcionarios.Gerente;
 import Funcionarios.Padeiro;
@@ -35,13 +30,17 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Nao encontrou!");
             this.dispose();
         } else {
-            lbCPF.setText("CNPJ: " + codigo);
+            lbCPF.setText("CPF: " + codigo);
             tfNome.setText(aux.getNome());
             tfEndereco.setText(aux.getEndereco());
+            tfTelefone.setText(aux.getTelefone());
             tfSalBase.setText(aux.getSalarioBase());
-            
+
             if (aux instanceof Padeiro) {
-                tfHoraNormal.setText(((Padeiro)aux).getHorasNormais());
+                tfHoraNormal.setEditable(true);
+                tfHoraAlternativa.setEditable(true);
+                tfHoraNormal.setText(((Padeiro) aux).getHorasNormais());
+                tfHoraAlternativa.setText(((Padeiro) aux).getHorasAlternativas());
 
             } else {
                 tfHoraNormal.setEditable(false);
@@ -68,17 +67,16 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
         tfHoraNormal = new javax.swing.JTextField();
         tfHoraAlternativa = new javax.swing.JTextField();
         jlnome = new javax.swing.JLabel();
-        cbFuncao = new javax.swing.JComboBox<>();
         jlendereco = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         tfTelefone = new javax.swing.JTextField();
-        jlfuncao = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tfSalBase = new javax.swing.JTextField();
         tfNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         tfEndereco = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Editar Funcionarios");
@@ -104,24 +102,17 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
 
         jlnome.setText("Nome:");
 
-        cbFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Padeiro", "Vendedor", "Gerente" }));
-        cbFuncao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbFuncaoActionPerformed(evt);
-            }
-        });
-
         jlendereco.setText("Endereço:");
 
         jLabel1.setText("Telefone:");
-
-        jlfuncao.setText("Função:");
 
         jLabel2.setText("Salário Base:");
 
         jLabel4.setText("Jornada Normal:");
 
         jLabel3.setText("Jornada Alternativa:");
+
+        jLabel5.setText("Se padeiro:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,22 +127,21 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jlfuncao, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jlnome, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jlendereco, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(tfNome, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(tfEndereco, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbFuncao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tfHoraNormal)
                                 .addComponent(tfTelefone, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(tfSalBase, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(tfHoraAlternativa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(55, 138, Short.MAX_VALUE))
+                .addGap(55, 78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,10 +164,8 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfSalBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlfuncao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
@@ -186,7 +174,7 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tfHoraAlternativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -205,100 +193,63 @@ public class EditarFuncionario extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome, endereco, cpf, telefone, salBase, hAlt, hNorm;
-
-        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || tfTelefone.getText().equalsIgnoreCase("") 
-                || tfSalBase.getText().equalsIgnoreCase("") ) {
-            JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
-        } else {
-                nome = tfNome.getText();
-                endereco = tfEndereco.getText();
-                cpf = aux.getCpf();
-                telefone = tfTelefone.getText();
-                salBase = tfSalBase.getText();
-                
-                if (aux instanceof Gerente) {
-                Gerente aux2 = new Gerente (nome, endereco, cpf, telefone, salBase);
-                TelaInicial.padaria.updateFuncionario(aux2);
-                JOptionPane.showMessageDialog(null, "Funcionario atualizado com Sucesso!");
-                this.dispose();
-                } 
-                else if (aux instanceof Vendedor){
-                Vendedor aux2 = new Vendedor (nome, endereco, cpf, telefone, salBase);
-                TelaInicial.padaria.updateFuncionario(aux2);
-                JOptionPane.showMessageDialog(null, "Funcionario atualizado com Sucesso!");
-                this.dispose();
-                }
-                else if (aux instanceof Padeiro){
-                    hAlt = tfHoraAlternativa.getText();
-                    hNorm = tfHoraNormal.getText();
-                    Padeiro aux2 = new Padeiro (nome, endereco, cpf, telefone, salBase, hNorm, hAlt);
-                    JOptionPane.showMessageDialog(null, "Funcionario atualizado com Sucesso!");
-                    this.dispose();
-                    TelaInicial.padaria.updateFuncionario(aux2);
-                }
-            }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void tfHoraNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHoraNormalActionPerformed
 
         //        int tipo = cbTipoFornecedor.getSelectedIndex();
         //        System.out.println(tipo);
         //        if (tipo == 0) {
-            //            tfDesconto.setEditable(false);
-            //        }
+        //            tfDesconto.setEditable(false);
+        //        }
     }//GEN-LAST:event_tfHoraNormalActionPerformed
 
-    private void cbFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFuncaoActionPerformed
-        int tipo
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nome, endereco, cpf, telefone, salBase, hAlt, hNorm;
 
-        = cbFuncao
+        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || tfTelefone.getText().equalsIgnoreCase("")
+                || tfSalBase.getText().equalsIgnoreCase("")) { //|| cbFuncao.getSelectedIndex() == 0
+            JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
+        } else {
+            nome = tfNome.getText();
+            endereco = tfEndereco.getText();
+            cpf = aux.getCpf();
+            telefone = tfTelefone.getText();
+            salBase = tfSalBase.getText();
 
-        .getSelectedIndex
-
-        ();
-        //System.out.println(tipo);
-
-        if (tipo
-
-            == 1) {
-            tfHoraNormal
-
-            .setEditable
-
-            (true);
-            tfHoraAlternativa
-
-            .setEditable
-
-            (true);
-
-        } else
-        tfHoraNormal
-
-        .setEditable
-
-        (false);
-        tfHoraAlternativa
-
-        .setEditable
-
-        (false);
-    }//GEN-LAST:event_cbFuncaoActionPerformed
+            if (aux instanceof Gerente) {
+                Gerente aux2 = new Gerente(nome, endereco, cpf, telefone, salBase);
+                TelaInicial.padaria.updateFuncionario(aux2);
+                JOptionPane.showMessageDialog(null, "Funcionario atualizado com Sucesso!");
+                this.dispose();
+            } else if (aux instanceof Vendedor) {
+                Vendedor aux2 = new Vendedor(nome, endereco, cpf, telefone, salBase);
+                TelaInicial.padaria.updateFuncionario(aux2);
+                JOptionPane.showMessageDialog(null, "Funcionario atualizado com Sucesso!");
+                this.dispose();
+            } else if (aux instanceof Padeiro) {
+                hAlt = tfHoraAlternativa.getText();
+                hNorm = tfHoraNormal.getText();
+                if (hAlt.equalsIgnoreCase("") || hNorm.equalsIgnoreCase("")) {
+                    JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
+                } else {
+                    Padeiro aux2 = new Padeiro(nome, endereco, cpf, telefone, salBase, hNorm, hAlt);
+                    TelaInicial.padaria.updateFuncionario(aux2);
+                    JOptionPane.showMessageDialog(null, "Funcionario atualizado com Sucesso!");
+                    this.dispose();
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbFuncao;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlendereco;
-    private javax.swing.JLabel jlfuncao;
     private javax.swing.JLabel jlnome;
     private javax.swing.JLabel lbCPF;
     private javax.swing.JTextField tfEndereco;

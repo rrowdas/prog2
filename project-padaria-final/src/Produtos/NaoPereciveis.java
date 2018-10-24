@@ -4,11 +4,11 @@ import Fornecedores.Fornecedores;
 
 public class NaoPereciveis extends Produtos {
 
-    public NaoPereciveis(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, String apelido, int quantidade) {
+    public NaoPereciveis(String nome, String codigo, String fornecedor, String precoCusto, String precoFinal, String apelido, String quantidade) {
         super(nome, codigo, fornecedor, precoCusto, precoFinal, apelido, quantidade);
     }
 
-    public NaoPereciveis(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, int quantidade) {
+    public NaoPereciveis(String nome, String codigo, String fornecedor, String precoCusto, String precoFinal, String quantidade) {
         super(nome, codigo, fornecedor, precoCusto, precoFinal, quantidade);
     }
 

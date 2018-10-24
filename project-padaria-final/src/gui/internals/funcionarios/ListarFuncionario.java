@@ -55,6 +55,7 @@ public class ListarFuncionario extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
+        setResizable(true);
         setTitle("Listar Funcionarios");
         setPreferredSize(new java.awt.Dimension(615, 315));
 

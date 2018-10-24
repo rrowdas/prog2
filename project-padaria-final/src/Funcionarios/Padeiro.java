@@ -32,8 +32,8 @@ public class Padeiro extends Funcionarios {
     public double salarioFinal() {
         double bonificacao, somaTotal, salarioHora;
         double sb = Double.parseDouble(salarioBase);
-        int hN = Integer.parseInt(horasNormais),
-                hA = Integer.parseInt(horasAlternativas);
+        int hN = Integer.parseInt(horasNormais);
+        int hA = Integer.parseInt(horasAlternativas);
         
         salarioHora = sb / (hN + hA);
 

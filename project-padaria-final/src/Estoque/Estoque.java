@@ -60,10 +60,10 @@ public class Estoque {
     }
 
     public void controleProduto(Produtos produtoControlado) {
-        if (produtoControlado.getQuantidade() == 1) {
+        if (produtoControlado.getQuantidade().equalsIgnoreCase("1")) {
             System.out.println("Alerta, resta apenas 1 produto no estoque, favor reabastecer");
         }
-        else if (produtoControlado.getQuantidade() == 0) {
+        else if (produtoControlado.getQuantidade().equalsIgnoreCase("0")) {
             System.out.println("Produto esgotado");
         }
     }
