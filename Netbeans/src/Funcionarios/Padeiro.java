@@ -55,8 +55,9 @@ public class Padeiro extends Funcionarios {
         System.out.println("PADEIRO");
         System.out.println();
 
-        super.imprimeDados();
         System.out.printf("R$ %.2f\n", salarioFinal());
+        super.imprimeDados();
+        
     }
 
 }

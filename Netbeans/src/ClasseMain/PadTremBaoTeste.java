@@ -122,7 +122,7 @@ public class PadTremBaoTeste {
         Clientes c10 = new Clientes("Isabela", "Rua 3 Coracoes", "88888888888", "7412-5896");
 
         c2.setAcumuladoCompras(201);
-
+        c6.setAcumuladoCompras(198);
         c3.setAcumuladoCompras(250);
 
         c4.setAcumuladoCompras(100);
@@ -236,6 +236,8 @@ public class PadTremBaoTeste {
         padaria.getEstoque().cadastrarProduto(pastel);
         padaria.getEstoque().cadastrarProduto(quibe);
         padaria.getEstoque().cadastrarProduto(enroladinho);
+                
+        
         Init inicio = new Init(padaria);
         inicio.menu();
     }

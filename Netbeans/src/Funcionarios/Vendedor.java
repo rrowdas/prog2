@@ -44,8 +44,8 @@ public class Vendedor extends Funcionarios {
         System.out.println();
         System.out.println("VENDEDOR");
         System.out.println();
-        super.imprimeDados();
         System.out.printf("R$ %.2f\n", salarioFinal());
+        super.imprimeDados();
 
     }
 }

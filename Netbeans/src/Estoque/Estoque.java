@@ -15,7 +15,7 @@ public class Estoque {
         boolean existe = false;
 
         for (int i = 0; i < produto.length && !existe; i++) {
-            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(infoProduto) || produto[i].getApelido().equalsIgnoreCase(infoProduto) || produto[i].getNome().equalsIgnoreCase(infoProduto))  {
+            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(infoProduto) /*|| produto[i].getApelido().equalsIgnoreCase(infoProduto) || produto[i].getNome().equalsIgnoreCase(infoProduto)*/)  {
                 System.out.println("Esse produto já está cadastrado");
                 existe = true;
                 posicao = i;

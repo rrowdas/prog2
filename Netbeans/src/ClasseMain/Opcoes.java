@@ -262,7 +262,7 @@ public class Opcoes {
 
                     System.out.print("Preco de custo, caso seja um fornecedor recorrente, o desconto será aplicado automaticamente: ");
                     double precoDeCusto = teclado.nextDouble();
-                    precoDeCusto = padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto();
+                    precoDeCusto *= (1 -padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto());
 
                     System.out.print("Preco final no qual vai vender: ");
                     double precoFinal = teclado.nextDouble();
@@ -340,11 +340,11 @@ public class Opcoes {
                     padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setFornecedor(teclado.nextLine());
 
                     System.out.print("Novo preco de custo: ");
+                    
                     double novoPrecoCusto = teclado.nextDouble();
-                    novoPrecoCusto = novoPrecoCusto * padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto(); // ERRO AQUI
+                    novoPrecoCusto *=  padaria.getFornecedor()[padaria.consultaFornecedor(teclado.nextLine())].getTaxaDesconto(); // ERRO AQUI
                     
-                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);
-                    
+                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);          
 
                     break;
                 case "0":
