@@ -6,15 +6,15 @@ public class Pereciveis extends Produtos {
 
     private int diaValidade, mesValidade, anoValidade;
 
-    public Pereciveis(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, String apelido, int quantidade, int diaValidade, int mesValidade, int anoValidade) {
-        super(nome, codigo, fornecedor, precoCusto, precoFinal, apelido, quantidade);
+    public Pereciveis(String nome, String codigo, String cnpjFornecedor, double precoCusto, double precoFinal, String apelido, int quantidade, int diaValidade, int mesValidade, int anoValidade) {
+        super(nome, codigo, cnpjFornecedor, precoCusto, precoFinal, apelido, quantidade);
         this.diaValidade = diaValidade;
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;
     }
 
-    public Pereciveis(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, int quantidade, int diaValidade, int mesValidade, int anoValidade) {
-        super(nome, codigo, fornecedor, precoCusto, precoFinal, quantidade);
+    public Pereciveis(String nome, String codigo, String cnpjFornecedor, double precoCusto, double precoFinal, int quantidade, int diaValidade, int mesValidade, int anoValidade) {
+        super(nome, codigo, cnpjFornecedor, precoCusto, precoFinal, quantidade);
         this.diaValidade = diaValidade;
         this.mesValidade = mesValidade;
         this.anoValidade = anoValidade;

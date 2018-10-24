@@ -8,6 +8,8 @@ import Funcionarios.Gerente;
 import Funcionarios.Padeiro;
 import Funcionarios.Vendedor;
 import PadTremBao.PadTremBao;
+import Produtos.Pereciveis;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Init {
@@ -321,7 +323,7 @@ public class Init {
 
                     System.out.print("Novo salario base: ");
                     padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setSalarioBase(teclado.nextDouble());
-                    
+
                     //FALTA MODIFICAR AS HORAS DO PADEIRO;
                     break;
                 case "0":
@@ -336,9 +338,97 @@ public class Init {
 
     }
 
-    public void opcoesProduto(){
-        
+    public void opcoesProduto() {
+        String opcao;
+
+        do {
+            menu.acao();
+            opcao = teclado.nextLine();
+
+            switch (opcao) {
+                case "1":
+                    System.out.print("Nome: ");
+                    String nome = teclado.nextLine();
+
+                    System.out.print("Codigo do Produto: ");
+                    String codigo = teclado.nextLine();
+                    while (!valida.validaCodigo(codigo)) {
+                        System.out.print("Cpf invalio, digite novamente:");
+                        codigo = teclado.nextLine();
+                    }
+
+                    System.out.print("Cnpj do Fornecedor: ");
+                    String cnpj = teclado.nextLine();
+                    while (!valida.validaCnpj(cnpj)) {
+                        System.out.print("Cpf invalio, digite novamente:");
+                        cnpj = teclado.nextLine();
+                    }
+
+                    System.out.print("Preco de custo, caso seja um fornecedor recorrente, o desconto será aplicado automaticamente: ");
+                    double precoDeCusto = teclado.nextDouble();
+
+                    System.out.print("Preco final no qual vai vender: ");
+                    double precoFinal = teclado.nextDouble();
+
+                    System.out.println("Apelido: ");
+                    String apelido = teclado.nextLine();
+
+                    System.out.println("Caso seja perecivel, coloque as datas abaixo. Se caso nao for perecivel, apenas aperte enter");
+                    System.out.println("Dia: ");
+                    int dia = teclado.nextInt();
+
+                    while (!valida.validaCnpj(cnpj)) {
+                        System.out.print("Cpf invalio, digite novamente:");
+                        cnpj = teclado.nextLine();
+                    }
+
+                    System.out.println("Mes: ");
+                    int mes = teclado.nextInt();
+                    while (!valida.validaCnpj(cnpj)) {
+                        System.out.print("Cpf invalio, digite novamente:");
+                        cnpj = teclado.nextLine();
+                    }
+
+                    System.out.println("Ano: ");
+                    int ano = teclado.nextInt();
+                    try {
+                            System.out.print("Cpf invalio, digite novamente:");
+                            cnpj = teclado.nextLine();
+                    } catch (InputMismatchException a) {
+                        System.out.println("Tem que ser numero, digite novamente.");
+                    }
+
+                    break;
+
+                case "2":
+                    System.out.print("Escreva o CPF do cliente: ");
+                    padaria.removeCliente(teclado.nextLine());
+                    break;
+
+                case "3":
+                    System.out.print("CPF do cliente que deseja atualizar: ");
+                    String cpfAtualiza = teclado.nextLine();
+                    padaria.imprimeDadosClientes(cpfAtualiza);
+
+                    System.out.print("Novo nome: ");
+                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setNome(teclado.nextLine());
+
+                    System.out.print("Novo endereco: ");
+                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setEndereco(teclado.nextLine());
+
+                    System.out.print("Novo telefone: ");
+                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setTelefone(teclado.nextLine());
+
+                    break;
+                case "0":
+                    return;
+
+                default:
+                    menu.opcaoInvalida();
+                    break;
+            }
+
+        } while (true);
     }
-    
-    
+
 }

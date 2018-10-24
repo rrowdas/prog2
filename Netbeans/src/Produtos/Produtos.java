@@ -7,37 +7,37 @@ public abstract class Produtos implements Informacoes {
 
     protected String nome;
     protected String codigo;
-    protected Fornecedores fornecedor;
+    protected String cnpjFornecedor;
     protected double precoCusto, precoFinal;
     protected String apelido;
     protected int quantidade;
 
-    public Produtos(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, String apelido, int quantidade) {
+    public Produtos(String nome, String codigo, String cnpjFornecedor, double precoCusto, double precoFinal, String apelido, int quantidade) {
         this.nome = nome;
         this.codigo = codigo;
-        this.fornecedor = fornecedor;
+        this.cnpjFornecedor = cnpjFornecedor;
         setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = apelido;
         this.quantidade = quantidade;
     }
 
-    public Produtos(String nome, String codigo, Fornecedores fornecedor, double precoCusto, double precoFinal, int quantidade) {
+    public Produtos(String nome, String codigo, String cnpjFornecedor, double precoCusto, double precoFinal, int quantidade) {
         this.nome = nome;
         this.codigo = codigo;
-        this.fornecedor = fornecedor;
+        this.cnpjFornecedor = cnpjFornecedor;
         setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = "Sem apelido";
         this.quantidade = quantidade;
     }
 
-    public Fornecedores getFornecedor() {
-        return fornecedor;
+    public String getFornecedor() {
+        return cnpjFornecedor;
     }
 
     public void setFornecedor(Fornecedores fornecedor) {
-        this.fornecedor = fornecedor;
+        this.cnpjFornecedor = cnpjFornecedor;
     }
 
     public int getQuantidade() {
@@ -86,7 +86,8 @@ public abstract class Produtos implements Informacoes {
     }
 
     public void setPrecoCusto(double precoCusto) {
-        this.precoCusto = precoCusto * (1 - fornecedor.getTaxaDesconto());
+//        this.precoCusto = precoCusto * (1 - fornecedor.getTaxaDesconto());
+            this.precoCusto = precoCusto;
     }
     
     @Override
