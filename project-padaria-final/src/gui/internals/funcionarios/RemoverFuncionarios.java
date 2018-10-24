@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internals.fornecedores;
+package gui.internals.funcionarios;
 
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author roger
  */
-public class RemoverFornecedor extends javax.swing.JInternalFrame {
+public class RemoverFuncionarios extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
      */
 
-    public RemoverFornecedor(){
+    public RemoverFuncionarios(){
         initComponents();
     }
 //    CadastrarCliente() {

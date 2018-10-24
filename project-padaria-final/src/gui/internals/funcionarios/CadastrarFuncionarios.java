@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internals.fornecedores;
+package gui.internals.funcionarios;
 
 import Fornecedores.Ocasional;
 import Fornecedores.Recorrente;
@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author roger
  */
-public class CadastrarFornecedor extends javax.swing.JInternalFrame {
+public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
      */
-    public CadastrarFornecedor() {
+    public CadastrarFuncionarios() {
         initComponents();
     }
 //    CadastrarCliente() {
@@ -49,14 +49,14 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
-        setTitle("Cadastrar Fornecedores");
+        setTitle("Cadastrar Funcionarios");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
         jLabel1.setText("Nome:");
 
         jLabel2.setText("Endereço:");
 
-        jLabel3.setText("CNPJ:");
+        jLabel3.setText("CPF:");
 
         jLabel4.setText("Taxa de Desconto:");
 
@@ -85,14 +85,14 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
-        cbTipoFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ocasional", "Recorrente" }));
+        cbTipoFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Padeiro", "Vendedor", "Gerente" }));
         cbTipoFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTipoFornecedorActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Tipo:");
+        jLabel5.setText("Função:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

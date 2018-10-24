@@ -5,7 +5,7 @@ public class Vendedor extends Funcionarios {
     private double montanteVendas = 0;
     private double metaVendasMes = 500; // estipular metas de vendas na interface grafica
 
-    public Vendedor(String nome, String endereco, String cpf, String telefone, double salarioBase) {
+    public Vendedor(String nome, String endereco, String cpf, String telefone, String salarioBase) {
         super(nome, endereco, cpf, telefone, salarioBase);
     }
 
@@ -28,12 +28,12 @@ public class Vendedor extends Funcionarios {
     @Override
     public double salarioFinal() {
         double somaTotal = 0;
-
+        double sb = Double.parseDouble(salarioBase);
         if (metaVendasMes <= montanteVendas) {
-            somaTotal = salarioBase + (salarioBase * 0.10);
+            somaTotal = sb + (sb * 0.10);
         }
         else {
-            somaTotal = salarioBase;
+            somaTotal = sb;
         }
 
         return somaTotal;
