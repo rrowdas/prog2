@@ -18,11 +18,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form CadastrarCliente
      */
-    public PadTremBao padaria;
-    public CadastrarCliente(PadTremBao padaria) {
-        initComponents();
-        this.padaria = padaria;
-    }
+//    public PadTremBao padaria;
+//    public CadastrarCliente(PadTremBao padaria) {
+//        initComponents();
+//        this.padaria = padaria;
+//    }
 
     CadastrarCliente(){
         initComponents();
@@ -148,6 +148,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome, endereco, telefone, cpf;
+        
         if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || tfTelefone.getText().equalsIgnoreCase("") || ftfCpf.getText().equalsIgnoreCase("           ")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
         }else{

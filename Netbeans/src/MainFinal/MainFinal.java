@@ -14,8 +14,8 @@ import Swing.TelaInicialMDI;
  */
 public class MainFinal {
     public static void main(String[] args) {
-        PadTremBao padaria = new PadTremBao();
-        TelaInicialMDI tela = new TelaInicialMDI(padaria);
+        // PadTremBao padaria = new PadTremBao();
+        TelaInicialMDI tela = new TelaInicialMDI();
         tela.main(null);
                 
     }
