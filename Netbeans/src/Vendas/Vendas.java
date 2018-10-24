@@ -15,7 +15,7 @@ public abstract class Vendas { // Estoque
 
         this.dataVenda = dataVenda;
         this.cpfVendedor = cpfVendedor;
-        setFormaPagamento(formaPagamento);
+        this.formaPagamento = formaPagamento;
         this.cpfCliente = cpfCliente;
     }
 
@@ -56,13 +56,7 @@ public abstract class Vendas { // Estoque
     }
 
     public void setFormaPagamento(String novaFormaPagamento) {
-        if (novaFormaPagamento.equalsIgnoreCase("dinheiro") || novaFormaPagamento.equalsIgnoreCase("debito")
-                || novaFormaPagamento.equalsIgnoreCase("credito")) {
-            this.formaPagamento = novaFormaPagamento;
-        }
-        else {
-            System.out.println("Voce deve colocar debito, credito ou dinheiro. Digite novamente.");
-        }
+        this.formaPagamento = novaFormaPagamento;
     }
 
     public double getValorTotalDoCarrinho() {

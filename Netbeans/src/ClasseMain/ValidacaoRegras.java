@@ -77,15 +77,60 @@ public class ValidacaoRegras {
         }
     }
 
-    public boolean validaData(int dia, int mes, int ano) {
-        
-        if (dia < 31 && dia > 0)
-            if (mes < 12 && mes > 0)
+    public boolean validaDia(String dia) {
+        int valor = Integer.parseInt(dia);
+
+        if (validaDigito(dia)) {
+
+            if (valor < 31 && valor > 0)
                 return true;
             else 
                 return false;
+        } 
         else 
             return false;
     }
-   
+
+    public boolean validaMes(String mes) {
+        int valor = Integer.parseInt(mes);
+        
+        if(validaDigito(mes)){
+            if (valor < 12 && valor > 0) 
+                return true;
+            else 
+             return false;
+        }
+        else
+            return false;
+    }
+
+    public boolean validaDigito(String frase) {
+        char[] vetor = frase.toCharArray();
+        boolean inteiro = true;
+
+        for (int i = 0; i < vetor.length; i++) // verifica se o char não é um dígito
+        {
+            if (!Character.isDigit(vetor[i])) {
+                inteiro = false;
+            }
+        }
+        if (inteiro == false) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+    
+    public boolean validaFormaPagamento(String novaFormaPagamento){
+        if (novaFormaPagamento.equalsIgnoreCase("dinheiro") || novaFormaPagamento.equalsIgnoreCase("debito")
+                || novaFormaPagamento.equalsIgnoreCase("credito")) {
+            return true;
+        } 
+        else {
+            System.out.println("Voce deve colocar debito, credito ou dinheiro. Digite novamente.");
+            return false;
+        }
+    }
+
 }
