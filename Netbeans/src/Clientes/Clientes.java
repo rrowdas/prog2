@@ -61,16 +61,14 @@ public class Clientes implements Informacoes {
 
         if (acumuladoCompras >= 200) {
             return 0.90;
-        }
-        else if (acumuladoCompras < 200 && acumuladoCompras >= 100) {
+        } else if (acumuladoCompras < 200 && acumuladoCompras >= 100) {
             return 0.95;
-        }
-        else {
+        } else {
             return 1;
         }
 
     }
-
+    
     @Override
     public void imprimeDados() {
         // Basear-se no cadastrar cliente e caso nao esteja cadastrado, preencher info
@@ -83,13 +81,12 @@ public class Clientes implements Informacoes {
 
         if (cartaoFidelidade() == 0.90) {
             System.out.println("Cliente Platinum");
-        }
-        else if (cartaoFidelidade() == 0.95) {
+        } else if (cartaoFidelidade() == 0.95) {
             System.out.println("Cliente Gold");
-        }
-        else {
+        } else {
             System.out.println("Cliente casual");
         }
 
     }
+
 }

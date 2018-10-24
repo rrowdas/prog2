@@ -61,9 +61,6 @@ public abstract class Vendas { // Estoque
             this.formaPagamento = novaFormaPagamento;
         }
         else {
-//           /* while (novaFormaPagamento.equalsIgnoreCase("dinheiro") == false
-//                    || novaFormaPagamento.equalsIgnoreCase("debito") == false
-//             */       || novaFormaPagamento.equalsIgnoreCase("credito") == false) {
             System.out.println("Voce deve colocar debito, credito ou dinheiro. Digite novamente.");
         }
     }
@@ -102,17 +99,3 @@ public abstract class Vendas { // Estoque
     }
 
 }
-//
-//            else if (novoProduto.getCodigo().equalsIgnoreCase(codigoProduto)) {
-//                encontrouProduto = true; // produto foi encontrado
-//                if (produto[i].getQuantidade() == 0) {
-//                    System.out.println("Não existe produto no estoque");
-//                } else {
-//
-//
-//                    produto[i].setQuantidade(produto[i].getQuantidade() - 1); //Retira uma unidade do produto
-//
-//                    if (produto[i].getQuantidade() == 1) // Se caso, a quantidade total do produto for igual a 1, enviar mensagem.
-//                    {
-//                        System.out.println("Possui apenas 1 produto, favor reabastecer. ");
-//                    }

@@ -120,9 +120,9 @@ public class Menu {
         System.out.println("2 : Realizar uma NOVA VENDA");
         System.out.println("3 : CONSULTAR dados");
         System.out.println("4 : DEFINIR Padrões");
-        System.out.println("5 : SAIR");
+        System.out.println("0 : SAIR");
         System.out.println();
-        System.out.println("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao:");
     }
 
     public void consultar() {
@@ -142,13 +142,13 @@ public class Menu {
         System.out.println();
         System.out.println("7 : Produto específico");
         System.out.println("8 : Lista com TODOS os Produtos");
-        System.out.println("0 : SAIR");
+        System.out.println("0 : Voltar");
         System.out.println();
-        System.out.println("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao:");
 
     }
 
-    public void cadastrar() {
+    public void cadastrarOuRemover() {
         System.out.println("\t\t\t\tCADASTRAR/REMOVER");
         System.out.println();
         System.out.println();
@@ -158,10 +158,27 @@ public class Menu {
         System.out.println("3 : Funcionarios");
         System.out.println("4 : Produtos");
         System.out.println();
-        System.out.println("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao:");
 
     }
-    public void acao()
+    public void acao(){
+        System.out.println("O que deseja fazer?:");
+        System.out.println("1 : Cadastrar");
+        System.out.println("2 : Remover");
+        System.out.println("3 : Atualizar");
+        System.out.println("0 : Voltar");
+        System.out.println();
+        System.out.print("Escolha uma opcao:");
+    }
+    
+    public void tipoFuncionario(){
+        System.out.println("Qual funcionario sera cadastrado?");
+        System.out.println("1 - Gerente");
+        System.out.println("2 - Padeiro");
+        System.out.println("3 - Vendedor");
+        System.out.print("Escolha uma opcao:");
+
+    }
 
     public void opcaoInvalida() {
         System.out.println("Opcao inválido");

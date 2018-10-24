@@ -57,7 +57,7 @@ public abstract class Funcionarios implements Informacoes, Salario {
     public void setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
     }
-
+    
     @Override
     public void imprimeDados() // INFORMAÇÕES DE UM(1) FUNCIONÁRIO
     {
@@ -67,4 +67,6 @@ public abstract class Funcionarios implements Informacoes, Salario {
         System.out.println("Telefone: " + telefone);
 
     }
+    
+    
 }

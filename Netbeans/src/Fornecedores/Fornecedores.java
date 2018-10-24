@@ -41,7 +41,7 @@ public abstract class Fornecedores implements Informacoes {
     public double getTaxaDesconto() {
         return 0;
     }
-
+    
     public void imprimeDados() { // esse metodo está aqui para fazer sobrescrita
         System.out.println();
         System.out.println("Fornecedor: " + nome);

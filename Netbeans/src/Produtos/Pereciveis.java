@@ -1,7 +1,6 @@
 package Produtos;
 
 import Fornecedores.Fornecedores;
-import Fornecedores.Recorrente;
 
 public class Pereciveis extends Produtos {
 

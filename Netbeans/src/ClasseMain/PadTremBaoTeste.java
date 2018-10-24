@@ -31,6 +31,7 @@ public class PadTremBaoTeste {
 
         Menu janela = new Menu();
         Scanner teclado = new Scanner(System.in);
+        PadTremBao padaria = new PadTremBao();
 
         //TESTANDO APENAS O RECORRENTE!!
         Recorrente r1 = new Recorrente("Fernando", "Rua da UFMS", "12345678996325", 0);
@@ -107,13 +108,15 @@ public class PadTremBaoTeste {
         cl.setTelefone("4002-8922");
         cl.setAcumuladoCompras(150);
         cl.imprimeDados();
+        padaria.cadastraCliente(cl);
+        
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //TESTANDO O PRODUTO
         ////////////////////////////////////////////////////////////////////////////////////////////////
         // UI
         
-        Init inicio = new Init();
+        Init inicio = new Init(padaria);
         inicio.menu();
     }
 }
