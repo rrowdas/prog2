@@ -5,9 +5,7 @@
  */
 package MainFinal;
 
-import PadTremBao.PadTremBao;
 import gui.TelaInicial;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,5 +15,7 @@ public class MainFinal {
     public static void main(String[] args) {
         TelaInicial tela = new TelaInicial();
         tela.setVisible(true);
+        
+        
     }
 }

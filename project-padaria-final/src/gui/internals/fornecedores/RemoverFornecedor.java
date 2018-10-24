@@ -5,9 +5,6 @@
  */
 package gui.internals.fornecedores;
 
-import gui.internals.clientes.*;
-import Clientes.Clientes;
-import PadTremBao.PadTremBao;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
 
@@ -40,7 +37,7 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         ftfCpf = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        jbBuscareRemover = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Excluir Fornecedores");
@@ -59,10 +56,10 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Buscar e Remover");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbBuscareRemover.setText("Buscar e Remover");
+        jbBuscareRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbBuscareRemoverActionPerformed(evt);
             }
         });
 
@@ -73,7 +70,7 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(jbBuscareRemover)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
@@ -88,7 +85,7 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
                     .addComponent(ftfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jbBuscareRemover)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -110,7 +107,7 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbBuscareRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscareRemoverActionPerformed
         String cnpj;
 
         if (ftfCpf.getText().equalsIgnoreCase("           ")) {
@@ -121,12 +118,13 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
             boolean r = TelaInicial.padaria.removeFornecedor(cnpj);
             if(r){
                 JOptionPane.showMessageDialog(null, "Sucesso ao remover!");
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao remover!");
             }
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbBuscareRemoverActionPerformed
 
     private void ftfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCpfActionPerformed
         // TODO add your handling code here:
@@ -135,8 +133,8 @@ public class RemoverFornecedor extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField ftfCpf;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbBuscareRemover;
     // End of variables declaration//GEN-END:variables
 }

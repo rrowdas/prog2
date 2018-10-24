@@ -5,8 +5,6 @@
  */
 package gui.internals.clientes;
 
-import Clientes.Clientes;
-import PadTremBao.PadTremBao;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
 
@@ -120,6 +118,7 @@ public class RemoverCliente extends javax.swing.JInternalFrame {
             boolean r = TelaInicial.padaria.removeCliente(cpf);
             if(r){
                 JOptionPane.showMessageDialog(null, "Sucesso ao remover!");
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao remover!");
             }

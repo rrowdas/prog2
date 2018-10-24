@@ -5,11 +5,8 @@
  */
 package gui.internals.fornecedores;
 
-import gui.internals.clientes.*;
-import Clientes.Clientes;
 import Fornecedores.Ocasional;
 import Fornecedores.Recorrente;
-import PadTremBao.PadTremBao;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
 
@@ -174,11 +171,12 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ftfCnpjActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome, endereco, cnpj;
-        double tDesc;
+        String nome, endereco, cnpj, tDesc;
 
         if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || ftfCnpj.getText().equalsIgnoreCase("           ")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
+        } else if (TelaInicial.padaria.consultaFornecedor(ftfCnpj.getText()) != -1) {
+            JOptionPane.showMessageDialog(null, "ERRO: CNPJ já cadastrado. Insira outro CNPJ válido.");
         } else {
             //System.out.println(tfNome.getText());
             nome = tfNome.getText();
@@ -190,8 +188,9 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
                 TelaInicial.padaria.cadastraFornecedor(fornAux);
                 TelaInicial.padaria.imprimeDadosFornecedores(cnpj);
                 JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com Sucesso!");
+                this.dispose();
             } else {
-                tDesc = Double.parseDouble(tfDesconto.getText());
+                tDesc = tfDesconto.getText();
                 if (tfDesconto.getText().equalsIgnoreCase("")) {
                     JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
                 } else {
@@ -199,6 +198,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
                     TelaInicial.padaria.cadastraFornecedor(fornAux);
                     JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com Sucesso!");
                     TelaInicial.padaria.imprimeDadosFornecedores(cnpj);
+                    this.dispose();
                 }
             }
         }
@@ -208,7 +208,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
 
     private void cbTipoFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoFornecedorActionPerformed
         int tipo = cbTipoFornecedor.getSelectedIndex();
-        System.out.println(tipo);
+        //System.out.println(tipo);
         if (tipo == 0) {
             tfDesconto.setEditable(false);
         } else

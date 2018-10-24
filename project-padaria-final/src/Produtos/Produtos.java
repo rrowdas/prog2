@@ -86,7 +86,7 @@ public abstract class Produtos implements Informacoes {
     }
 
     public void setPrecoCusto(double precoCusto) {
-        this.precoCusto = precoCusto * (1 - fornecedor.getTaxaDesconto());
+        this.precoCusto = precoCusto * (1 - Double.parseDouble(fornecedor.getTaxaDesconto()));
     }
 
     @Override

@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internals.clientes;
+package gui.internals.fornecedores;
 
 import Clientes.Clientes;
+import Fornecedores.Fornecedores;
+import Fornecedores.Ocasional;
+import Fornecedores.Recorrente;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
 
@@ -13,13 +16,31 @@ import javax.swing.JOptionPane;
  *
  * @author roger
  */
-public class CadastrarCliente extends javax.swing.JInternalFrame {
+public class EditarFornecedor extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
      */
-    public CadastrarCliente() {
+    private Fornecedores fornAux = null;
+
+    public EditarFornecedor(String cnpj) {
         initComponents();
+        fornAux = TelaInicial.padaria.dadosFornecedor(cnpj);
+        if (fornAux == null) {
+            JOptionPane.showMessageDialog(null, "Nao encontrou!");
+            this.dispose();
+        } else {
+            lbCPF.setText("CNPJ: " + cnpj);
+            tfNome.setText(fornAux.getNome());
+            tfEndereco.setText(fornAux.getEndereco());
+
+            if (fornAux instanceof Recorrente) {
+                tfTaxaDesc.setText(fornAux.getTaxaDesconto());
+
+            } else {
+                tfTaxaDesc.setEditable(false);
+            }
+        }
     }
 //    CadastrarCliente() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -37,38 +58,26 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbCPF = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
         tfEndereco = new javax.swing.JTextField();
-        tfTelefone = new javax.swing.JTextField();
-        ftfCpf = new javax.swing.JFormattedTextField();
+        tfTaxaDesc = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Cadastrar Clientes");
+        setTitle("Editar Fornecedores");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
         jLabel1.setText("Nome:");
 
         jLabel2.setText("Endereço:");
 
-        jLabel3.setText("CPF:");
+        lbCPF.setText("CNPJ:");
 
-        jLabel4.setText("Telefone:");
+        jLabel4.setText("Taxa Desc:");
 
-        try {
-            ftfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        ftfCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ftfCpfActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Cadastrar");
+        jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -83,24 +92,28 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                 .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfNome)
-                            .addComponent(tfEndereco)
-                            .addComponent(tfTelefone)
-                            .addComponent(ftfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(203, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(50, 50, 50)
+                            .addComponent(tfTaxaDesc))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(lbCPF))
+                            .addGap(54, 54, 54)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                .addComponent(tfEndereco)))))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(35, 35, 35)
+                .addComponent(lbCPF)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -109,15 +122,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2))
                     .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(ftfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                    .addComponent(tfTaxaDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(43, 43, 43))
         );
@@ -136,43 +145,52 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ftfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ftfCpfActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome, endereco, telefone, cpf;
+        String nome, endereco, taxaDesc, cnpj;
 
-        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || tfTelefone.getText().equalsIgnoreCase("") || ftfCpf.getText().equalsIgnoreCase("           ")) {
+        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
-        } else if (TelaInicial.padaria.consultaCliente(ftfCpf.getText()) != -1) {
-            JOptionPane.showMessageDialog(null, "ERRO: CPF já cadastrado. Insira outro CPF válido.");
         } else {
-            nome = tfNome.getText();
-            endereco = tfEndereco.getText();
-            telefone = tfTelefone.getText();
-            cpf = ftfCpf.getText();
-            Clientes clienteAux = new Clientes(nome, endereco, cpf, telefone);
-            TelaInicial.padaria.cadastraCliente(clienteAux);
-            TelaInicial.padaria.imprimeDadosClientes(cpf);
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!");
-            this.dispose();
-        }
+            if (fornAux instanceof Ocasional) {
+                //System.out.println(tfNome.getText());
+                nome = tfNome.getText();
+                endereco = tfEndereco.getText();
+                cnpj = fornAux.getCnpj();
+                Ocasional ocaAux = new Ocasional(nome, endereco, cnpj);
+                TelaInicial.padaria.updateFornecedor(ocaAux);
+                TelaInicial.padaria.imprimeDadosFornecedores(cnpj);
+                JOptionPane.showMessageDialog(null, "Fornecedor atualizado com Sucesso!");
+                this.dispose();
+            } else {
+                if (tfTaxaDesc.getText().equalsIgnoreCase("")) {
+                    JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
+                } else {
+                    taxaDesc = tfTaxaDesc.getText();
+                    nome = tfNome.getText();
+                    endereco = tfEndereco.getText();
+                    cnpj = fornAux.getCnpj();
+                    Recorrente recAux = new Recorrente(nome, endereco, cnpj, taxaDesc);
+                    TelaInicial.padaria.updateFornecedor(recAux);
+                    JOptionPane.showMessageDialog(null, "Fornecedor atualizado com Sucesso!");
+                    this.dispose();
 
+                }
+            }
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField ftfCpf;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbCPF;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfTelefone;
+    private javax.swing.JTextField tfTaxaDesc;
     // End of variables declaration//GEN-END:variables
+
 }

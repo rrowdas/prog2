@@ -38,10 +38,11 @@ public abstract class Fornecedores implements Informacoes {
         this.cnpj = cnpj;
     }
 
-    public double getTaxaDesconto() {
-        return 0;
+    public String getTaxaDesconto() {
+        return null;
     }
 
+    @Override
     public void imprimeDados() { // esse metodo está aqui para fazer sobrescrita
         System.out.println();
         System.out.println("Fornecedor: " + nome);

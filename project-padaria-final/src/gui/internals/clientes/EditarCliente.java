@@ -141,7 +141,6 @@ public class EditarCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
         }else{
             //System.out.println(tfNome.getText());
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!");
             nome = tfNome.getText();
             endereco = tfEndereco.getText();
             telefone = tfTelefone.getText();
@@ -150,6 +149,8 @@ public class EditarCliente extends javax.swing.JInternalFrame {
             Clientes clienteAux = new Clientes(nome, endereco, cpf, telefone);
             TelaInicial.padaria.updateCliente(clienteAux);
             TelaInicial.padaria.imprimeDadosClientes(cpf);
+            JOptionPane.showMessageDialog(null, "Cliente atualizado com Sucesso!");
+            this.dispose();
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

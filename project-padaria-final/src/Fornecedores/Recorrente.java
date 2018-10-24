@@ -2,19 +2,19 @@ package Fornecedores;
 
 public class Recorrente extends Fornecedores {
 
-    private double taxaDesconto; // Tem que ser em decimal
+    private String taxaDesconto; // Tem que ser em decimal
 
-    public Recorrente(String nome, String endereco, String cnpj, double taxaDesconto) {
+    public Recorrente(String nome, String endereco, String cnpj, String taxaDesconto) {
         super(nome, endereco, cnpj);
         this.taxaDesconto = taxaDesconto;
     }
 
     @Override
-    public double getTaxaDesconto() {
+    public String getTaxaDesconto() {
         return taxaDesconto;
     }
 
-    public void setTaxaDesconto(double taxaDesconto) {
+    public void setTaxaDesconto(String taxaDesconto) {
         this.taxaDesconto = taxaDesconto;
     }
 }

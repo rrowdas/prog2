@@ -94,15 +94,15 @@ public class PadTremBao implements Impostos {
         int posicao = consultaFornecedor(fornecedorCnpjExcluido);
 
         if (posicao != -1) {
-            fornecedor[posicao] = null;
             System.out.println("O Fornecedor " + fornecedor[posicao].getNome() + " foi removido.");
+            fornecedor[posicao] = null;
             return true;
         } else {
             System.out.println("Fornecedor não encontrado. Tente novamente com um CNPJ válido.");
             return false;
         }
     }
-    
+
     public String[][] dadosFornecedores() {
         String[][] dataValues = new String[fornecedor.length][4];
         for (int i = 0; i < fornecedor.length; i++) {
@@ -114,6 +114,24 @@ public class PadTremBao implements Impostos {
             }
         }
         return dataValues;
+    }
+
+    public Fornecedores dadosFornecedor(String cnpjFornecedor) {
+        Fornecedores f = null;
+        if (consultaFornecedor(cnpjFornecedor) != -1) {
+            //fornecedor[consultaFornecedor(cnpjFornecedor)].imprimeDados();
+            f = fornecedor[consultaFornecedor(cnpjFornecedor)];
+        } else {
+            System.out.println("Fornecedor inexistente");
+            //f = null;
+        }
+        return f;
+    }
+    
+    public void updateFornecedor(Fornecedores f) {
+        int pos = consultaFornecedor(f.getCnpj());
+        this.fornecedor[pos] = f;
+
     }
 
     public int consultaFuncionario(String cpfFuncionario) {

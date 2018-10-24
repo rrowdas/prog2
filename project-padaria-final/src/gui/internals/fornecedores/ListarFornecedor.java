@@ -6,8 +6,6 @@
 package gui.internals.fornecedores;
 
 import gui.internals.clientes.*;
-import Clientes.Clientes;
-import PadTremBao.PadTremBao;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +30,7 @@ public class ListarFornecedor extends javax.swing.JInternalFrame {
 
     public void refresh() {
         columnNames = new String[]{"Nome", "Endereco", "CNPJ", "Taxa Desconto"};
-        dataValues = TelaInicial.padaria.dadosClientes();
+        dataValues = TelaInicial.padaria.dadosFornecedores();
         
         tableFornecedores.setModel(new DefaultTableModel(dataValues, columnNames));
     }
@@ -151,11 +149,12 @@ public class ListarFornecedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int row = tableFornecedores.rowAtPoint(evt.getPoint());
         int col = tableFornecedores.columnAtPoint(evt.getPoint());
-        String cpf = tableFornecedores.getValueAt(row, 2).toString();
-        JOptionPane.showMessageDialog(null,"CPF:"+ " " +cpf);
-        EditarCliente editar = new EditarCliente(cpf);
+        String cnpj = tableFornecedores.getValueAt(row, 2).toString();
+        JOptionPane.showMessageDialog(null,"CNPJ:"+ " " +cnpj);
+        EditarFornecedor editar = new EditarFornecedor(cnpj);
         TelaInicial.jDesktopPane1.add(editar);
         editar.setVisible(true);
+        
     }//GEN-LAST:event_tableFornecedoresMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
