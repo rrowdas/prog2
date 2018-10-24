@@ -16,7 +16,7 @@ public abstract class Produtos implements Informacoes {
         this.nome = nome;
         this.codigo = codigo;
         this.cnpjFornecedor = cnpjFornecedor;
-        setPrecoCusto(precoCusto);
+        this.precoCusto = precoCusto;
         this.precoFinal = precoFinal;
         this.apelido = apelido;
         this.quantidade = quantidade;
@@ -26,7 +26,7 @@ public abstract class Produtos implements Informacoes {
         this.nome = nome;
         this.codigo = codigo;
         this.cnpjFornecedor = cnpjFornecedor;
-        setPrecoCusto(precoCusto);
+        this.precoCusto = precoCusto;
         this.precoFinal = precoFinal;
         this.apelido = "Sem apelido";
         this.quantidade = quantidade;
@@ -36,7 +36,7 @@ public abstract class Produtos implements Informacoes {
         return cnpjFornecedor;
     }
 
-    public void setFornecedor(Fornecedores fornecedor) {
+    public void setFornecedor(String cnpjFornecedor) {
         this.cnpjFornecedor = cnpjFornecedor;
     }
 

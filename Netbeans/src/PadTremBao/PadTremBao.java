@@ -230,8 +230,9 @@ public class PadTremBao implements Impostos {
                 System.out.println("Não há produto no estoque, REABASTECER!");
             } else {
                 venda[posVenda].adicionaProdutoCarrinho(auxProd);
-                //auxProd.setQuantidade(auxProd.getQuantidade()-1); ???????????????   reduzir 1 unidade
                 estoque.getProdutos()[posProduto].setQuantidade(estoque.getProdutos()[posProduto].getQuantidade() - 1);
+                System.out.println("Produto " + estoque.getProdutos()[posProduto].getNome() + " foi cadastrado.");
+                
                 if (estoque.getProdutos()[posProduto].getQuantidade() == 1) //ALERTA PRODUTO ACABANDO
                 {
                     System.out.println("Possui apenas 1 produto, favor reabastecer. ");

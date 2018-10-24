@@ -8,7 +8,13 @@ import Funcionarios.Gerente;
 import Funcionarios.Padeiro;
 import Funcionarios.Vendedor;
 import PadTremBao.PadTremBao;
+import Produtos.NaoPereciveis;
 import Produtos.Pereciveis;
+import Vendas.Prazo;
+import Vendas.Vista;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -22,6 +28,8 @@ public class Init {
     public Init(PadTremBao padaria) {
         this.padaria = padaria;
     }
+    
+    Opcoes op = new Opcoes();
 
     public void menu() {
 
@@ -36,11 +44,10 @@ public class Init {
                     cadastrarOuRemover();
                     break;
 
-//                case "2":
-//                    vender();
-//                    break;
+                case "2":
+                    venda();
+                    break;
                 case "3":
-                    System.out.println("ENtrou");
                     consultar();
                     break;
 
@@ -91,6 +98,12 @@ public class Init {
                 case "8":
                     padaria.imprimeDadosProdutos();
                     break;
+                case "9":
+                    padaria.impostoSobreVendas();
+                    break;
+                case "10":
+                    padaria.impostoSobreSalarios();
+                    break;
                 case "0":
                     return;
                 default:
@@ -109,139 +122,19 @@ public class Init {
 
             switch (opcao) {
                 case "1":
-                    opcoesCliente();
+                    op.opcoesCliente(padaria, menu, valida);
                     break;
                 case "2":
-                    padaria.imprimeDadosClientes();
+                    op.opcoesFornecedor(padaria, menu, valida);
                     break;
                 case "3":
-                    padaria.imprimeDadosFornecedores(teclado.nextLine());
+                    op.opcoesFuncionario(padaria, menu, valida);
                     break;
                 case "4":
-                    padaria.imprimeDadosFornecedores();
-                    break;
-                default:
-                    menu.opcaoInvalida();
-                    break;
-            }
-
-        } while (opcao.equals("0"));
-    }
-
-    public void opcoesCliente() {
-        String opcao;
-
-        do {
-            menu.acao();
-            opcao = teclado.nextLine();
-
-            switch (opcao) {
-                case "1":
-                    System.out.print("Nome: ");
-                    String nome = teclado.nextLine();
-
-                    System.out.print("Endereco: ");
-                    String endereco = teclado.nextLine();
-
-                    System.out.print("CPF: ");
-                    String cpf = teclado.nextLine();
-                    while (!valida.validaCpf(cpf)) {
-                        System.out.print("Cpf invalio, digite novamente:");
-                        cpf = teclado.nextLine();
-                    }
-
-                    System.out.print("Telefone: ");
-                    String telefone = teclado.nextLine();
-
-                    Clientes c1 = new Clientes(nome, endereco, cpf, telefone); // Cria o cliente
-                    padaria.cadastraCliente(c1);
-                    break;
-
-                case "2":
-                    System.out.print("Escreva o CPF do cliente: ");
-                    padaria.removeCliente(teclado.nextLine());
-                    break;
-
-                case "3":
-                    System.out.print("CPF do cliente que deseja atualizar: ");
-                    String cpfAtualiza = teclado.nextLine();
-                    padaria.imprimeDadosClientes(cpfAtualiza);
-
-                    System.out.print("Novo nome: ");
-                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setNome(teclado.nextLine());
-
-                    System.out.print("Novo endereco: ");
-                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setEndereco(teclado.nextLine());
-
-                    System.out.print("Novo telefone: ");
-                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setTelefone(teclado.nextLine());
-
+                    op.opcoesProduto(padaria, menu, valida);
                     break;
                 case "0":
                     return;
-
-                default:
-                    menu.opcaoInvalida();
-                    break;
-            }
-
-        } while (true);
-
-    }
-
-    public void opcoesFornecedor() {
-        String opcao;
-
-        do {
-            menu.acao();
-            opcao = teclado.nextLine();
-
-            switch (opcao) {
-                case "1":
-                    System.out.print("Nome: ");
-                    String nome = teclado.nextLine();
-
-                    System.out.print("Endereco: ");
-                    String endereco = teclado.nextLine();
-
-                    System.out.print("CNPJ: ");
-                    String cnpj = teclado.nextLine();
-
-                    while (valida.validaCnpj(cnpj)) {
-                        System.out.print("Cnpj invalido, digite novamente:");
-                        cnpj = teclado.nextLine();
-                    }
-
-                    System.out.print("Taxa de Desconto (em decimal), caso o cliente seja ocasional, coloque 0: ");
-                    double taxaDesconto = teclado.nextDouble();
-
-                    if (taxaDesconto != 0.0) {
-                        Recorrente rec1 = new Recorrente(nome, endereco, cnpj, taxaDesconto);
-                        padaria.cadastraFornecedor(rec1);
-                    } else {
-                        Ocasional oc1 = new Ocasional(nome, endereco, cnpj);
-                        padaria.cadastraFornecedor(oc1);
-                    }
-
-                    break;
-                case "2":
-                    System.out.println("Escreva o CNPJ do fornecedor: ");
-                    padaria.removeFornecedor(teclado.nextLine());
-                    break;
-                case "3":
-                    System.out.print("CNPJ do fornecedor que deseja atualizar: ");
-                    String cnpjAtualiza = teclado.nextLine();
-                    padaria.imprimeDadosClientes(cnpjAtualiza);
-
-                    System.out.print("Novo nome: ");
-                    padaria.getFornecedor()[padaria.consultaCliente(cnpjAtualiza)].setNome(teclado.nextLine());
-
-                    System.out.print("Novo endereco: ");
-                    padaria.getFornecedor()[padaria.consultaCliente(cnpjAtualiza)].setEndereco(teclado.nextLine());
-
-                case "0":
-                    return;
-
                 default:
                     menu.opcaoInvalida();
                     break;
@@ -250,185 +143,114 @@ public class Init {
         } while (true);
     }
 
-    public void opcoesFuncionario() {
-        String opcao;
 
-        do {
-            menu.acao();
-            opcao = teclado.nextLine();
+    public void venda() {
 
-            switch (opcao) {
-                case "1":
-                    menu.tipoFuncionario();
-                    String opcao2 = teclado.nextLine();
+        System.out.print("Olá, para fazer uma nova venda, digite a data de hoje nesse formato(##/##/##). Por favor:");
+        String data = teclado.nextLine();
+//        Date data = null;
+//        String dataTexto = new String();
+//        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+//        try {
+//            format.setLenient(false);
+//            data = format.parse(dataTexto);
+//        } catch (ParseException e) {
+//            System.out.println("Data invalida");
+//        }
 
-                    System.out.print("Nome: ");
-                    String nome = teclado.nextLine();
+        System.out.print("Cpf do vendendor: ");
+        String cpfVe = teclado.nextLine();
+        while (!valida.validaCpf(cpfVe)) {
+            System.out.print("Cpf invalido, digite novamente:");
+            cpfVe = teclado.nextLine();
+        }
 
-                    System.out.print("Endereco: ");
-                    String endereco = teclado.nextLine();
+        System.out.print("Forma de pagamento(dinheiro, debito ou credito): ");
+        String formaPag = teclado.nextLine();
+        while (!valida.validaFormaPagamento(formaPag)) {
+            System.out.print("Forma de pagamento invalido, escolha dinheiro, debito ou credito: ");
+            formaPag = teclado.nextLine();
+        }
 
-                    System.out.print("CPF: ");
-                    String cpf = teclado.nextLine();
-                    while (!valida.validaCpf(cpf)) {
-                        System.out.print("Cpf invalio, digite novamente:");
-                        cpf = teclado.nextLine();
-                    }
+        System.out.print("Cpf do cliente: ");
+        String cpfCl = teclado.nextLine();
+        while (!valida.validaCpf(cpfCl)) {
+            System.out.print("Cpf invalido, digite novamente:");
+            cpfCl = teclado.nextLine();
+        }
 
-                    System.out.print("Telefone: ");
-                    String telefone = teclado.nextLine();
+        System.out.println("Numero de parcelas: ");
+        String parcelas = teclado.nextLine();
+        while (!valida.validaCpf(cpfCl)) {
+            System.out.print("Numero invalido, digite novamente:");
+            parcelas = teclado.nextLine();
+        }
 
-                    System.out.println("Salario Base:");
-                    double salario = teclado.nextDouble();
+        if (parcelas.equals("1")) {
+            Vista v1 = new Vista(data, cpfVe, formaPag, cpfCl);
+            boolean comprar = true;
 
-                    if (opcao2.equals("1")) {
-                        Gerente g1 = new Gerente(nome, endereco, cpf, telefone, salario);
-                        padaria.cadastraFuncionario(g1);
-                    } else if (opcao2.equals("2")) {
-                        System.out.println("Horas normais trabalhadas: ");
-                        int horasNormais = teclado.nextInt();
+            while (comprar) {
+                System.out.println("Digite 1 para adicionar produto no carrinho e 2 para fechar venda");
+                String opcaoVenda = teclado.nextLine();
 
-                        System.out.println("Horas alternativas trabalhadas");
-                        int horasAlternativa = teclado.nextInt();
+                switch (opcaoVenda) {
 
-                        Padeiro p1 = new Padeiro(nome, endereco, cpf, telefone, salario, horasNormais, horasAlternativa);
-                        padaria.cadastraFuncionario(p1);
-                    } else if (opcao2.equals("3")) {
-                        Vendedor v1 = new Vendedor(nome, endereco, cpf, telefone, salario);
-                        padaria.cadastraFuncionario(v1);
-                    } else {
-                        menu.opcaoInvalida();
-                    }
+                    case "1":
+                        System.out.println("Digite o cpf do produto que deseja adicionar");
+                        String cpfProduto = teclado.nextLine();
 
-                    break;
+                        padaria.imprimeDadosProdutos(cpfProduto);
+                        padaria.adicionaProduto(cpfProduto);
 
-                case "2":
-                    System.out.print("Escreva o CPF do cliente: ");
-                    padaria.removeFuncionario(teclado.nextLine());
-                    break;
+                        break;
+                    case "2":
+                        padaria.finalizaVenda();
+                        comprar = false;
+                        break;
+                    default:
+                        System.out.println("Opção Inválida!");
+                        break;
 
-                case "3":
-                    System.out.print("CPF do funcionario que deseja atualizar: ");
-                    String cpfAtualiza = teclado.nextLine();
-                    padaria.imprimeDadosFuncionarios(cpfAtualiza);
+                }
 
-                    System.out.print("Novo nome: ");
-                    padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setNome(teclado.nextLine());
-
-                    System.out.print("Novo endereco: ");
-                    padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setEndereco(teclado.nextLine());
-
-                    System.out.print("Novo telefone: ");
-                    padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setTelefone(teclado.nextLine());
-
-                    System.out.print("Novo salario base: ");
-                    padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setSalarioBase(teclado.nextDouble());
-
-                    //FALTA MODIFICAR AS HORAS DO PADEIRO;
-                    break;
-                case "0":
-                    return;
-
-                default:
-                    menu.opcaoInvalida();
-                    break;
             }
 
-        } while (true);
+        } 
+        else {
+            int novaPa = Integer.parseInt(parcelas);
+            Prazo p1 = new Prazo(data, cpfVe, formaPag, cpfCl, novaPa);
 
-    }
+            boolean comprar = true;
 
-    public void opcoesProduto() {
-        String opcao;
+            while (comprar) {
+                System.out.println("Digite 1 para adicionar produto no carrinho e 2 para fechar venda");
+                String opcaoVenda = teclado.nextLine();
 
-        do {
-            menu.acao();
-            opcao = teclado.nextLine();
+                switch (opcaoVenda) {
 
-            switch (opcao) {
-                case "1":
-                    System.out.print("Nome: ");
-                    String nome = teclado.nextLine();
+                    case "1":
+                        System.out.println("Digite o cpf do produto que deseja adicionar");
+                        String cpfProduto = teclado.nextLine();
 
-                    System.out.print("Codigo do Produto: ");
-                    String codigo = teclado.nextLine();
-                    while (!valida.validaCodigo(codigo)) {
-                        System.out.print("Cpf invalio, digite novamente:");
-                        codigo = teclado.nextLine();
-                    }
+                        padaria.imprimeDadosProdutos(cpfProduto);
+                        padaria.adicionaProduto(cpfProduto);
 
-                    System.out.print("Cnpj do Fornecedor: ");
-                    String cnpj = teclado.nextLine();
-                    while (!valida.validaCnpj(cnpj)) {
-                        System.out.print("Cpf invalio, digite novamente:");
-                        cnpj = teclado.nextLine();
-                    }
+                        break;
+                    case "2":
+                        padaria.finalizaVenda();
+                        comprar = false;
+                        break;
+                    default:
+                        System.out.println("Opção Inválida!");
+                        break;
 
-                    System.out.print("Preco de custo, caso seja um fornecedor recorrente, o desconto será aplicado automaticamente: ");
-                    double precoDeCusto = teclado.nextDouble();
+                }
 
-                    System.out.print("Preco final no qual vai vender: ");
-                    double precoFinal = teclado.nextDouble();
-
-                    System.out.println("Apelido: ");
-                    String apelido = teclado.nextLine();
-
-                    System.out.println("Caso seja perecivel, coloque as datas abaixo. Se caso nao for perecivel, apenas aperte enter");
-                    System.out.println("Dia: ");
-                    int dia = teclado.nextInt();
-
-                    while (!valida.validaCnpj(cnpj)) {
-                        System.out.print("Cpf invalio, digite novamente:");
-                        cnpj = teclado.nextLine();
-                    }
-
-                    System.out.println("Mes: ");
-                    int mes = teclado.nextInt();
-                    while (!valida.validaCnpj(cnpj)) {
-                        System.out.print("Cpf invalio, digite novamente:");
-                        cnpj = teclado.nextLine();
-                    }
-
-                    System.out.println("Ano: ");
-                    int ano = teclado.nextInt();
-                    try {
-                            System.out.print("Cpf invalio, digite novamente:");
-                            cnpj = teclado.nextLine();
-                    } catch (InputMismatchException a) {
-                        System.out.println("Tem que ser numero, digite novamente.");
-                    }
-
-                    break;
-
-                case "2":
-                    System.out.print("Escreva o CPF do cliente: ");
-                    padaria.removeCliente(teclado.nextLine());
-                    break;
-
-                case "3":
-                    System.out.print("CPF do cliente que deseja atualizar: ");
-                    String cpfAtualiza = teclado.nextLine();
-                    padaria.imprimeDadosClientes(cpfAtualiza);
-
-                    System.out.print("Novo nome: ");
-                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setNome(teclado.nextLine());
-
-                    System.out.print("Novo endereco: ");
-                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setEndereco(teclado.nextLine());
-
-                    System.out.print("Novo telefone: ");
-                    padaria.getCliente()[padaria.consultaCliente(cpfAtualiza)].setTelefone(teclado.nextLine());
-
-                    break;
-                case "0":
-                    return;
-
-                default:
-                    menu.opcaoInvalida();
-                    break;
             }
 
-        } while (true);
-    }
+        }
 
+    }
+    
 }

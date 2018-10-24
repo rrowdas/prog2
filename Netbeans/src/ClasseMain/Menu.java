@@ -122,7 +122,7 @@ public class Menu {
         System.out.println("4 : DEFINIR Padrões");
         System.out.println("0 : SAIR");
         System.out.println();
-        System.out.print("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao: ");
     }
 
     public void consultar() {
@@ -142,9 +142,13 @@ public class Menu {
         System.out.println();
         System.out.println("7 : Produto específico");
         System.out.println("8 : Lista com TODOS os Produtos");
+        System.out.println("");
+        System.out.println("9 : Imposto sobre vendas");
+        System.out.println("10 - Imposto sobre salarios");
+        System.out.println("");
         System.out.println("0 : Voltar");
         System.out.println();
-        System.out.print("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao: ");
 
     }
 
@@ -157,8 +161,9 @@ public class Menu {
         System.out.println("2 : Fornecedores");
         System.out.println("3 : Funcionarios");
         System.out.println("4 : Produtos");
+        System.out.println("0 : Voltar");
         System.out.println();
-        System.out.print("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao: ");
 
     }
     public void acao(){
@@ -168,7 +173,7 @@ public class Menu {
         System.out.println("3 : Atualizar");
         System.out.println("0 : Voltar");
         System.out.println();
-        System.out.print("Escolha uma opcao:");
+        System.out.print("Escolha uma opcao: ");
     }
     
     public void tipoFuncionario(){
@@ -176,11 +181,21 @@ public class Menu {
         System.out.println("1 - Gerente");
         System.out.println("2 - Padeiro");
         System.out.println("3 - Vendedor");
-        System.out.print("Escolha uma opcao:");
+        System.out.println("0 - Voltar");
+        System.out.print("Escolha uma opcao: ");
 
     }
 
+    public void definir(){
+        System.out.println("O que deseja fazer: ");
+        System.out.println("1 - Ver imposto sobre vendas");
+        System.out.println("2 - Ver imposto sobre salarios");
+        System.out.println("3 - Ver definir metas");
+        System.out.println("0 - Voltar");
+        System.out.print("Escolha de opcao: ");
+    }
     public void opcaoInvalida() {
         System.out.println("Opcao inválido");
     }
+    
 }
