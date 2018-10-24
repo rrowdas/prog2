@@ -7,6 +7,8 @@ package gui.internals.fornecedores;
 
 import gui.internals.clientes.*;
 import Clientes.Clientes;
+import Fornecedores.Ocasional;
+import Fornecedores.Recorrente;
 import PadTremBao.PadTremBao;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
@@ -20,8 +22,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
     /**
      * Creates new form CadastrarCliente
      */
-
-    public CadastrarFornecedor(){
+    public CadastrarFornecedor() {
         initComponents();
     }
 //    CadastrarCliente() {
@@ -44,9 +45,11 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
         tfEndereco = new javax.swing.JTextField();
-        tfTelefone = new javax.swing.JTextField();
-        ftfCpf = new javax.swing.JFormattedTextField();
+        tfDesconto = new javax.swing.JTextField();
+        ftfCnpj = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
+        cbTipoFornecedor = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Cadastrar Clientes");
@@ -56,18 +59,25 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Endereço:");
 
-        jLabel3.setText("CPF:");
+        jLabel3.setText("CNPJ:");
 
-        jLabel4.setText("Telefone:");
+        jLabel4.setText("Taxa de Desconto:");
+
+        tfDesconto.setEditable(false);
+        tfDesconto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDescontoActionPerformed(evt);
+            }
+        });
 
         try {
-            ftfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
+            ftfCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        ftfCpf.addActionListener(new java.awt.event.ActionListener() {
+        ftfCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ftfCpfActionPerformed(evt);
+                ftfCnpjActionPerformed(evt);
             }
         });
 
@@ -78,6 +88,15 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
+        cbTipoFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ocasional", "Recorrente" }));
+        cbTipoFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoFornecedorActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Tipo:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,40 +106,51 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfNome)
-                            .addComponent(tfEndereco)
-                            .addComponent(tfTelefone)
-                            .addComponent(ftfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(203, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ftfCnpj, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cbTipoFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tfDesconto)))))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ftfCnpj, tfDesconto, tfEndereco, tfNome});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
+                    .addComponent(jLabel1)
+                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
                     .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(ftfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(ftfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbTipoFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                    .addComponent(tfDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(43, 43, 43))
         );
@@ -139,42 +169,75 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ftfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCpfActionPerformed
+    private void ftfCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfCnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ftfCpfActionPerformed
+    }//GEN-LAST:event_ftfCnpjActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome, endereco, telefone, cpf;
-        
-        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || tfTelefone.getText().equalsIgnoreCase("") || ftfCpf.getText().equalsIgnoreCase("           ")) {
+        String nome, endereco, cnpj;
+        double tDesc;
+
+        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || ftfCnpj.getText().equalsIgnoreCase("           ")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
-        }else{
+        } else {
             //System.out.println(tfNome.getText());
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!");
             nome = tfNome.getText();
             endereco = tfEndereco.getText();
-            telefone = tfTelefone.getText();
-            cpf = ftfCpf.getText();
-           // System.out.println(nome);
-            Clientes clienteAux = new Clientes(nome, endereco, cpf, telefone);
-            TelaInicial.padaria.cadastraCliente(clienteAux);
-            TelaInicial.padaria.imprimeDadosClientes(cpf);
+            cnpj = ftfCnpj.getText();
+            // System.out.println(nome);
+            if (cbTipoFornecedor.getSelectedIndex() == 0) {
+                Ocasional fornAux = new Ocasional(nome, endereco, cnpj);
+                TelaInicial.padaria.cadastraFornecedor(fornAux);
+                TelaInicial.padaria.imprimeDadosFornecedores(cnpj);
+                JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com Sucesso!");
+            } else {
+                tDesc = Double.parseDouble(tfDesconto.getText());
+                if (tfDesconto.getText().equalsIgnoreCase("")) {
+                    JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
+                } else {
+                    Recorrente fornAux = new Recorrente(nome, endereco, cnpj, tDesc);
+                    TelaInicial.padaria.cadastraFornecedor(fornAux);
+                    JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com Sucesso!");
+                    TelaInicial.padaria.imprimeDadosFornecedores(cnpj);
+                }
+            }
         }
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cbTipoFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoFornecedorActionPerformed
+        int tipo = cbTipoFornecedor.getSelectedIndex();
+        System.out.println(tipo);
+        if (tipo == 0) {
+            tfDesconto.setEditable(false);
+        } else
+            tfDesconto.setEditable(true);
+    }//GEN-LAST:event_cbTipoFornecedorActionPerformed
+
+    private void tfDescontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDescontoActionPerformed
+
+//        int tipo = cbTipoFornecedor.getSelectedIndex();
+//        System.out.println(tipo);
+//        if (tipo == 0) {
+//            tfDesconto.setEditable(false);
+//        }
+
+    }//GEN-LAST:event_tfDescontoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField ftfCpf;
+    private javax.swing.JComboBox<String> cbTipoFornecedor;
+    private javax.swing.JFormattedTextField ftfCnpj;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField tfDesconto;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }

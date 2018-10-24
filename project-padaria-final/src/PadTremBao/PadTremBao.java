@@ -48,10 +48,11 @@ public class PadTremBao implements Impostos {
     public void setCliente(Clientes[] cliente) {
         this.cliente = cliente;
     }
+
     public void updateCliente(Clientes c) {
         int p = consultaCliente(c.getCpf());
         this.cliente[p] = c;
-        
+
     }
 
     public int consultaFornecedor(String cnpjConsulta) {
@@ -87,7 +88,7 @@ public class PadTremBao implements Impostos {
         }
     }
 
-    public void removeFornecedor(String fornecedorCnpjExcluido) {
+    public boolean removeFornecedor(String fornecedorCnpjExcluido) {
 
         boolean removido = false;
         int posicao = consultaFornecedor(fornecedorCnpjExcluido);
@@ -95,9 +96,24 @@ public class PadTremBao implements Impostos {
         if (posicao != -1) {
             fornecedor[posicao] = null;
             System.out.println("O Fornecedor " + fornecedor[posicao].getNome() + " foi removido.");
+            return true;
         } else {
             System.out.println("Fornecedor não encontrado. Tente novamente com um CNPJ válido.");
+            return false;
         }
+    }
+    
+    public String[][] dadosFornecedores() {
+        String[][] dataValues = new String[fornecedor.length][4];
+        for (int i = 0; i < fornecedor.length; i++) {
+            if (fornecedor[i] != null) {
+                dataValues[i][0] = fornecedor[i].getNome();
+                dataValues[i][1] = fornecedor[i].getEndereco();
+                dataValues[i][2] = fornecedor[i].getCnpj();
+                dataValues[i][3] = fornecedor[i].getTaxaDesconto();
+            }
+        }
+        return dataValues;
     }
 
     public int consultaFuncionario(String cpfFuncionario) {
@@ -186,9 +202,9 @@ public class PadTremBao implements Impostos {
         int posicao = consultaCliente(clienteCpfExcluido);
 
         if (posicao != -1) {
-             System.out.println("O Cliente " + cliente[posicao].getNome() + " foi removido.");
+            System.out.println("O Cliente " + cliente[posicao].getNome() + " foi removido.");
             cliente[posicao] = null;
-           
+
             return true;
         } else {
             System.out.println("Cliente não encontrado. Tente novamente com um CPF válido.");
@@ -290,6 +306,7 @@ public class PadTremBao implements Impostos {
             }
         }
     }
+
     public String[][] dadosClientes() {
         String[][] dataValues = new String[cliente.length][4];
         for (int i = 0; i < cliente.length; i++) {
@@ -334,7 +351,7 @@ public class PadTremBao implements Impostos {
             System.out.println("Cliente inexistente");
         }
     }
-    
+
     public Clientes dadosClientes(String cpfCliente) {
         Clientes c = null;
         if (consultaCliente(cpfCliente) != -1) {

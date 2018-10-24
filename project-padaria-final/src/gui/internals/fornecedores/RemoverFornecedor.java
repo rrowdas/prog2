@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internals.clientes;
+package gui.internals.fornecedores;
 
+import gui.internals.clientes.*;
 import Clientes.Clientes;
 import PadTremBao.PadTremBao;
 import gui.TelaInicial;
@@ -14,13 +15,13 @@ import javax.swing.JOptionPane;
  *
  * @author roger
  */
-public class RemoverCliente extends javax.swing.JInternalFrame {
+public class RemoverFornecedor extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
      */
 
-    public RemoverCliente(){
+    public RemoverFornecedor(){
         initComponents();
     }
 //    CadastrarCliente() {
@@ -42,10 +43,10 @@ public class RemoverCliente extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Ecxluir Clientes");
+        setTitle("Excluir Fornecedores");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
-        jLabel3.setText("CPF:");
+        jLabel3.setText("CNPJ:");
 
         try {
             ftfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
@@ -110,14 +111,14 @@ public class RemoverCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String cpf;
+        String cnpj;
 
         if (ftfCpf.getText().equalsIgnoreCase("           ")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
         }else{
-            cpf = ftfCpf.getText();
+            cnpj = ftfCpf.getText();
             // System.out.println(nome);
-            boolean r = TelaInicial.padaria.removeCliente(cpf);
+            boolean r = TelaInicial.padaria.removeFornecedor(cnpj);
             if(r){
                 JOptionPane.showMessageDialog(null, "Sucesso ao remover!");
             }else{

@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/Fornecedores/Fornecedores.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/MainFinal/MainFinal.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/Fornecedores/Recorrente.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/clientes/ListarCliente.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/fornecedores/ListarFornecedor.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/PadTremBao/PadTremBao.java</file>
+        </group>
     </open-files>
 </project-private>

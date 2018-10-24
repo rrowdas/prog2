@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internals.clientes;
+package gui.internals.fornecedores;
 
+import gui.internals.clientes.*;
 import Clientes.Clientes;
 import PadTremBao.PadTremBao;
 import gui.TelaInicial;
@@ -15,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author roger
  */
-public class ListarCliente extends javax.swing.JInternalFrame {
+public class ListarFornecedor extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
@@ -23,18 +24,17 @@ public class ListarCliente extends javax.swing.JInternalFrame {
     private String[] columnNames;
     private String[][] dataValues;
 
-    public ListarCliente() {
+    public ListarFornecedor() {
         initComponents();
         refresh();
 
     }
 
     public void refresh() {
-        columnNames = new String[]{"Nome", "Endereco", "CPF", "Telefone"};
+        columnNames = new String[]{"Nome", "Endereco", "CNPJ", "Taxa Desconto"};
         dataValues = TelaInicial.padaria.dadosClientes();
         
-        tableClientes.setModel(new DefaultTableModel(dataValues, columnNames));
-        
+        tableFornecedores.setModel(new DefaultTableModel(dataValues, columnNames));
     }
 //    CadastrarCliente() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -52,16 +52,16 @@ public class ListarCliente extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableClientes = new javax.swing.JTable();
+        tableFornecedores = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Listar Clientes");
+        setTitle("Listar Fornecedores");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
-        jLabel1.setText("Clientes: ");
+        jLabel1.setText("Fornecedores:");
 
-        tableClientes.setModel(new javax.swing.table.DefaultTableModel(
+        tableFornecedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -87,12 +87,12 @@ public class ListarCliente extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableFornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableClientesMouseClicked(evt);
+                tableFornecedoresMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tableClientes);
+        jScrollPane2.setViewportView(tableFornecedores);
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,16 +147,16 @@ public class ListarCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClientesMouseClicked
+    private void tableFornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFornecedoresMouseClicked
         // TODO add your handling code here:
-        int row = tableClientes.rowAtPoint(evt.getPoint());
-        int col = tableClientes.columnAtPoint(evt.getPoint());
-        String cpf = tableClientes.getValueAt(row, 2).toString();
+        int row = tableFornecedores.rowAtPoint(evt.getPoint());
+        int col = tableFornecedores.columnAtPoint(evt.getPoint());
+        String cpf = tableFornecedores.getValueAt(row, 2).toString();
         JOptionPane.showMessageDialog(null,"CPF:"+ " " +cpf);
         EditarCliente editar = new EditarCliente(cpf);
         TelaInicial.jDesktopPane1.add(editar);
         editar.setVisible(true);
-    }//GEN-LAST:event_tableClientesMouseClicked
+    }//GEN-LAST:event_tableFornecedoresMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -169,6 +169,6 @@ public class ListarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tableClientes;
+    private javax.swing.JTable tableFornecedores;
     // End of variables declaration//GEN-END:variables
 }
