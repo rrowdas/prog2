@@ -44,6 +44,7 @@ public abstract class Fornecedores implements Informacoes {
     
     public void imprimeDados() { // esse metodo está aqui para fazer sobrescrita
         System.out.println();
+        System.out.println("------------------------------------------");
         System.out.println("Fornecedor: " + nome);
         System.out.println("CNPJ: " + cnpj);
         System.out.println("Endereço do fornecedor: " + endereco);

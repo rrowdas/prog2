@@ -11,14 +11,13 @@ import Produtos.Produtos;
 public class PadTremBao implements Impostos {
 
     private int posVenda, posFuncionario, posCliente;
-    private Fornecedores[] fornecedor;
+    private Fornecedores[] fornecedor = new Fornecedores [20];
     private Funcionarios[] funcionario = new Funcionarios[10];
     private Clientes[] cliente = new Clientes[40];
     private final Vendas[] venda = new Vendas[50];
     private final Estoque estoque = new Estoque();
 
     public PadTremBao() {
-        this.fornecedor = new Fornecedores[20];
     }
 
     public Vendas[] getVenda() {
@@ -79,7 +78,7 @@ public class PadTremBao implements Impostos {
             System.out.println("Esse fornecedor já está cadastrado.");
 
         } else {
-            for (int i = 0; i < fornecedor.length && !cadastrado; i++) {
+            for (int i = 0; i < fornecedor.length  && !cadastrado; i++) {
                 if (fornecedor[i] == null) {
                     System.out.println("Fornecedor " + novoFornecedor.getNome() + " cadastrado");
                     fornecedor[i] = novoFornecedor;
@@ -276,11 +275,13 @@ public class PadTremBao implements Impostos {
     }
 
     public void imprimeDadosFuncionarios() {
+        System.out.println("------------------------------------------------------");
         for (int i = 0; i < funcionario.length; i++) {
             if (funcionario[i] != null) {
                 funcionario[i].imprimeDados();
             }
         }
+        System.out.println("------------------------------------------------------");
     }
 
     public void imprimeDadosFuncionarios(String cpfFuncionario) {
@@ -292,11 +293,13 @@ public class PadTremBao implements Impostos {
     }
 
     public void imprimeDadosFornecedores() {
+        System.out.println("------------------------------------------------------");
         for (int i = 0; i < fornecedor.length; i++) {
             if (fornecedor[i] != null) {
                 fornecedor[i].imprimeDados();
             }
         }
+        System.out.println("------------------------------------------------------");
     }
 
     public void imprimeDadosFornecedores(String cnpjFornecedor) {
@@ -308,11 +311,13 @@ public class PadTremBao implements Impostos {
     }
 
     public void imprimeDadosClientes() {
+        System.out.println("------------------------------------------------------");
         for (int i = 0; i < cliente.length; i++) {
             if (cliente[i] != null) {
                 cliente[i].imprimeDados();
             }
         }
+        System.out.println("------------------------------------------------------");
     }
 
     public void imprimeDadosClientes(String cpfCliente) {

@@ -23,7 +23,7 @@ public class Gerente extends Funcionarios {
         System.out.println("GERENTE");
         System.out.println();
 
-        super.imprimeDados();
         System.out.printf("R$ %.2f\n", salarioFinal());
+        super.imprimeDados();
     }
 }
