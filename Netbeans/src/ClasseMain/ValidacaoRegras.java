@@ -10,69 +10,82 @@ package ClasseMain;
  * @author victor
  */
 public class ValidacaoRegras {
- 
+
     public boolean validaCpf(String cpf) {
         char[] vetor = cpf.toCharArray();
         boolean numDigitoValido = true;
         boolean inteiro = true;
-        
-        if(vetor.length != 11)
+
+        if (vetor.length != 11) {
             numDigitoValido = false;
-        
-        
+        }
+
         for (int i = 0; i < vetor.length && inteiro && numDigitoValido; i++) // verifica se o char não é um dígito
         {
             if (!Character.isDigit(vetor[i])) {
                 inteiro = false;
             }
         }
-        if(numDigitoValido == false || inteiro == false)
+        if (numDigitoValido == false || inteiro == false) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
-    
+
     public boolean validaCnpj(String cnpj) {
         char[] vetor = cnpj.toCharArray();
         boolean numDigitoValido = true;
         boolean inteiro = true;
-        
-        if(vetor.length != 14)
+
+        if (vetor.length != 14) {
             numDigitoValido = false;
-        
-        
+        }
+
         for (int i = 0; i < vetor.length && inteiro && numDigitoValido; i++) // verifica se o char não é um dígito
         {
             if (!Character.isDigit(vetor[i])) {
                 inteiro = false;
             }
         }
-        if(numDigitoValido == false || inteiro == false)
+        if (numDigitoValido == false || inteiro == false) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
-    
+
     public boolean validaCodigo(String codigo) {
         char[] vetor = codigo.toCharArray();
         boolean numDigitoValido = true;
         boolean inteiro = true;
-        
-        if(vetor.length != 6)
+
+        if (vetor.length != 6) {
             numDigitoValido = false;
-        
-        
+        }
+
         for (int i = 0; i < vetor.length && inteiro && numDigitoValido; i++) // verifica se o char não é um dígito
         {
             if (!Character.isDigit(vetor[i])) {
                 inteiro = false;
             }
         }
-        if(numDigitoValido == false || inteiro == false)
+        if (numDigitoValido == false || inteiro == false) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
-    
-    
+
+    public boolean validaData(int dia, int mes, int ano) {
+        
+        if (dia < 31 && dia > 0)
+            if (mes < 12 && mes > 0)
+                return true;
+            else 
+                return false;
+        else 
+            return false;
+    }
+   
 }

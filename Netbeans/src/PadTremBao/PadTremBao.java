@@ -40,7 +40,11 @@ public class PadTremBao implements Impostos {
     public void setFuncionario(Funcionarios[] funcionario) {
         this.funcionario = funcionario;
     }
-
+    
+    public Estoque getEstoque(){
+        return estoque;
+    }
+    
     public Clientes[] getCliente() {
         return cliente;
     }
