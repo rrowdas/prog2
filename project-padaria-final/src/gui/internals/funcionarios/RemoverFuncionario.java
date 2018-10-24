@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author roger
  */
-public class RemoverFuncionarios extends javax.swing.JInternalFrame {
+public class RemoverFuncionario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
      */
 
-    public RemoverFuncionarios(){
+    public RemoverFuncionario(){
         initComponents();
     }
 //    CadastrarCliente() {
@@ -40,10 +40,10 @@ public class RemoverFuncionarios extends javax.swing.JInternalFrame {
         jbBuscareRemover = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Excluir Fornecedores");
+        setTitle("Excluir Funcionarios");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
-        jLabel3.setText("CNPJ:");
+        jLabel3.setText("CPF:");
 
         try {
             ftfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##############")));
@@ -95,7 +95,7 @@ public class RemoverFuncionarios extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 327, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,15 +108,15 @@ public class RemoverFuncionarios extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbBuscareRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscareRemoverActionPerformed
-        String cnpj;
+        String cpf;
 
         if (ftfCpf.getText().equalsIgnoreCase("           ")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
         }else{
-            cnpj = ftfCpf.getText();
+            cpf = ftfCpf.getText();
             // System.out.println(nome);
-            boolean r = TelaInicial.padaria.removeFornecedor(cnpj);
-            if(r){
+            boolean rm = TelaInicial.padaria.removeFuncionario(cpf);
+            if(rm){
                 JOptionPane.showMessageDialog(null, "Sucesso ao remover!");
                 this.dispose();
             }else{

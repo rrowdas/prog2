@@ -4,6 +4,7 @@ import Clientes.Clientes;
 import Estoque.Estoque;
 import Fornecedores.Fornecedores;
 import Funcionarios.Funcionarios;
+import Funcionarios.Padeiro;
 import Funcionarios.Vendedor;
 import Vendas.Vendas;
 import Produtos.Produtos;
@@ -167,17 +168,58 @@ public class PadTremBao implements Impostos {
         }
     }
 
-    public void removeFuncionario(String funcionarioCpfExcluido) {
+    public boolean removeFuncionario(String funcionarioCpfExcluido) {
 
         boolean removido = false;
         int posicao = consultaFuncionario(funcionarioCpfExcluido);
 
         if (posicao != -1) {
-            funcionario[posicao] = null;
             System.out.println("O Funcionario " + funcionario[posicao].getNome() + " foi removido.");
+            funcionario[posicao] = null;
+            return true;
+            
         } else {
             System.out.println("Funcionario não encontrado. Tente novamente com um CPF válido.");
+            return false;
         }
+    }
+    
+    public String[][] dadosFuncionarios() {
+        String[][] dataValues = new String[funcionario.length][8];
+        for (int i = 0; i < funcionario.length; i++) {
+            if (funcionario[i] != null) {
+                dataValues[i][0] = funcionario[i].getNome();
+                dataValues[i][1] = funcionario[i].getEndereco();
+                dataValues[i][2] = funcionario[i].getCpf();
+                dataValues[i][3] = funcionario[i].getTelefone();
+                dataValues[i][4] = funcionario[i].getSalarioBase();
+                dataValues[i][7] = String.valueOf(funcionario[i].salarioFinal());
+                if(funcionario[i] instanceof Padeiro){
+                dataValues[i][5] = ((Padeiro) funcionario[i]).getHorasNormais();
+                dataValues[i][6] = ((Padeiro) funcionario[i]).getHorasAlternativas();
+                    
+                }
+            }
+        }
+        return dataValues;
+    }
+    
+    public Funcionarios dadosFuncionario (String codigo) {
+        Funcionarios aux = null;
+        if (consultaFornecedor(codigo) != -1) {
+            //fornecedor[consultaFornecedor(cnpjFornecedor)].imprimeDados();
+            aux = funcionario[consultaFuncionario(codigo)];
+        } else {
+            System.out.println("Funcionario inexistente");
+            //f = null;
+        }
+        return aux;
+    }
+    
+    public void updateFuncionario(Funcionarios f) {
+        int pos = consultaFuncionario(f.getCpf());
+        this.funcionario[pos] = f;
+
     }
 
     public int consultaCliente(String cpfCliente) {
