@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author roger
  */
-public class ListarFuncionarios extends javax.swing.JInternalFrame {
+public class ListarFuncionario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastrarCliente
@@ -23,17 +23,17 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
     private String[] columnNames;
     private String[][] dataValues;
 
-    public ListarFuncionarios() {
+    public ListarFuncionario() {
         initComponents();
         refresh();
 
     }
 
     public void refresh() {
-        columnNames = new String[]{"Nome", "Endereco", "CNPJ", "Taxa Desconto"};
-        dataValues = TelaInicial.padaria.dadosFornecedores();
+        columnNames = new String[]{"Nome", "Endereco", "CPF", "Telefone", "Salario Base", "Jornada Normal", "Jornada Alternativa", "Salario Final"};
+        dataValues = TelaInicial.padaria.dadosFuncionarios();
         
-        tableFornecedores.setModel(new DefaultTableModel(dataValues, columnNames));
+        tableFuncionarios.setModel(new DefaultTableModel(dataValues, columnNames));
     }
 //    CadastrarCliente() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -51,16 +51,16 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableFornecedores = new javax.swing.JTable();
+        tableFuncionarios = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Listar Fornecedores");
+        setTitle("Listar Funcionarios");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
-        jLabel1.setText("Fornecedores:");
+        jLabel1.setText("Funcionarios:");
 
-        tableFornecedores.setModel(new javax.swing.table.DefaultTableModel(
+        tableFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,12 +86,12 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableFornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableFornecedoresMouseClicked(evt);
+                tableFuncionariosMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tableFornecedores);
+        jScrollPane2.setViewportView(tableFuncionarios);
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -146,17 +146,17 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tableFornecedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFornecedoresMouseClicked
+    private void tableFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFuncionariosMouseClicked
         // TODO add your handling code here:
-        int row = tableFornecedores.rowAtPoint(evt.getPoint());
-        int col = tableFornecedores.columnAtPoint(evt.getPoint());
-        String cnpj = tableFornecedores.getValueAt(row, 2).toString();
-        JOptionPane.showMessageDialog(null,"CNPJ:"+ " " +cnpj);
-        EditarFornecedor editar = new EditarFornecedor(cnpj);
+        int row = tableFuncionarios.rowAtPoint(evt.getPoint());
+        int col = tableFuncionarios.columnAtPoint(evt.getPoint());
+        String cpf = tableFuncionarios.getValueAt(row, 2).toString();
+        JOptionPane.showMessageDialog(null,"CPF:"+ " " +cpf);
+        EditarFuncionario editar = new EditarFuncionario(cpf);
         TelaInicial.jDesktopPane1.add(editar);
         editar.setVisible(true);
         
-    }//GEN-LAST:event_tableFornecedoresMouseClicked
+    }//GEN-LAST:event_tableFuncionariosMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -169,6 +169,6 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tableFornecedores;
+    private javax.swing.JTable tableFuncionarios;
     // End of variables declaration//GEN-END:variables
 }

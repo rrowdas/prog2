@@ -8,6 +8,9 @@ package gui;
 import Clientes.Clientes;
 import Fornecedores.Ocasional;
 import Fornecedores.Recorrente;
+import Funcionarios.Gerente;
+import Funcionarios.Padeiro;
+import Funcionarios.Vendedor;
 import PadTremBao.PadTremBao;
 import gui.internals.clientes.CadastrarCliente;
 import gui.internals.clientes.ListarCliente;
@@ -15,29 +18,26 @@ import gui.internals.clientes.RemoverCliente;
 import gui.internals.fornecedores.CadastrarFornecedor;
 import gui.internals.fornecedores.ListarFornecedor;
 import gui.internals.fornecedores.RemoverFornecedor;
-import gui.internals.funcionarios.CadastrarFuncionarios;
-import gui.internals.funcionarios.EditarFuncionarios;
-import gui.internals.funcionarios.ListarFuncionarios;
-import gui.internals.funcionarios.RemoverFuncionarios;
-
+import gui.internals.funcionarios.CadastrarFuncionario;
+import gui.internals.funcionarios.EditarFuncionario;
+import gui.internals.funcionarios.ListarFuncionario;
+import gui.internals.funcionarios.RemoverFuncionario;
 
 /**
  *
  * @author roger
  */
 public class TelaInicial extends javax.swing.JFrame {
-    
+
     public static PadTremBao padaria = new PadTremBao();
-    
-   
 
     /**
      * Creates new form TelaInicial
      */
     public TelaInicial() {
         initComponents();
-        
-        Clientes c1 = new Clientes("Menino Neymar", "14 de julho", "99947123548", "4002-6400");
+
+        Clientes c1 = new Clientes("Menino Neymar", "14 de julho", "99999999999", "4002-6400");
 
         c1.imprimeDados();
         //Aplicando os sets aqui!
@@ -47,25 +47,25 @@ public class TelaInicial extends javax.swing.JFrame {
         c1.setTelefone("4002-8922");
         c1.setAcumuladoCompras(150);
         c1.imprimeDados();
-    
-        Clientes c2 = new Clientes("Coutinho", "Marechal Rondon", "15935746820", "9214-7412");
-        Clientes c3 = new Clientes("Marcelo camisa 6", "Euclides da Cunha", "47850000000", "7894-1563");
-        Clientes c4 = new Clientes("Gabriel Jesus", "Afonso Pena", "22223335647", "4569-8712");
-        Clientes c5 = new Clientes("Antonio", "Bom Pastor", "96357835484", "1645-2398");
-        Clientes c6 = new Clientes("Alex", "Rua Goias", "55557123548", "3305-5033");
-        Clientes c7 = new Clientes("Wesley", "Mato Grosso", "59963214548", "7777-8888");
-        Clientes c8 = new Clientes("Rodrigo", "Rua Jupiter", "77415289631", "4563-2198");
-        Clientes c9 = new Clientes("Pedro", "Rua Ceara", "33947123000", "7412-5896");
-        Clientes c10 = new Clientes("Isabela", "Rua 3 Coracoes", "44444123000", "7412-5896");
-        
+
+        Clientes c2 = new Clientes("Coutinho", "Marechal Rondon", "00000000000", "9214-7412");
+        Clientes c3 = new Clientes("Marcelo camisa 6", "Euclides da Cunha", "11111111111", "7894-1563");
+        Clientes c4 = new Clientes("Gabriel Jesus", "Afonso Pena", "22222222222", "4569-8712");
+        Clientes c5 = new Clientes("Antonio", "Bom Pastor", "33333333333", "1645-2398");
+        Clientes c6 = new Clientes("Alex", "Rua Goias", "44444444444", "3305-5033");
+        Clientes c7 = new Clientes("Wesley", "Mato Grosso", "55555555555", "7777-8888");
+        Clientes c8 = new Clientes("Rodrigo", "Rua Jupiter", "66666666666", "4563-2198");
+        Clientes c9 = new Clientes("Pedro", "Rua Ceara", "77777777777", "7412-5896");
+        Clientes c10 = new Clientes("Isabela", "Rua 3 Coracoes", "88888888888", "7412-5896");
+
         c2.setAcumuladoCompras(201);
-        
+
         c3.setAcumuladoCompras(250);
-        
+
         c4.setAcumuladoCompras(100);
-        
+
         c5.setAcumuladoCompras(120);
-        
+
         padaria.cadastraCliente(c1);
         padaria.cadastraCliente(c2);
         padaria.cadastraCliente(c3);
@@ -76,14 +76,14 @@ public class TelaInicial extends javax.swing.JFrame {
         padaria.cadastraCliente(c8);
         padaria.cadastraCliente(c9);
         padaria.cadastraCliente(c10);
-        
-        Ocasional oc1 = new Ocasional("Anderson", "Calogeras", "14785236995124");
-        Ocasional oc2 = new Ocasional("Flavio", "Rua Aleatoria", "14785236995124");
-        Ocasional oc3 = new Ocasional("Rafael", "Centro", "45698712104578");
-        Ocasional oc4 = new Ocasional("Henrique", "Jarim Paulista", "96321478501236");
-        Recorrente rec5 = new Recorrente("Alexandra", "Rua Amazonas", "33333123548635", "0.3");
-        Recorrente rec6 = new Recorrente("Wesley", "Mato Grosso", "77778888999945", "0.4");
-        Recorrente rec7 = new Recorrente("Renata", "Rua Jupiter", "456321981234567", "0.4");
+
+        Ocasional oc1 = new Ocasional("Anderson", "Calogeras", "00000000000000");
+        Ocasional oc2 = new Ocasional("Flavio", "Rua Aleatoria", "11111111111111");
+        Ocasional oc3 = new Ocasional("Rafael", "Centro", "22222222222222");
+        Ocasional oc4 = new Ocasional("Henrique", "Jarim Paulista", "33333333333333");
+        Recorrente rec5 = new Recorrente("Alexandra", "Rua Amazonas", "44444444444444", "0.3");
+        Recorrente rec6 = new Recorrente("Wesley", "Mato Grosso", "55555555555555", "0.4");
+        Recorrente rec7 = new Recorrente("Renata", "Rua Jupiter", "66666666666666", "0.4");
 
         padaria.cadastraFornecedor(oc1);
         padaria.cadastraFornecedor(oc2);
@@ -92,6 +92,20 @@ public class TelaInicial extends javax.swing.JFrame {
         padaria.cadastraFornecedor(rec5);
         padaria.cadastraFornecedor(rec6);
         padaria.cadastraFornecedor(rec7);
+//nome, endereco, cpf, telefone, salarioBase
+
+        Padeiro padeiro1 = new Padeiro("Cesar", "Centro", "00000000000", "4433-3344", "1300.00", "40", "12");
+        Vendedor ven2 = new Vendedor("Otavio", "Tres Barras", "11111111111", "3300-4747", "1100.00");
+        Vendedor ven3 = new Vendedor("Joana", "Zona Norte", "22222222222", "4400-0044", "1000.00");
+        Gerente ger4 = new Gerente("Gabriel", "Av. Paulista", "33333333333", "7474-0000", "2000.00");
+        Padeiro padeiro5 = new Padeiro("Jonathan", "Liberdade", "44444444444", "1212-2121", "1150.00", "20", "10");
+
+        padaria.cadastraFuncionario(padeiro1);
+        padaria.cadastraFuncionario(ven2);
+        padaria.cadastraFuncionario(ven3);
+        padaria.cadastraFuncionario(ger4);
+        padaria.cadastraFuncionario(padeiro5);
+
     }
 
     /**
@@ -262,16 +276,16 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         RemoverCliente r = new RemoverCliente();
         jDesktopPane1.add(r);
         r.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedorActionPerformed
-       CadastrarFornecedor addFornecedor = new CadastrarFornecedor();
-       jDesktopPane1.add(addFornecedor);
-       addFornecedor.setVisible(true);
+        CadastrarFornecedor addFornecedor = new CadastrarFornecedor();
+        jDesktopPane1.add(addFornecedor);
+        addFornecedor.setVisible(true);
     }//GEN-LAST:event_jmCadastrarFornecedorActionPerformed
 
     private void jmListarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedorActionPerformed
@@ -287,20 +301,20 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jmRemoverFornecedorActionPerformed
 
     private void jmCadastrarFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedor1ActionPerformed
-        CadastrarFuncionarios addFunc = new CadastrarFuncionarios();
+        CadastrarFuncionario addFunc = new CadastrarFuncionario();
         jDesktopPane1.add(addFunc);
         addFunc.setVisible(true);
-        
+
     }//GEN-LAST:event_jmCadastrarFornecedor1ActionPerformed
 
     private void jmRemoverFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRemoverFornecedor1ActionPerformed
-       RemoverFuncionarios rmFunc = new RemoverFuncionarios();
-       jDesktopPane1.add(rmFunc);
-       rmFunc.setVisible(true);
+        RemoverFuncionario rmFunc = new RemoverFuncionario();
+        jDesktopPane1.add(rmFunc);
+        rmFunc.setVisible(true);
     }//GEN-LAST:event_jmRemoverFornecedor1ActionPerformed
 
     private void jmListarFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedor1ActionPerformed
-        ListarFuncionarios lsF = new ListarFuncionarios();
+        ListarFuncionario lsF = new ListarFuncionario();
         jDesktopPane1.add(lsF);
         lsF.setVisible(true);
     }//GEN-LAST:event_jmListarFornecedor1ActionPerformed
