@@ -15,8 +15,12 @@ public class Estoque {
         boolean existe = false;
 
         for (int i = 0; i < produto.length && !existe; i++) {
-            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(infoProduto) || produto[i].getApelido().equalsIgnoreCase(infoProduto) || produto[i].getNome().equalsIgnoreCase(infoProduto))  {
+<<<<<<< HEAD
+            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(infoProduto)/* || produto[i].getApelido().equalsIgnoreCase(infoProduto) || produto[i].getNome().equalsIgnoreCase(infoProduto)*/)  {
+=======
+            if (produto[i] != null && produto[i].getCodigo().equalsIgnoreCase(infoProduto) /*|| produto[i].getApelido().equalsIgnoreCase(infoProduto) || produto[i].getNome().equalsIgnoreCase(infoProduto)*/)  {
                 System.out.println("Esse produto já está cadastrado");
+>>>>>>> 3556d53132140acaf4b2e9c8e7261b646fe9c9f9
                 existe = true;
                 posicao = i;
             }

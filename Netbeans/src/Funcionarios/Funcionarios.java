@@ -65,6 +65,7 @@ public abstract class Funcionarios implements Informacoes, Salario {
         System.out.println("Endereco: " + endereco);
         System.out.println("CPF: " + cpf);
         System.out.println("Telefone: " + telefone);
+        System.out.println("------------------------------------------");
 
     }
     

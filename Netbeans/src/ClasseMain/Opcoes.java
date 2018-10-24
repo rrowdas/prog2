@@ -262,7 +262,7 @@ public class Opcoes {
 
                     System.out.print("Preco de custo, caso seja um fornecedor recorrente, o desconto será aplicado automaticamente: ");
                     double precoDeCusto = teclado.nextDouble();
-                    precoDeCusto = padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto();
+                    precoDeCusto *= (1 -padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto());
 
                     System.out.print("Preco final no qual vai vender: ");
                     double precoFinal = teclado.nextDouble();
@@ -326,6 +326,27 @@ public class Opcoes {
                     break;
 
                 case "3": // NAO TERMINADO
+<<<<<<< HEAD
+//                    System.out.print("Codigo do produto que deseja atualizar: ");
+//                    String codigoProd = teclado.nextLine();
+//                    padaria.imprimeDadosProdutos(codigoProd);
+//
+//                    System.out.print("Novo nome: ");
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setNome(teclado.nextLine());
+//
+//                    System.out.print("Novo Apelido: ");
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setApelido(teclado.nextLine());
+//
+//                    System.out.print("Novo fornecedor: ");
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setFornecedor(teclado.nextLine());
+//
+//                    System.out.print("Novo preco de custo: ");
+//                    double novoPrecoCusto = teclado.nextDouble();
+//                    novoPrecoCusto = novoPrecoCusto * padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto(); // ERRO AQUI
+//                    
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);
+//                    
+=======
                     System.out.print("Codigo do produto que deseja atualizar: ");
                     String codigoProd = teclado.nextLine();
                     padaria.imprimeDadosProdutos(codigoProd);
@@ -340,11 +361,12 @@ public class Opcoes {
                     padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setFornecedor(teclado.nextLine());
 
                     System.out.print("Novo preco de custo: ");
+                    
                     double novoPrecoCusto = teclado.nextDouble();
-                    novoPrecoCusto = novoPrecoCusto * padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto(); // ERRO AQUI
+                    novoPrecoCusto *=  padaria.getFornecedor()[padaria.consultaFornecedor(teclado.nextLine())].getTaxaDesconto(); // ERRO AQUI
                     
-                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);
-                    
+                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);          
+>>>>>>> 3556d53132140acaf4b2e9c8e7261b646fe9c9f9
 
                     break;
                 case "0":
