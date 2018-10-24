@@ -326,25 +326,25 @@ public class Opcoes {
                     break;
 
                 case "3": // NAO TERMINADO
-                    System.out.print("Codigo do produto que deseja atualizar: ");
-                    String codigoProd = teclado.nextLine();
-                    padaria.imprimeDadosProdutos(codigoProd);
-
-                    System.out.print("Novo nome: ");
-                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setNome(teclado.nextLine());
-
-                    System.out.print("Novo Apelido: ");
-                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setApelido(teclado.nextLine());
-
-                    System.out.print("Novo fornecedor: ");
-                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setFornecedor(teclado.nextLine());
-
-                    System.out.print("Novo preco de custo: ");
-                    double novoPrecoCusto = teclado.nextDouble();
-                    novoPrecoCusto = novoPrecoCusto * padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto(); // ERRO AQUI
-                    
-                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);
-                    
+//                    System.out.print("Codigo do produto que deseja atualizar: ");
+//                    String codigoProd = teclado.nextLine();
+//                    padaria.imprimeDadosProdutos(codigoProd);
+//
+//                    System.out.print("Novo nome: ");
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setNome(teclado.nextLine());
+//
+//                    System.out.print("Novo Apelido: ");
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setApelido(teclado.nextLine());
+//
+//                    System.out.print("Novo fornecedor: ");
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setFornecedor(teclado.nextLine());
+//
+//                    System.out.print("Novo preco de custo: ");
+//                    double novoPrecoCusto = teclado.nextDouble();
+//                    novoPrecoCusto = novoPrecoCusto * padaria.getFornecedor()[padaria.consultaFornecedor(cnpj)].getTaxaDesconto(); // ERRO AQUI
+//                    
+//                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);
+//                    
 
                     break;
                 case "0":

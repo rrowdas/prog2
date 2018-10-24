@@ -1,6 +1,5 @@
 package Produtos;
 
-import Fornecedores.Fornecedores;
 import PadTremBao.Informacoes;
 
 public abstract class Produtos implements Informacoes {
