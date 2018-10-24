@@ -44,12 +44,12 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
         tfEndereco = new javax.swing.JTextField();
         tfDesconto = new javax.swing.JTextField();
         ftfCnpj = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        jbCadastrarFornecedores = new javax.swing.JButton();
         cbTipoFornecedor = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
-        setTitle("Cadastrar Clientes");
+        setTitle("Cadastrar Fornecedores");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
         jLabel1.setText("Nome:");
@@ -78,10 +78,10 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbCadastrarFornecedores.setText("Cadastrar");
+        jbCadastrarFornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbCadastrarFornecedoresActionPerformed(evt);
             }
         });
 
@@ -101,7 +101,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(jbCadastrarFornecedores)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +148,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(tfDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jbCadastrarFornecedores)
                 .addGap(43, 43, 43))
         );
 
@@ -170,7 +170,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ftfCnpjActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbCadastrarFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarFornecedoresActionPerformed
         String nome, endereco, cnpj, tDesc;
 
         if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || ftfCnpj.getText().equalsIgnoreCase("           ")) {
@@ -204,7 +204,7 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
         }
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbCadastrarFornecedoresActionPerformed
 
     private void cbTipoFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoFornecedorActionPerformed
         int tipo = cbTipoFornecedor.getSelectedIndex();
@@ -229,13 +229,13 @@ public class CadastrarFornecedor extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbTipoFornecedor;
     private javax.swing.JFormattedTextField ftfCnpj;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbCadastrarFornecedores;
     private javax.swing.JTextField tfDesconto;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;

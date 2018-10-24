@@ -57,16 +57,30 @@ public class Clientes implements Informacoes {
         this.acumuladoCompras += novaCompra;
     }
 
-    public double cartaoFidelidade() {
+    public String cartaoFidelidade() {
+
+        if (acumuladoCompras >= 200) {
+//            return "0.90";
+            return "Platinum";
+        } else if (acumuladoCompras < 200 && acumuladoCompras >= 100) {
+//            return "0.95";
+            return "Gold";
+            
+        } else {
+            //return "1.00";
+            return "Comum";
+        }
+
+    }
+     public double fidelidadeTaxa() {
 
         if (acumuladoCompras >= 200) {
             return 0.90;
-        }
-        else if (acumuladoCompras < 200 && acumuladoCompras >= 100) {
+        } else if (acumuladoCompras < 200 && acumuladoCompras >= 100) {
             return 0.95;
-        }
-        else {
-            return 1;
+            
+        } else {
+            return 1.00;
         }
 
     }
@@ -81,13 +95,11 @@ public class Clientes implements Informacoes {
         System.out.println("CPF: " + cpf);
         System.out.println("Telefone: " + telefone);
 
-        if (cartaoFidelidade() == 0.90) {
+        if (cartaoFidelidade().equalsIgnoreCase("0.90")) {
             System.out.println("Cliente Platinum");
-        }
-        else if (cartaoFidelidade() == 0.95) {
+        } else if (cartaoFidelidade().equalsIgnoreCase("0.95")) {
             System.out.println("Cliente Gold");
-        }
-        else {
+        } else {
             System.out.println("Cliente casual");
         }
 

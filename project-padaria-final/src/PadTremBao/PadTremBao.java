@@ -276,7 +276,7 @@ public class PadTremBao implements Impostos {
 
     //totalvenda*fidelidade, adc no cliente, adc no vendedor
     public void finalizaVenda() {
-        double valorFinalVenda = venda[posVenda].getValorTotalDoCarrinho() * cliente[posCliente].cartaoFidelidade(); //valor Atual do carrinho * ajuste de cartao fidelidade
+        double valorFinalVenda = venda[posVenda].getValorTotalDoCarrinho() * cliente[posCliente].fidelidadeTaxa(); //valor Atual do carrinho * ajuste de cartao fidelidade
         cliente[posCliente].setAcumuladoCompras(valorFinalVenda);    // atualizar o acumulado do cliente para compras futuras (cartao fidelidade)
         Vendedor vendedor = (Vendedor) funcionario[posFuncionario];  //god typecast pra poder usar método de montante vendas do vendedor (afinal de contas só vendedor faz vendas)
         vendedor.setMontanteVendas(valorFinalVenda);  // atualizacao do montate do vendedor pra aumentar o salario do coitado
@@ -326,13 +326,14 @@ public class PadTremBao implements Impostos {
     }
 
     public String[][] dadosClientes() {
-        String[][] dataValues = new String[cliente.length][4];
+        String[][] dataValues = new String[cliente.length][5];
         for (int i = 0; i < cliente.length; i++) {
             if (cliente[i] != null) {
                 dataValues[i][0] = cliente[i].getNome();
                 dataValues[i][1] = cliente[i].getEndereco();
                 dataValues[i][2] = cliente[i].getCpf();
                 dataValues[i][3] = cliente[i].getTelefone();
+                dataValues[i][4] = cliente[i].cartaoFidelidade();
             }
         }
         return dataValues;

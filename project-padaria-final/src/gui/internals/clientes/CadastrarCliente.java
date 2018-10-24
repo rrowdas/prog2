@@ -43,7 +43,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         tfEndereco = new javax.swing.JTextField();
         tfTelefone = new javax.swing.JTextField();
         ftfCpf = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        jbCadastrarClientes = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Cadastrar Clientes");
@@ -68,10 +68,10 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbCadastrarClientes.setText("Cadastrar");
+        jbCadastrarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbCadastrarClientesActionPerformed(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(jbCadastrarClientes)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -118,7 +118,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jbCadastrarClientes)
                 .addGap(43, 43, 43))
         );
 
@@ -140,7 +140,7 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ftfCpfActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbCadastrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarClientesActionPerformed
         String nome, endereco, telefone, cpf;
 
         if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("") || tfTelefone.getText().equalsIgnoreCase("") || ftfCpf.getText().equalsIgnoreCase("           ")) {
@@ -160,17 +160,17 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         }
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbCadastrarClientesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField ftfCpf;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbCadastrarClientes;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfTelefone;

@@ -30,7 +30,7 @@ public class ListarCliente extends javax.swing.JInternalFrame {
     }
 
     public void refresh() {
-        columnNames = new String[]{"Nome", "Endereco", "CPF", "Telefone"};
+        columnNames = new String[]{"Nome", "Endereco", "CPF", "Telefone", "Cartão Fidelidade"};
         dataValues = TelaInicial.padaria.dadosClientes();
         
         tableClientes.setModel(new DefaultTableModel(dataValues, columnNames));
