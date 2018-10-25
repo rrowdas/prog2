@@ -1,5 +1,6 @@
 package Estoque;
 
+import Produtos.Pereciveis;
 import Produtos.Produtos;
 
 public class Estoque {
@@ -23,7 +24,37 @@ public class Estoque {
         }
         return posicao;
     }
+   // "Nome", "Código", "Cnpj Fornecedor", "Preco Custo", "Preco Final", "Apelido", "Quantidade", "Vencimento"}
+    public String[][] dadosProdutos() {
+        String[][] dataValues = new String[produto.length][8];
+        for (int i = 0; i < produto.length; i++) {
+            if (produto[i] != null) {
+                dataValues[i][0] = produto[i].getNome();
+                dataValues[i][1] = produto[i].getCodigo();
+                dataValues[i][2] = produto[i].getFornecedor();
+                dataValues[i][3] = produto[i].getPrecoCusto();
+                dataValues[i][4] = produto[i].getPrecoFinal();
+                dataValues[i][5] = produto[i].getApelido();
+                dataValues[i][6] = produto[i].getQuantidade();
+                if(produto[i] instanceof Pereciveis)
+                    dataValues[i][7] = ((Pereciveis)produto[i]).getDiaValidade()+"/"+((Pereciveis)produto[i]).getMesValidade()+"/"+((Pereciveis)produto[i]).getAnoValidade();
+                
+            }
+        }
+        return dataValues;
+    }
 
+    public Produtos dadosProduto(String codigo) {
+        Produtos p = null;
+        if (consultaProduto(codigo) != -1) {
+            //fornecedor[consultaFornecedor(cnpjFornecedor)].imprimeDados();
+            p = produto[consultaProduto(codigo)];
+        } else {
+            System.out.println("Fornecedor inexistente");
+            //f = null;
+        }
+        return p;
+    }
     public void cadastrarProduto(Produtos novoProduto) {
 
         boolean cadastrado = false;
@@ -44,17 +75,19 @@ public class Estoque {
         }
     }
 
-    public void removerProduto(String codigoProdutoExcluido) {
+    public boolean removerProduto(String codigoProdutoExcluido) {
 
         boolean removido = false;
         int posicao = consultaProduto(codigoProdutoExcluido);
 
         if (posicao != -1) {
-            produto[posicao] = null;
             System.out.println("O Produto " + produto[posicao].getNome() + " foi removido.");
+            produto[posicao] = null;
+            return true;
         }
         else {
             System.out.println("Produto não encontrado. Tente novamente com um codigo válido.");
+            return false;
         }
 
     }

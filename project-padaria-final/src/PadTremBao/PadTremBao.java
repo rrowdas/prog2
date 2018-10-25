@@ -16,7 +16,7 @@ public class PadTremBao implements Impostos {
     private Funcionarios[] funcionario = new Funcionarios[10];
     private Clientes[] cliente = new Clientes[40];
     private final Vendas[] venda = new Vendas[50];
-    private final Estoque estoque = new Estoque();
+    public final Estoque estoque = new Estoque();
 
     public PadTremBao() {
         this.fornecedor = new Fornecedores[20];

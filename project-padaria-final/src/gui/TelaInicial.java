@@ -25,6 +25,10 @@ import gui.internals.funcionarios.CadastrarFuncionario;
 import gui.internals.funcionarios.EditarFuncionario;
 import gui.internals.funcionarios.ListarFuncionario;
 import gui.internals.funcionarios.RemoverFuncionario;
+import gui.internals.estoque.CadastrarProdutos;
+import gui.internals.estoque.EditarProdutos;
+import gui.internals.estoque.ListarProdutos;
+import gui.internals.estoque.RemoverProdutos;
 
 /**
  *
@@ -158,6 +162,9 @@ public class TelaInicial extends javax.swing.JFrame {
         jmRemoverFornecedor1 = new javax.swing.JMenuItem();
         jmListarFornecedor1 = new javax.swing.JMenuItem();
         Estoque = new javax.swing.JMenu();
+        jmCadastrarFornecedor2 = new javax.swing.JMenuItem();
+        jmRemoverFornecedor2 = new javax.swing.JMenuItem();
+        jmListarFornecedor2 = new javax.swing.JMenuItem();
         RealizarVenda = new javax.swing.JMenu();
         DefinirPadroes = new javax.swing.JMenu();
 
@@ -259,6 +266,31 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar1.add(Funcionarios);
 
         Estoque.setText("Estoque");
+
+        jmCadastrarFornecedor2.setText("Cadastrar");
+        jmCadastrarFornecedor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCadastrarFornecedor2ActionPerformed(evt);
+            }
+        });
+        Estoque.add(jmCadastrarFornecedor2);
+
+        jmRemoverFornecedor2.setText("Remover");
+        jmRemoverFornecedor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmRemoverFornecedor2ActionPerformed(evt);
+            }
+        });
+        Estoque.add(jmRemoverFornecedor2);
+
+        jmListarFornecedor2.setText("Listar e Editar");
+        jmListarFornecedor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmListarFornecedor2ActionPerformed(evt);
+            }
+        });
+        Estoque.add(jmListarFornecedor2);
+
         jMenuBar1.add(Estoque);
 
         RealizarVenda.setText("Realizar Venda");
@@ -345,6 +377,24 @@ public class TelaInicial extends javax.swing.JFrame {
         lsF.setVisible(true);
     }//GEN-LAST:event_jmListarFornecedor1ActionPerformed
 
+    private void jmCadastrarFornecedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedor2ActionPerformed
+        CadastrarProdutos addP = new CadastrarProdutos();
+        jDesktopPane1.add(addP);
+        addP.setVisible(true);
+    }//GEN-LAST:event_jmCadastrarFornecedor2ActionPerformed
+
+    private void jmListarFornecedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedor2ActionPerformed
+        ListarProdutos lsP = new ListarProdutos();
+        jDesktopPane1.add(lsP);
+        lsP.setVisible(true);
+    }//GEN-LAST:event_jmListarFornecedor2ActionPerformed
+
+    private void jmRemoverFornecedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRemoverFornecedor2ActionPerformed
+        RemoverProdutos addP = new RemoverProdutos();
+        jDesktopPane1.add(addP);
+        addP.setVisible(true);
+    }//GEN-LAST:event_jmRemoverFornecedor2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -393,10 +443,13 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmCadastrarFornecedor;
     private javax.swing.JMenuItem jmCadastrarFornecedor1;
+    private javax.swing.JMenuItem jmCadastrarFornecedor2;
     private javax.swing.JMenuItem jmListaCliente;
     private javax.swing.JMenuItem jmListarFornecedor;
     private javax.swing.JMenuItem jmListarFornecedor1;
+    private javax.swing.JMenuItem jmListarFornecedor2;
     private javax.swing.JMenuItem jmRemoverFornecedor;
     private javax.swing.JMenuItem jmRemoverFornecedor1;
+    private javax.swing.JMenuItem jmRemoverFornecedor2;
     // End of variables declaration//GEN-END:variables
 }
