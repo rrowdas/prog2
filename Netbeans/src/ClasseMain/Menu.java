@@ -22,96 +22,8 @@ public class Menu {
     Padeiro pad = new Padeiro("Ronaldinho", "Rua dos Drible", "10101010101010", "9638-5274", 1500.0, 48, 20);
     Clientes cl = new Clientes("Menino Neymar", "14 de julho", "99947123548", "4002-6400");
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    //Tela Inicial
-//    public void telaInicial() {
-//        System.out.println("\t\t\t\tBem vindo à Padaria Trem Bão");
-//        System.out.println();
-//        System.out.println();
-//        System.out.println("Selecione uma opção:");
-//        System.out.println("1 : Manipular CADASTROS e REMOÇÕES");
-//        System.out.println("2 : Realizar uma NOVA VENDA");
-//        System.out.println("3 : CONSULTAR dados");
-//        System.out.println("4 : DEFINIR Padrões");
-//        System.out.println("5 : SAIR");
-//        int opcao;
-//        opcao = teclado.nextInt();
-//
-//        switch (opcao) {
-//            case 1:
-//                cadastrar();
-//                break;
-//
-//            case 2:
-//                vender();
-//                break;
-//
-//            case 3:
-//                consultar();
-//                break;
-//
-//            case 4:
-//                definir();
-//                break;
-//
-//            case 0:
-//                System.exit(0);
-//
-//            default:
-//                System.out.println("Opção Inválida!");
-//                telaInicial();
-//                break;
-//        }
-//    }
-//    public void consultar() {
-//        System.out.println("\t\t\t\tCONSULTAR");
-//        System.out.println();
-//        System.out.println();
-//        System.out.println("O que deseja verificar?:");
-//        System.out.println();
-//        System.out.println("1 : Cliente específico");
-//        System.out.println("2 : Lista com TODOS os Clientes");
-//        System.out.println();
-//        System.out.println("3 : Fornecedor específico");
-//        System.out.println("4 : Lista com TODOS os Fornecedores");
-//        System.out.println();
-//        System.out.println("5 : Funcionário específico");
-//        System.out.println("6 : Lista com TODOS os Funcionários");
-//        System.out.println();
-//        System.out.println("7 : Produto específico");
-//        System.out.println("8 : Lista com TODOS os Produtos");
-//        System.out.println("0 : SAIR");
-//
-//        int opcao = teclado.nextInt();
-//
-//        switch (opcao) {
-//            case 1:
-//                while () {
-//
-//                    System.out.println("Por favor digite o número de CPF do Cliente a ser consultado: ");
-//                    padaria.imprimeDadosClientes(teclado.next());
-//                }
-//                    break;
-//            case 2:
-//                break;
-//            case 3:
-//                break;
-//            case 4:
-//                break;
-//            case 5:
-//                break;
-//            case 6:
-//                break;
-//            case 7:
-//                break;
-//            case 8:
-//                break;
-//            case 0:
-//                telaInicial();
-//                break;
-//        }
-//    }
     public void telaInicial() {
+        System.out.println("");
         System.out.println("\t\t\t\tBem vindo à Padaria Trem Bão");
         System.out.println();
         System.out.println();
@@ -119,13 +31,13 @@ public class Menu {
         System.out.println("1 : Manipular CADASTROS e REMOÇÕES");
         System.out.println("2 : Realizar uma NOVA VENDA");
         System.out.println("3 : CONSULTAR dados");
-        System.out.println("4 : DEFINIR Padrões");
         System.out.println("0 : SAIR");
         System.out.println();
         System.out.print("Escolha uma opcao: ");
     }
 
     public void consultar() {
+        System.out.println("");
         System.out.println("\t\t\t\tCONSULTAR");
         System.out.println();
         System.out.println();
@@ -153,6 +65,7 @@ public class Menu {
     }
 
     public void cadastrarOuRemover() {
+        System.out.println("");
         System.out.println("\t\t\t\tCADASTRAR/REMOVER");
         System.out.println();
         System.out.println();
@@ -167,6 +80,10 @@ public class Menu {
 
     }
     public void acao(){
+        System.out.println("");
+        System.out.println("\t\t\t\tOPCOES");
+        System.out.println();
+        System.out.println();
         System.out.println("O que deseja fazer?:");
         System.out.println("1 : Cadastrar");
         System.out.println("2 : Remover");
@@ -177,6 +94,8 @@ public class Menu {
     }
     
     public void tipoFuncionario(){
+        System.out.println("");
+        System.out.println("");
         System.out.println("Qual funcionario sera cadastrado?");
         System.out.println("1 - Gerente");
         System.out.println("2 - Padeiro");
@@ -186,16 +105,10 @@ public class Menu {
 
     }
 
-    public void definir(){
-        System.out.println("O que deseja fazer: ");
-        System.out.println("1 - Ver imposto sobre vendas");
-        System.out.println("2 - Ver imposto sobre salarios");
-        System.out.println("3 - Ver definir metas");
-        System.out.println("0 - Voltar");
-        System.out.print("Escolha de opcao: ");
-    }
     public void opcaoInvalida() {
+        System.out.println("");
         System.out.println("Opcao inválido");
+        System.out.println("");
     }
     
 }

@@ -97,8 +97,8 @@ public class PadTremBao implements Impostos {
         int posicao = consultaFornecedor(fornecedorCnpjExcluido);
 
         if (posicao != -1) {
-            fornecedor[posicao] = null;
             System.out.println("O Fornecedor " + fornecedor[posicao].getNome() + " foi removido.");
+            fornecedor[posicao] = null;
         } else {
             System.out.println("Fornecedor não encontrado. Tente novamente com um CNPJ válido.");
         }
@@ -142,8 +142,8 @@ public class PadTremBao implements Impostos {
         int posicao = consultaFuncionario(funcionarioCpfExcluido);
 
         if (posicao != -1) {
-            funcionario[posicao] = null;
             System.out.println("O Funcionario " + funcionario[posicao].getNome() + " foi removido.");
+            funcionario[posicao] = null;
         } else {
             System.out.println("Funcionario não encontrado. Tente novamente com um CPF válido.");
         }
@@ -208,8 +208,9 @@ public class PadTremBao implements Impostos {
             for (int i = 0; i < venda.length && !vendaAdicionado; i++) {
                 if (venda[i] == null) {
                     venda[i] = novaVenda;
-                    vendaAdicionado = true;
                     this.posVenda = i;
+                    vendaAdicionado = true;
+                    System.out.println("Venda adicionada");
                 }
             }
         } else {
@@ -221,14 +222,15 @@ public class PadTremBao implements Impostos {
     //posicao, prodtoObjeto, Existe?, Qtde, adicionar, retirar 1 estoque, verificar status(mandar aviso)
     public void adicionaProduto(String codigoProduto) {
         int posProduto = estoque.consultaProduto(codigoProduto);    //retorna posicao do produto, -1 se nao existe
+        Produtos auxProd = estoque.getProdutos()[posProduto];   // atribui a auxProd o Produto que foi consultado //MINHA DUVIDA DO APONTADOR DE MEMORIA
 
         if (posProduto != -1) {                                     //nao esquecer do ELSE
-            Produtos auxProd = estoque.getProdutos()[posProduto];   // atribui a auxProd o Produto que foi consultado //MINHA DUVIDA DO APONTADOR DE MEMORIA
+            
             if (auxProd.getQuantidade() == 0) // ve se tem produto em estoque
-            {
                 System.out.println("Não há produto no estoque, REABASTECER!");
-            } else {
-                venda[posVenda].adicionaProdutoCarrinho(auxProd);
+            
+            else {
+                venda[posVenda].adicionaProdutoCarrinho(estoque.getProdutos()[posProduto]);
                 estoque.getProdutos()[posProduto].setQuantidade(estoque.getProdutos()[posProduto].getQuantidade() - 1);
                 System.out.println("Produto " + estoque.getProdutos()[posProduto].getNome() + " foi cadastrado.");
 
@@ -247,6 +249,7 @@ public class PadTremBao implements Impostos {
         Vendedor vendedor = (Vendedor) funcionario[posFuncionario];  //god typecast pra poder usar método de montante vendas do vendedor (afinal de contas só vendedor faz vendas)
         vendedor.setMontanteVendas(valorFinalVenda);  // atualizacao do montate do vendedor pra aumentar o salario do coitado
         venda[posVenda].setValorTotalDoCarrinho(valorFinalVenda);    //Atualizando o valor total da venda para fins tributarios
+        System.out.println("Valor Total Da Venda: " + venda[posVenda].getValorTotalDoCarrinho());
     }
 
     public void cadastrarProduto(Produtos novoProduto){
