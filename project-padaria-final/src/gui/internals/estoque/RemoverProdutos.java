@@ -5,7 +5,6 @@
  */
 package gui.internals.estoque;
 
-import gui.internals.fornecedores.*;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
 
@@ -47,7 +46,7 @@ public class RemoverProdutos extends javax.swing.JInternalFrame {
         jLabel3.setText("Código:");
 
         try {
-            ftfCodigoProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##############")));
+            ftfCodigoProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

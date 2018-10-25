@@ -22,8 +22,8 @@ public class PadTremBao implements Impostos {
         this.fornecedor = new Fornecedores[20];
     }
 
-    public Vendas[] getVenda() {
-        return venda;
+    public Vendas getVenda() {
+        return venda[posVenda];
     }
 
     public Fornecedores[] getFornecedor() {
@@ -296,7 +296,7 @@ public class PadTremBao implements Impostos {
     }
 
     //posicao, prodtoObjeto, Existe?, Qtde, adicionar, retirar 1 estoque, verificar status(mandar aviso)
-    public void adicionaProduto(String codigoProduto) {
+    public boolean adicionaProduto(String codigoProduto) {
         int posProduto = estoque.consultaProduto(codigoProduto);    //retorna posicao do produto, -1 se nao existe
 
         if (posProduto != -1) {                                     //nao esquecer do ELSE
@@ -304,6 +304,7 @@ public class PadTremBao implements Impostos {
             if (auxProd.getQuantidade().equalsIgnoreCase("0")) // ve se tem produto em estoque
             {
                 System.out.println("Não há produto no estoque, REABASTECER!");
+                return false;
             } else {
                 venda[posVenda].adicionaProdutoCarrinho(auxProd);
                 //auxProd.setQuantidade(auxProd.getQuantidade()-1); ???????????????   reduzir 1 unidade
@@ -313,8 +314,11 @@ public class PadTremBao implements Impostos {
                 {
                     System.out.println("Possui apenas 1 produto, favor reabastecer. ");
                 }
+                return true;
             }
         }
+        else
+            return false;
     }
 
     //totalvenda*fidelidade, adc no cliente, adc no vendedor

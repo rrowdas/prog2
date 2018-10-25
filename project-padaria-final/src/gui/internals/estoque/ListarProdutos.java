@@ -54,6 +54,7 @@ public class ListarProdutos extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
+        setResizable(true);
         setTitle("Listar Produtos");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
