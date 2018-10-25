@@ -249,7 +249,7 @@ public class Opcoes {
                     System.out.print("Codigo do Produto: ");
                     String codigo = teclado.nextLine();
                     while (!valida.validaCodigo(codigo)) {
-                        System.out.print("Cpf invalido, digite novamente:");
+                        System.out.print("codigo invalido, digite novamente:");
                         codigo = teclado.nextLine();
                     }
 
@@ -326,7 +326,6 @@ public class Opcoes {
                     break;
 
                 case "3": // NAO TERMINADO
-<<<<<<< HEAD
 //                    System.out.print("Codigo do produto que deseja atualizar: ");
 //                    String codigoProd = teclado.nextLine();
 //                    padaria.imprimeDadosProdutos(codigoProd);
@@ -346,7 +345,6 @@ public class Opcoes {
 //                    
 //                    padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);
 //                    
-=======
                     System.out.print("Codigo do produto que deseja atualizar: ");
                     String codigoProd = teclado.nextLine();
                     padaria.imprimeDadosProdutos(codigoProd);
@@ -366,7 +364,6 @@ public class Opcoes {
                     novoPrecoCusto *=  padaria.getFornecedor()[padaria.consultaFornecedor(teclado.nextLine())].getTaxaDesconto(); // ERRO AQUI
                     
                     padaria.getEstoque().getProdutos()[padaria.getEstoque().consultaProduto(codigoProd)].setPrecoCusto(novoPrecoCusto);          
->>>>>>> 3556d53132140acaf4b2e9c8e7261b646fe9c9f9
 
                     break;
                 case "0":

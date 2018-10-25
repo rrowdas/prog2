@@ -197,11 +197,11 @@ public class Init {
                 switch (opcaoVenda) {
 
                     case "1":
-                        System.out.println("Digite o cpf do produto que deseja adicionar");
-                        String cpfProduto = teclado.nextLine();
+                        System.out.println("Digite o codigo do produto que deseja adicionar");
+                        String codigoProduto = teclado.nextLine();
 
-                        padaria.imprimeDadosProdutos(cpfProduto);
-                        padaria.adicionaProduto(cpfProduto);
+                        padaria.imprimeDadosProdutos(codigoProduto);
+                        padaria.adicionaProduto(codigoProduto);
 
                         break;
                     case "2":
