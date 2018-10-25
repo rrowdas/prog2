@@ -31,7 +31,8 @@ public class Padeiro extends Funcionarios {
     @Override
     public double salarioFinal() {
         double bonificacao, somaTotal, salarioHora;
-
+        int horaTotal;
+        
         salarioHora = salarioBase / (horasNormais + horasAlternativas);
 
         bonificacao = horasAlternativas * (salarioHora * 1.25);

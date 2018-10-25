@@ -331,31 +331,6 @@ public class PadTremBao implements Impostos {
         }
     }
 
-    public Clientes dadosClientes(String cpfCliente) {
-        Clientes c = null;
-        if (consultaCliente(cpfCliente) != -1) {
-            cliente[consultaCliente(cpfCliente)].imprimeDados();
-            c = cliente[consultaCliente(cpfCliente)];
-        } else {
-            System.out.println("Cliente inexistente");
-            c = null;
-        }
-        return c;
-    }
-
-    public String[][] dadosClientes() {
-        String[][] dataValues = new String[cliente.length][4];
-        for (int i = 0; i < cliente.length; i++) {
-            if (cliente[i] != null) {
-                dataValues[i][0] = cliente[i].getNome();
-                dataValues[i][1] = cliente[i].getEndereco();
-                dataValues[i][2] = cliente[i].getCpf();
-                dataValues[i][3] = cliente[i].getTelefone();
-            }
-        }
-        return dataValues;
-    }
-
     public void imprimeDadosProdutos() {
         for (int i = 0; i < estoque.getProdutos().length; i++) {
             if (estoque.getProdutos()[i] != null) {

@@ -323,15 +323,16 @@ public class Init {
                     System.out.print("CNPJ: ");
                     String cnpj = teclado.nextLine();
 
-                    while (valida.validaCnpj(cnpj)) {
+                    while (!valida.validaCnpj(cnpj)) {
                         System.out.print("Cnpj invalido, digite novamente:");
                         cnpj = teclado.nextLine();
                     }
 
                     System.out.print("Taxa de Desconto (em decimal), caso o cliente seja ocasional, coloque 0: ");
                     double taxaDesconto = teclado.nextDouble();
+                    teclado.nextLine();
 
-                    if (taxaDesconto != 0.0) {
+                    if (taxaDesconto != 0) {
                         Recorrente rec1 = new Recorrente(nome, endereco, cnpj, taxaDesconto);
                         padaria.cadastraFornecedor(rec1);
                     } else {
@@ -380,7 +381,6 @@ public class Init {
             switch (opcao) {
                 case "1":
                     menu.tipoFuncionario();
-                    String opcao2 = teclado.nextLine();
 
                     System.out.print("Nome: ");
                     String nome = teclado.nextLine();
@@ -400,30 +400,43 @@ public class Init {
 
                     System.out.println("Salario Base:");
                     double salario = teclado.nextDouble();
-
-                    if (opcao2.equals("1")) {
+                    System.out.println();
+                    
+                    teclado.nextLine();
+                    
+                    
+                    String opcao2 = teclado.nextLine();
+                switch (opcao2) {
+                    case "1":
                         Gerente g1 = new Gerente(nome, endereco, cpf, telefone, salario);
                         padaria.cadastraFuncionario(g1);
-                    } else if (opcao2.equals("2")) {
+                        break;
+                        
+                    case "2":
                         System.out.println("Horas normais trabalhadas: ");
                         int horasNormais = teclado.nextInt();
-
                         System.out.println("Horas alternativas trabalhadas");
                         int horasAlternativa = teclado.nextInt();
-
+                        teclado.nextLine();
                         Padeiro p1 = new Padeiro(nome, endereco, cpf, telefone, salario, horasNormais, horasAlternativa);
                         padaria.cadastraFuncionario(p1);
-                    } else if (opcao2.equals("3")) {
+                        break;
+                    case "3":
                         Vendedor v1 = new Vendedor(nome, endereco, cpf, telefone, salario);
                         padaria.cadastraFuncionario(v1);
-                    } else {
+                        break;
+                    case "0":
+                        return;
+                    default:
                         menu.opcaoInvalida();
-                    }
+                        break;
+                }
 
                     break;
 
+
                 case "2":
-                    System.out.print("Escreva o CPF do cliente: ");
+                    System.out.print("Escreva o CPF do funcionario: ");
                     padaria.removeFuncionario(teclado.nextLine());
                     break;
 
@@ -432,7 +445,7 @@ public class Init {
                     String cpfAtualiza = teclado.nextLine();
                     padaria.imprimeDadosFuncionarios(cpfAtualiza);
 
-                    if (padaria.consultaCliente(cpfAtualiza) != -1) {
+                    if (padaria.consultaFuncionario(cpfAtualiza) != -1) {
 
                         System.out.print("Novo nome: ");
                         padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setNome(teclado.nextLine());
@@ -445,6 +458,7 @@ public class Init {
 
                         System.out.print("Novo salario base: ");
                         padaria.getFuncionario()[padaria.consultaFuncionario(cpfAtualiza)].setSalarioBase(teclado.nextDouble());
+                        teclado.nextLine();
                     }
 
                     //FALTA MODIFICAR AS HORAS DO PADEIRO;
@@ -483,7 +497,7 @@ public class Init {
                     System.out.print("Cnpj do Fornecedor: ");
                     String cnpj = teclado.nextLine();
                     while (!valida.validaCnpj(cnpj)) {
-                        System.out.print("Cpf invalido, digite novamente:");
+                        System.out.print("Cnpj invalido, digite novamente:");
                         cnpj = teclado.nextLine();
                     }
 
