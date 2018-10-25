@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/TelaInicial.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/clientes/ListarCliente.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/vendas/AddCarrinho.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/Vendas/Prazo.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/Clientes/Clientes.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/Vendas/Vendas.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/estoque/CadastrarProdutos.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/estoque/ListarProdutos.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/PadTremBao/PadTremBao.java</file>
+            <file>file:/home/roger/Documents/prog2/project-padaria-final/src/gui/internals/vendas/NovaVenda.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -2,25 +2,25 @@ package Vendas;
 
 public class Prazo extends Vendas {
 
-    protected int numeroParcelas;
+    protected String numeroParcelas;
 
-    public Prazo(String dataVenda, String nomeVendedor, String formaPagamento, String cpfCliente, int numeroParcelas) {
+    public Prazo(String dataVenda, String nomeVendedor, String formaPagamento, String cpfCliente, String numeroParcelas) {
         super(dataVenda, nomeVendedor, formaPagamento, cpfCliente);
         this.valorTotalDoCarrinho *= 1.02;
         this.numeroParcelas = numeroParcelas;
     }
 
-    public int getNumeroParcelas() {
+    public String getNumeroParcelas() {
         return numeroParcelas;
     }
 
-    public void setNumeroParcelas(int numeroParcelas) {
+    public void setNumeroParcelas(String numeroParcelas) {
         this.numeroParcelas = numeroParcelas;
     }
 
     @Override
     public double valorParcelas() {
-        double parcela = valorTotalDoCarrinho / numeroParcelas;
+        double parcela = valorTotalDoCarrinho / Double.parseDouble(numeroParcelas);
         return parcela;
     }
 }

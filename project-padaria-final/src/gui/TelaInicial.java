@@ -8,7 +8,6 @@ package gui;
 import Clientes.Clientes;
 import Produtos.NaoPereciveis;
 import Produtos.Pereciveis;
-import Produtos.Produtos;
 import Fornecedores.Ocasional;
 import Fornecedores.Recorrente;
 import Funcionarios.Gerente;
@@ -22,13 +21,12 @@ import gui.internals.fornecedores.CadastrarFornecedor;
 import gui.internals.fornecedores.ListarFornecedor;
 import gui.internals.fornecedores.RemoverFornecedor;
 import gui.internals.funcionarios.CadastrarFuncionario;
-import gui.internals.funcionarios.EditarFuncionario;
 import gui.internals.funcionarios.ListarFuncionario;
 import gui.internals.funcionarios.RemoverFuncionario;
 import gui.internals.estoque.CadastrarProdutos;
-import gui.internals.estoque.EditarProdutos;
 import gui.internals.estoque.ListarProdutos;
 import gui.internals.estoque.RemoverProdutos;
+import gui.internals.vendas.NovaVenda;
 
 /**
  *
@@ -135,6 +133,27 @@ public class TelaInicial extends javax.swing.JFrame {
         Pereciveis pastel = new Pereciveis("Pastel", "141414", "66666666666666", "2.00", "4.00", "100", "13", "7", "2019");
         Pereciveis quibe = new Pereciveis("Quibe", "505050", "66666666666666", "2.00", "4.00", "100", "29", "8", "2019");
         Pereciveis enroladinho = new Pereciveis("Enroladinho", "313131", "66666666666666", "2.00", "4.00", "100", "6", "6", "2019");
+        
+        padaria.estoque.cadastrarProduto(milho);
+        padaria.estoque.cadastrarProduto(cafe);
+        padaria.estoque.cadastrarProduto(gelatinaEmPo);
+        padaria.estoque.cadastrarProduto(acucar);
+        padaria.estoque.cadastrarProduto(trigo);
+        padaria.estoque.cadastrarProduto(leite);
+        padaria.estoque.cadastrarProduto(trakinas);
+        padaria.estoque.cadastrarProduto(oleo);
+        padaria.estoque.cadastrarProduto(achocolatado);
+        padaria.estoque.cadastrarProduto(fuba);
+        padaria.estoque.cadastrarProduto(pao);
+        padaria.estoque.cadastrarProduto(brigadeiro);
+        padaria.estoque.cadastrarProduto(geladinho);
+        padaria.estoque.cadastrarProduto(mingau);
+        padaria.estoque.cadastrarProduto(aimpim);
+        padaria.estoque.cadastrarProduto(esfiha);
+        padaria.estoque.cadastrarProduto(chipa);
+        padaria.estoque.cadastrarProduto(pastel);
+        padaria.estoque.cadastrarProduto(quibe);
+        padaria.estoque.cadastrarProduto(enroladinho);
 
     }
 
@@ -165,8 +184,8 @@ public class TelaInicial extends javax.swing.JFrame {
         jmCadastrarFornecedor2 = new javax.swing.JMenuItem();
         jmRemoverFornecedor2 = new javax.swing.JMenuItem();
         jmListarFornecedor2 = new javax.swing.JMenuItem();
-        RealizarVenda = new javax.swing.JMenu();
-        DefinirPadroes = new javax.swing.JMenu();
+        mRealizarVenda = new javax.swing.JMenu();
+        jmNovaVenda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -174,11 +193,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 1065, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 808, Short.MAX_VALUE)
         );
 
         Clientes.setText("Clientes");
@@ -293,11 +312,17 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jMenuBar1.add(Estoque);
 
-        RealizarVenda.setText("Realizar Venda");
-        jMenuBar1.add(RealizarVenda);
+        mRealizarVenda.setText("Venda");
 
-        DefinirPadroes.setText("Definir Padrões");
-        jMenuBar1.add(DefinirPadroes);
+        jmNovaVenda.setText("Nova");
+        jmNovaVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmNovaVendaActionPerformed(evt);
+            }
+        });
+        mRealizarVenda.add(jmNovaVenda);
+
+        jMenuBar1.add(mRealizarVenda);
 
         setJMenuBar(jMenuBar1);
 
@@ -307,13 +332,13 @@ public class TelaInicial extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 24, Short.MAX_VALUE))
         );
 
         pack();
@@ -395,6 +420,12 @@ public class TelaInicial extends javax.swing.JFrame {
         addP.setVisible(true);
     }//GEN-LAST:event_jmRemoverFornecedor2ActionPerformed
 
+    private void jmNovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNovaVendaActionPerformed
+       NovaVenda addV = new NovaVenda();
+       jDesktopPane1.add(addV);
+       addV.setVisible(true);
+    }//GEN-LAST:event_jmNovaVendaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -432,12 +463,10 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Clientes;
-    private javax.swing.JMenu DefinirPadroes;
     private javax.swing.JMenu Estoque;
     private javax.swing.JMenu Fornecedores;
     private javax.swing.JMenu Funcionarios;
-    private javax.swing.JMenu RealizarVenda;
-    public static javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
@@ -448,8 +477,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmListarFornecedor;
     private javax.swing.JMenuItem jmListarFornecedor1;
     private javax.swing.JMenuItem jmListarFornecedor2;
+    private javax.swing.JMenuItem jmNovaVenda;
     private javax.swing.JMenuItem jmRemoverFornecedor;
     private javax.swing.JMenuItem jmRemoverFornecedor1;
     private javax.swing.JMenuItem jmRemoverFornecedor2;
+    private javax.swing.JMenu mRealizarVenda;
     // End of variables declaration//GEN-END:variables
 }

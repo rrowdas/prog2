@@ -10,6 +10,8 @@ import Clientes.Clientes;
 import Fornecedores.Fornecedores;
 import Fornecedores.Ocasional;
 import Fornecedores.Recorrente;
+import Produtos.NaoPereciveis;
+import Produtos.Pereciveis;
 import Produtos.Produtos;
 import gui.TelaInicial;
 import javax.swing.JOptionPane;
@@ -32,15 +34,34 @@ public class EditarProdutos extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Nao encontrou!");
             this.dispose();
         } else {
-            lbCPF.setText("Código: " + codigo);
+//            nome = tfNome.getText();
+//            fornecedor = tfFornCnpj.getText();
+//            custo = tfCusto.getText();
+//            pFinal = tfPrecoFinal.getText();
+//            apelido = tfApelido.getText();
+//            qtde = tfQtde.getText();
+
+            lbCodigo.setText("Código: " + codigo);
             tfNome.setText(aux.getNome());
-            tfEndereco.setText(aux.getEndereco());
+            tfFornCnpj.setText(aux.getFornecedor());
+            tfCusto.setText(aux.getPrecoCusto());
+            tfPrecoFinal.setText(aux.getPrecoFinal());
+            tfApelido.setText(aux.getApelido());
+            tfQtde.setText(aux.getQuantidade());
 
-            if (aux instanceof Recorrente) {
-                tfTaxaDesc.setText(aux.getTaxaDesconto());
+            if (aux instanceof Pereciveis) {
+                tfDia.setEditable(true);
+                tfMes.setEditable(true);
+                tfAno.setEditable(true);
 
-            } else {
-                tfTaxaDesc.setEditable(false);
+                tfDia.setText(((Pereciveis) aux).getDiaValidade());
+                tfMes.setText(((Pereciveis) aux).getMesValidade());
+                tfAno.setText(((Pereciveis) aux).getAnoValidade());
+
+//            } else {
+//                tfDia.setEditable(false);
+//                tfMes.setEditable(false);
+//                tfAno.setEditable(false);
             }
         }
     }
@@ -58,26 +79,34 @@ public class EditarProdutos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lbCPF = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        tfNome = new javax.swing.JTextField();
-        tfEndereco = new javax.swing.JTextField();
-        tfTaxaDesc = new javax.swing.JTextField();
+        lbCodigo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        tfQtde = new javax.swing.JTextField();
+        tfApelido = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cbTipo = new javax.swing.JComboBox<>();
+        tfMes = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfAno = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tfNome = new javax.swing.JTextField();
+        tfFornCnpj = new javax.swing.JTextField();
+        tfCusto = new javax.swing.JTextField();
+        tfPrecoFinal = new javax.swing.JTextField();
+        tfDia = new javax.swing.JTextField();
 
         setClosable(true);
-        setTitle("Editar Fornecedores");
+        setTitle("Editar Produtos");
         setPreferredSize(new java.awt.Dimension(615, 315));
 
-        jLabel1.setText("Nome:");
-
-        jLabel2.setText("Endereço:");
-
-        lbCPF.setText("CNPJ:");
-
-        jLabel4.setText("Taxa Desc:");
+        lbCodigo.setText("Código:");
 
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -86,51 +115,131 @@ public class EditarProdutos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel10.setText("/");
+
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não Perecível", "Perecível" }));
+        cbTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoActionPerformed(evt);
+            }
+        });
+
+        tfMes.setEditable(false);
+
+        jLabel5.setText("Tipo:");
+
+        tfAno.setEditable(false);
+
+        jLabel1.setText("Nome:");
+
+        jLabel6.setText("Preço de Custo:");
+
+        jLabel11.setText("/");
+
+        jLabel7.setText("Preço Final:");
+
+        jLabel3.setText("Fornecedor (CNPJ):");
+
+        jLabel8.setText("Apelido:");
+
+        jLabel4.setText("Data de Validade:");
+
+        jLabel9.setText("Quantidade:");
+
+        tfDia.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addGap(50, 50, 50)
-                            .addComponent(tfTaxaDesc))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(lbCPF))
-                            .addGap(54, 54, 54)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                .addComponent(tfEndereco)))))
-                .addContainerGap(192, Short.MAX_VALUE))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNome)
+                            .addComponent(tfPrecoFinal)
+                            .addComponent(tfFornCnpj, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfCusto)
+                            .addComponent(tfQtde)
+                            .addComponent(tfApelido)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jLabel10)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(tfMes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel11)
+                                        .addGap(3, 3, 3)
+                                        .addComponent(tfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(82, 82, 82)
+                                        .addComponent(jButton1))
+                                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(135, 135, 135))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbCodigo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lbCPF)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
-                    .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addComponent(lbCodigo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tfFornCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tfCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(tfPrecoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(tfApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tfQtde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(tfTaxaDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                    .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(tfMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(0, 33, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(43, 43, 43))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,32 +257,43 @@ public class EditarProdutos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome, endereco, taxaDesc, cnpj;
+        String nome, fornecedor, custo, pFinal, apelido, qtde, dia, mes, ano;
 
-        if (tfNome.getText().equalsIgnoreCase("") || tfEndereco.getText().equalsIgnoreCase("")) {
+        nome = tfNome.getText();
+        fornecedor = tfFornCnpj.getText();
+        custo = tfCusto.getText();
+        pFinal = tfPrecoFinal.getText();
+        apelido = tfApelido.getText();
+        qtde = tfQtde.getText();
+
+        if (tfNome.getText().equalsIgnoreCase("") || tfFornCnpj.getText().equalsIgnoreCase("")
+                || tfCusto.getText().equalsIgnoreCase("")
+                || tfPrecoFinal.getText().equalsIgnoreCase("") || tfQtde.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
         } else {
-            if (aux instanceof Ocasional) {
+            if (aux instanceof NaoPereciveis) {
                 //System.out.println(tfNome.getText());
                 nome = tfNome.getText();
-                endereco = tfEndereco.getText();
-                cnpj = aux.getCnpj();
-                Ocasional ocaAux = new Ocasional(nome, endereco, cnpj);
-                TelaInicial.padaria.updateFornecedor(ocaAux);
-                TelaInicial.padaria.imprimeDadosFornecedores(cnpj);
-                JOptionPane.showMessageDialog(null, "Fornecedor atualizado com Sucesso!");
+                fornecedor = tfFornCnpj.getText();
+                custo = tfCusto.getText();
+                pFinal = tfPrecoFinal.getText();
+                apelido = tfApelido.getText();
+                qtde = tfQtde.getText();
+
+                NaoPereciveis aux2 = new NaoPereciveis(nome, aux.getCodigo(), fornecedor, custo, pFinal, apelido, qtde);
+                TelaInicial.padaria.estoque.updateProduto(aux2);
+                JOptionPane.showMessageDialog(null, "Produto atualizado com Sucesso!");
                 this.dispose();
             } else {
-                if (tfTaxaDesc.getText().equalsIgnoreCase("")) {
+                if (tfDia.getText().equalsIgnoreCase("") || tfMes.getText().equalsIgnoreCase("") || tfAno.getText().equalsIgnoreCase("")) {
                     JOptionPane.showMessageDialog(null, "Dados incompletos, por favor tente novamente.");
                 } else {
-                    taxaDesc = tfTaxaDesc.getText();
-                    nome = tfNome.getText();
-                    endereco = tfEndereco.getText();
-                    cnpj = aux.getCnpj();
-                    Recorrente recAux = new Recorrente(nome, endereco, cnpj, taxaDesc);
-                    TelaInicial.padaria.updateFornecedor(recAux);
-                    JOptionPane.showMessageDialog(null, "Fornecedor atualizado com Sucesso!");
+                    dia = tfDia.getText();
+                    mes = tfMes.getText();
+                    ano = tfAno.getText();
+                    Pereciveis aux2 = new Pereciveis(nome, aux.getCodigo(), fornecedor, custo, pFinal, apelido, qtde, dia, mes, ano);
+                    TelaInicial.padaria.estoque.updateProduto(aux2);
+                    JOptionPane.showMessageDialog(null, "Produto atualizado com Sucesso!");
                     this.dispose();
 
                 }
@@ -182,17 +302,45 @@ public class EditarProdutos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoActionPerformed
+        int tipo = cbTipo.getSelectedIndex();
+        //System.out.println(tipo);
+        if (tipo == 0) {
+            tfDia.setEditable(false);
+            tfMes.setEditable(false);
+            tfAno.setEditable(false);
+        } else {
+            tfDia.setEditable(true);
+            tfMes.setEditable(true);
+            tfAno.setEditable(true);
+        }
+    }//GEN-LAST:event_cbTipoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbCPF;
-    private javax.swing.JTextField tfEndereco;
+    private javax.swing.JLabel lbCodigo;
+    private javax.swing.JTextField tfAno;
+    private javax.swing.JTextField tfApelido;
+    private javax.swing.JTextField tfCusto;
+    private javax.swing.JTextField tfDia;
+    private javax.swing.JTextField tfFornCnpj;
+    private javax.swing.JTextField tfMes;
     private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfTaxaDesc;
+    private javax.swing.JTextField tfPrecoFinal;
+    private javax.swing.JTextField tfQtde;
     // End of variables declaration//GEN-END:variables
 
 }

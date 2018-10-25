@@ -16,6 +16,7 @@ public abstract class Produtos implements Informacoes {
         this.nome = nome;
         this.codigo = codigo;
         this.fornecedor = fornecedor;
+        this.precoCusto = precoCusto;
 //        setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = apelido;
@@ -26,6 +27,7 @@ public abstract class Produtos implements Informacoes {
         this.nome = nome;
         this.codigo = codigo;
         this.fornecedor = fornecedor;
+        this.precoCusto = precoCusto;
 //        setPrecoCusto(precoCusto);
         this.precoFinal = precoFinal;
         this.apelido = "Sem apelido";
