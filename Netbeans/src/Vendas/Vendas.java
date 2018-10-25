@@ -76,7 +76,10 @@ public abstract class Vendas { // Estoque
 //    }
     public void adicionaProdutoCarrinho(Produtos novoProduto) {
         boolean carrinhoCheio = false;
-        for (int i = 0; i < carrinhoCompras.length && !carrinhoCheio; i++) {
+        boolean produtoAdd = false;
+        
+        for (int i = 0; i < carrinhoCompras.length && !carrinhoCheio && !produtoAdd; i++) {
+            System.out.println("ahhahahahahhahahahhha");
             if (carrinhoCompras[19] != null) {
                 System.out.println("Abra uma nova venda,o carrinho está cheio");
                 carrinhoCheio = true;
@@ -84,6 +87,7 @@ public abstract class Vendas { // Estoque
             else {
                 carrinhoCompras[i] = novoProduto;
                 valorTotalDoCarrinho += novoProduto.getPrecoFinal(); //Adiciona no carrinho o valor do produto
+                produtoAdd = true;
             }
         }
     }

@@ -22,13 +22,15 @@ public class Estoque {
                 }
             }
         }
-        return posicao;
+            return posicao;
     }
 
     public void cadastrarProduto(Produtos novoProduto) {
 
         boolean cadastrado = false;
         if (consultaProduto(novoProduto.getCodigo()) != -1) {
+            System.out.println("Esse produto já está cadastrado.");
+        } else {
             for (int i = 0; i < produto.length && !cadastrado; i++) {
                 if (produto[i] == null) {
                     System.out.println("Produto " + novoProduto.getNome() + " cadastrado");
@@ -48,8 +50,8 @@ public class Estoque {
         int posicao = consultaProduto(codigoProdutoExcluido);
 
         if (posicao != -1) {
-            produto[posicao] = null;
             System.out.println("O Produto " + produto[posicao].getNome() + " foi removido.");
+            produto[posicao] = null;
         } else {
             System.out.println("Produto não encontrado. Tente novamente com um codigo válido.");
         }
