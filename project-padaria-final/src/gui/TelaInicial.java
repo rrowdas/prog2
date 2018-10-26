@@ -166,7 +166,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        dpPrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Clientes = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -189,14 +189,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dpPrincipalLayout = new javax.swing.GroupLayout(dpPrincipal);
+        dpPrincipal.setLayout(dpPrincipalLayout);
+        dpPrincipalLayout.setHorizontalGroup(
+            dpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1065, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        dpPrincipalLayout.setVerticalGroup(
+            dpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 808, Short.MAX_VALUE)
         );
 
@@ -331,13 +331,13 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dpPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dpPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 24, Short.MAX_VALUE))
         );
 
@@ -346,14 +346,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         CadastrarCliente addCliente = new CadastrarCliente();
-        jDesktopPane1.add(addCliente);
+        dpPrincipal.add(addCliente);
         addCliente.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmListaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListaClienteActionPerformed
         // TODO add your handling code here:
         ListarCliente addCliente = new ListarCliente();
-        jDesktopPane1.add(addCliente);
+        dpPrincipal.add(addCliente);
         addCliente.setVisible(true);
     }//GEN-LAST:event_jmListaClienteActionPerformed
 
@@ -361,68 +361,68 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         // TODO add your handling code here:
         RemoverCliente r = new RemoverCliente();
-        jDesktopPane1.add(r);
+        dpPrincipal.add(r);
         r.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedorActionPerformed
         CadastrarFornecedor addFornecedor = new CadastrarFornecedor();
-        jDesktopPane1.add(addFornecedor);
+        dpPrincipal.add(addFornecedor);
         addFornecedor.setVisible(true);
     }//GEN-LAST:event_jmCadastrarFornecedorActionPerformed
 
     private void jmListarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedorActionPerformed
         ListarFornecedor addFornecedor = new ListarFornecedor();
-        jDesktopPane1.add(addFornecedor);
+        dpPrincipal.add(addFornecedor);
         addFornecedor.setVisible(true);
     }//GEN-LAST:event_jmListarFornecedorActionPerformed
 
     private void jmRemoverFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRemoverFornecedorActionPerformed
         RemoverFornecedor rmFornecedor = new RemoverFornecedor();
-        jDesktopPane1.add(rmFornecedor);
+        dpPrincipal.add(rmFornecedor);
         rmFornecedor.setVisible(true);
     }//GEN-LAST:event_jmRemoverFornecedorActionPerformed
 
     private void jmCadastrarFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedor1ActionPerformed
         CadastrarFuncionario addFunc = new CadastrarFuncionario();
-        jDesktopPane1.add(addFunc);
+        dpPrincipal.add(addFunc);
         addFunc.setVisible(true);
 
     }//GEN-LAST:event_jmCadastrarFornecedor1ActionPerformed
 
     private void jmRemoverFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRemoverFornecedor1ActionPerformed
         RemoverFuncionario rmFunc = new RemoverFuncionario();
-        jDesktopPane1.add(rmFunc);
+        dpPrincipal.add(rmFunc);
         rmFunc.setVisible(true);
     }//GEN-LAST:event_jmRemoverFornecedor1ActionPerformed
 
     private void jmListarFornecedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedor1ActionPerformed
         ListarFuncionario lsF = new ListarFuncionario();
-        jDesktopPane1.add(lsF);
+        dpPrincipal.add(lsF);
         lsF.setVisible(true);
     }//GEN-LAST:event_jmListarFornecedor1ActionPerformed
 
     private void jmCadastrarFornecedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarFornecedor2ActionPerformed
         CadastrarProdutos addP = new CadastrarProdutos();
-        jDesktopPane1.add(addP);
+        dpPrincipal.add(addP);
         addP.setVisible(true);
     }//GEN-LAST:event_jmCadastrarFornecedor2ActionPerformed
 
     private void jmListarFornecedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListarFornecedor2ActionPerformed
         ListarProdutos lsP = new ListarProdutos();
-        jDesktopPane1.add(lsP);
+        dpPrincipal.add(lsP);
         lsP.setVisible(true);
     }//GEN-LAST:event_jmListarFornecedor2ActionPerformed
 
     private void jmRemoverFornecedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRemoverFornecedor2ActionPerformed
         RemoverProdutos addP = new RemoverProdutos();
-        jDesktopPane1.add(addP);
+        dpPrincipal.add(addP);
         addP.setVisible(true);
     }//GEN-LAST:event_jmRemoverFornecedor2ActionPerformed
 
     private void jmNovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNovaVendaActionPerformed
        NovaVenda addV = new NovaVenda();
-       jDesktopPane1.add(addV);
+       dpPrincipal.add(addV);
        addV.setVisible(true);
     }//GEN-LAST:event_jmNovaVendaActionPerformed
 
@@ -466,7 +466,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu Estoque;
     private javax.swing.JMenu Fornecedores;
     private javax.swing.JMenu Funcionarios;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public static javax.swing.JDesktopPane dpPrincipal;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;

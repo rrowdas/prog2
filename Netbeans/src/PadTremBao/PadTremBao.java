@@ -11,7 +11,7 @@ import Produtos.Produtos;
 public class PadTremBao implements Impostos {
 
     private int posVenda, posFuncionario, posCliente;
-    private Fornecedores[] fornecedor = new Fornecedores [20];
+    private Fornecedores[] fornecedor = new Fornecedores[20];
     private Funcionarios[] funcionario = new Funcionarios[10];
     private Clientes[] cliente = new Clientes[40];
     private final Vendas[] venda = new Vendas[50];
@@ -78,7 +78,7 @@ public class PadTremBao implements Impostos {
             System.out.println("Esse fornecedor já está cadastrado.");
 
         } else {
-            for (int i = 0; i < fornecedor.length  && !cadastrado; i++) {
+            for (int i = 0; i < fornecedor.length && !cadastrado; i++) {
                 if (fornecedor[i] == null) {
                     System.out.println("Fornecedor " + novoFornecedor.getNome() + " cadastrado");
                     fornecedor[i] = novoFornecedor;
@@ -225,11 +225,11 @@ public class PadTremBao implements Impostos {
         Produtos auxProd = estoque.getProdutos()[posProduto];   // atribui a auxProd o Produto que foi consultado //MINHA DUVIDA DO APONTADOR DE MEMORIA
 
         if (posProduto != -1) {                                     //nao esquecer do ELSE
-            
+
             if (auxProd.getQuantidade() == 0) // ve se tem produto em estoque
+            {
                 System.out.println("Não há produto no estoque, REABASTECER!");
-            
-            else {
+            } else {
                 venda[posVenda].adicionaProdutoCarrinho(estoque.getProdutos()[posProduto]);
                 estoque.getProdutos()[posProduto].setQuantidade(estoque.getProdutos()[posProduto].getQuantidade() - 1);
                 System.out.println("Produto " + estoque.getProdutos()[posProduto].getNome() + " foi cadastrado.");
@@ -252,13 +252,13 @@ public class PadTremBao implements Impostos {
         System.out.println("Valor Total Da Venda: " + venda[posVenda].getValorTotalDoCarrinho());
     }
 
-    public void cadastrarProduto(Produtos novoProduto){
+    public void cadastrarProduto(Produtos novoProduto) {
         double valor = novoProduto.getPrecoCusto();
 
         estoque.cadastrarProduto(novoProduto);
-        
+
     }
-    
+
     @Override
     public double impostoSobreVendas() {
         double vendasTotal = 0.0;
@@ -272,9 +272,11 @@ public class PadTremBao implements Impostos {
     public double impostoSobreSalarios() {
         double salariosTotal = 0.0;
         for (int i = 0; i < funcionario.length; i++) {
-            salariosTotal += funcionario[i].salarioFinal();
+            if (funcionario[i] != null) {
+                salariosTotal += funcionario[i].salarioFinal();
+            }
         }
-        return salariosTotal * 0.18;
+    return salariosTotal * 0.18;
     }
 
     public void imprimeDadosFuncionarios() {

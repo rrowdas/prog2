@@ -152,7 +152,7 @@ public class ListarFornecedor extends javax.swing.JInternalFrame {
         String cnpj = tableFornecedores.getValueAt(row, 2).toString();
         JOptionPane.showMessageDialog(null,"CNPJ:"+ " " +cnpj);
         EditarFornecedor editar = new EditarFornecedor(cnpj);
-        TelaInicial.jDesktopPane1.add(editar);
+        TelaInicial.dpPrincipal.add(editar);
         editar.setVisible(true);
         
     }//GEN-LAST:event_tableFornecedoresMouseClicked

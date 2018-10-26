@@ -154,7 +154,7 @@ public class ListarFuncionario extends javax.swing.JInternalFrame {
         String cpf = tableFuncionarios.getValueAt(row, 2).toString();
         JOptionPane.showMessageDialog(null,"CPF:"+ " " +cpf);
         EditarFuncionario editar = new EditarFuncionario(cpf);
-        TelaInicial.jDesktopPane1.add(editar);
+        TelaInicial.dpPrincipal.add(editar);
         editar.setVisible(true);
         
     }//GEN-LAST:event_tableFuncionariosMouseClicked

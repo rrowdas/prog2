@@ -154,7 +154,7 @@ public class ListarCliente extends javax.swing.JInternalFrame {
         String cpf = tableClientes.getValueAt(row, 2).toString();
         JOptionPane.showMessageDialog(null,"CPF:"+ " " +cpf);
         EditarCliente editar = new EditarCliente(cpf);
-        TelaInicial.jDesktopPane1.add(editar);
+        TelaInicial.dpPrincipal.add(editar);
         editar.setVisible(true);
     }//GEN-LAST:event_tableClientesMouseClicked
 

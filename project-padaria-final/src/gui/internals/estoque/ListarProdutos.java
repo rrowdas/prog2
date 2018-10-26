@@ -153,7 +153,7 @@ public class ListarProdutos extends javax.swing.JInternalFrame {
         String codigo = tableProdutos.getValueAt(row, 1).toString();
         JOptionPane.showMessageDialog(null,"Código:"+ " " +codigo);
         EditarProdutos editar = new EditarProdutos(codigo);
-        TelaInicial.jDesktopPane1.add(editar);
+        TelaInicial.dpPrincipal.add(editar);
         editar.setVisible(true);
         
     }//GEN-LAST:event_tableProdutosMouseClicked

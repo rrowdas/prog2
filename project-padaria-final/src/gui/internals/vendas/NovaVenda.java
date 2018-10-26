@@ -205,7 +205,7 @@ public class NovaVenda extends javax.swing.JInternalFrame {
                 TelaInicial.padaria.adicionaVenda(aux);
             }
             AddCarrinho addC = new AddCarrinho();
-            TelaInicial.jDesktopPane1.add(addC);
+            TelaInicial.dpPrincipal.add(addC);
             addC.setVisible(true);
         }
     }//GEN-LAST:event_jbAddCarrinhoActionPerformed
